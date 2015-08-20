@@ -112,7 +112,7 @@ function makeNode(text, level) {
 	var shape, label;
 
 	// Var of the node itself
-	var nodeRadius = width,
+	var nodeRadius = 100,
 			node = new Container();
 
 	/*----------  Drawing the shape  ----------*/
