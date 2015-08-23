@@ -22,7 +22,7 @@ var margin = 10,
 var color = d3.scale.category20();
 var colorgrey = d3.scale.linear()
   .domain([0, 6])
-  .range(["#FCFCFC", "#929292"])
+  .range(["#FCFCFC", "#C4C4C4"])
   .interpolate(d3.interpolateRgb);
 
 
@@ -222,7 +222,7 @@ d3.json(dataFile, function(error, root) {
             else return null;
           })
           .on("click", function(d) { 
-            $sidebar.classed("show", false);
+            closeSidebar();
             if (focus !== d) zoom(d), d3.event.stopPropagation(); 
           })
           .on('mouseover', function(d) {
@@ -340,7 +340,7 @@ d3.json(dataFile, function(error, root) {
   // Open the sidebar
   $menubutton
     .on("click", function() { 
-      toggleSidebar()
+      toggleSidebar();
     });
 
   // Keyboard controls
@@ -348,7 +348,7 @@ d3.json(dataFile, function(error, root) {
     // f key opens the sidebar and focuses the search input field
     if (!isSidebarOpen && d3.event.keyCode == 70) {
       d3.event.preventDefault();
-      openSearch();
+      toggleSidebar();
     }
     // Escape key
     else if (d3.event.keyCode == 27) {
@@ -394,6 +394,8 @@ d3.json(dataFile, function(error, root) {
   
   function zoom(d) {
     var focus0 = focus; focus = d;
+
+    if (focus === focus0) return;
 
     if (d === root) {
       $overviewButton.attr('disabled', 'true');
@@ -469,6 +471,9 @@ d3.json(dataFile, function(error, root) {
     $sidebar.classed("show", !$sidebar.classed("show"));
     if (isSidebarOpen == false) {
       isSidebarOpen = true;
+      setTimeout(function(){
+        d3.select('#search').node().focus();
+      }, 300);
     }
     else {
       isSidebarOpen = false;
@@ -476,10 +481,9 @@ d3.json(dataFile, function(error, root) {
     }
   }
 
-  function openSearch() {
-    toggleSidebar();
-    setTimeout(function(){
-      d3.select('#search').node().focus();
-    }, 300);
+  function closeSidebar() {
+    $sidebar.classed("show", false);
+    isSidebarOpen = false;
+    d3.select('#search').node().blur();
   }
 });

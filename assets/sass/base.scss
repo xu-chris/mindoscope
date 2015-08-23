@@ -78,7 +78,7 @@ body {
     .icon-search {
       position: absolute;
       margin-left: $padding;
-      margin-top: 2px;
+      margin-top: 5px;
       color: #ccc;
     }
     input {
@@ -107,7 +107,7 @@ body {
       font-size: 13px;
       @include transition(box-shadow 100ms ease-out);
       &:hover {
-        @include box-shadow(0 0 10px #000);
+        @include box-shadow(0 0 10px rgba(0,0,0,.6));
         z-index: 9999;
       }
 
