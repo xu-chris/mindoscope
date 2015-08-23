@@ -1,0 +1,9 @@
+@include font-face(Open Sans, '#{$font-path}/Open_Sans/light/font', lighter);
+@include font-face(Open Sans, '#{$font-path}/Open_Sans/light/italic/font', lighter, italic);
+@include font-face(Open Sans, '#{$font-path}/Open_Sans/bold/font', bold);
+@include font-face(Open Sans, '#{$font-path}/Open_Sans/bold/italic/font', bold, italic);
+@include font-face(Open Sans, '#{$font-path}/Open_Sans/regular/font', normal);
+@include font-face(Open Sans, '#{$font-path}/Open_Sans/regular/italic/font', normal,italic);
+
+@include font-face(Open Sans, '#{$font-path}/Open_Sans/regular/font', normal);
+@include font-face(Open Sans, '#{$font-path}/Open_Sans/regular/italic/font', normal,italic);

@@ -1,3 +1,9 @@
 [submodule "vendors/d3"]
 	path = vendors/d3
 	url = https://github.com/mbostock/d3
+[submodule "vendors/d3-tip"]
+	path = vendors/d3-tip
+	url = https://github.com/Caged/d3-tip
+[submodule "vendors/animate"]
+	path = vendors/animate
+	url = https://github.com/geoffgraham/animate.scss

@@ -1,0 +1,4 @@
+//@include font-face(Open Sans Condensed, '#{$font-path}/Open_Sans_Condensed/light/font', normal);
+@include font-face(Open Sans Condensed, '#{$font-path}/Open_Sans_Condensed/bold/font', bold);
+@include font-face(Open Sans Condensed, '#{$font-path}/Open_Sans_Condensed/light/font', lighter);
+@include font-face(Open Sans Condensed, '#{$font-path}/Open_Sans_Condensed/light/italic/font', lighter, italic);

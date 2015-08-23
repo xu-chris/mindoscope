@@ -1,0 +1,9 @@
+/* Mixin: font size calculation */
+@mixin font-size($size){
+  $rem-value: ($size / 10);
+  $px-value: $size;
+  $lineHeight: ($size * 1.5);
+  line-height: $lineHeight;
+  font-size: strip-units($rem-value) + rem;
+  font-size: strip-units($px-value) + px;
+}

@@ -1,0 +1,8 @@
+@include font-face(Merriweather, '#{$font-path}/Merriweather/bold/font', bold);
+@include font-face(Merriweather, '#{$font-path}/Merriweather/bold/italic/font', bold, italic);
+
+// @include font-face(Merriweather, '#{$font-path}/Merriweather/regular/font', normal);
+// @include font-face(Merriweather, '#{$font-path}/Merriweather/regular/italic/font', normal, italic);
+
+@include font-face(Merriweather, '#{$font-path}/Merriweather/light/font', normal);
+@include font-face(Merriweather, '#{$font-path}/Merriweather/light/italic/font', normal, italic);

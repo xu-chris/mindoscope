@@ -1,0 +1,15 @@
+@mixin background-cover-fixed() {
+  
+  // Basic stuff
+  background-repeat: no-repeat;
+  background-position: center center;
+  
+  
+  // Now fix it
+  //background-attachment: fixed !important;  // Doesn't work since iOS 7...
+  //background-attachment: scroll !important;
+  
+  
+  // Set the size of it
+  @include background-size(cover !important);
+}

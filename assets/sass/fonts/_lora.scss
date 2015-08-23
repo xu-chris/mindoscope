@@ -1,0 +1,5 @@
+@include font-face(Lora, '#{$font-path}/Lora/bold/font', bold);
+@include font-face(Lora, '#{$font-path}/Lora/bold/italic/font', bold, italic);
+
+@include font-face(Lora, '#{$font-path}/Lora/regular/font', normal);
+@include font-face(Lora, '#{$font-path}/Lora/regular/italic/font', normal, italic);
