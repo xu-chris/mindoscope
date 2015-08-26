@@ -7,3 +7,9 @@
 [submodule "vendors/animate"]
 	path = vendors/animate
 	url = https://github.com/geoffgraham/animate.scss
+[submodule "vendors/dropzone"]
+	path = vendors/dropzone
+	url = https://github.com/enyo/dropzone
+[submodule "vendors/css-toggle-switch"]
+	path = vendors/css-toggle-switch
+	url = https://github.com/ghinda/css-toggle-switch

@@ -16,16 +16,28 @@
 
 // Import the animations
 @import 
-  // "_attention/attention.scss", // This will not import
+  "../../vendors/animate/_attention-seekers/shake.scss",
   "../../vendors/animate/_bouncing-entrances/bouncing-entrances.scss",
   "../../vendors/animate/_bouncing-exits/bouncing-exits.scss",
   "../../vendors/animate/_fading-entrances/fading-entrances.scss",
-  "../../vendors/animate/_fading-exits/fading-exits.scss",
-  "../../vendors/animate/_flippers/flippers.scss",
-  "../../vendors/animate/_lightspeed/lightspeed.scss",
-  "../../vendors/animate/_rotating-entrances/rotating-entrances.scss",
-  "../../vendors/animate/_rotating-exits/rotating-exits.scss",
-  "../../vendors/animate/_specials/specials.scss";
+  // "../../vendors/animate/_fading-exits/fading-exits.scss",
+  // "../../vendors/animate/_flippers/flippers.scss",
+  // "../../vendors/animate/_lightspeed/lightspeed.scss",
+  // "../../vendors/animate/_rotating-entrances/rotating-entrances.scss",
+  // "../../vendors/animate/_rotating-exits/rotating-exits.scss",
+  // "../../vendors/animate/_specials/specials.scss",
+  "../../vendors/animate/_zooming-entrances/zooming-entrances.scss",
+  "../../vendors/animate/_sliding-entrances/sliding-entrances.scss";
+
+
+// Options
+$green: #8dae28;
+$grey: #f0f0f0;
+$red: #B3000A;
+
+$padding: 10px;
+
+@import "modules/sidebar";
 
 html, body {
   height: 100%;
@@ -38,96 +50,154 @@ body {
   overflow: hidden;
 }
 
+#mindmap {
+  display: none;
+  height: 100%;
+  #content {
+    //@include zoomIn();
+  }
+}
+
+#upload {
+  position: relative;
+  height: 100%;
+  #dropzone {
+    background: #f0f0f0;
+    @include transition(all 200ms ease-in-out);
+    border: 3px dashed $green;
+    @include border-radius(50%);
+    position: absolute;
+    top: 50%;
+    margin-top: -250px;
+    //@include transform(translateY(-50%));
+    left: 50%;
+    margin-left: -250px;
+    height: 500px;
+    width: 500px;
+    text-align: center;
+    span {
+      position: absolute;
+      top: 50%;
+      display: block;
+      width: 100%;
+      margin-top: -10px;
+      margin-left: -20px;
+    }
+
+    [type="file"] {
+      cursor: pointer;
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    &.hover {
+      border-style: solid;
+      @include transform(scale(1.1));
+    }
+
+    &:hover {
+      @include transform(scale(1.05));
+    }
+
+    &.dropped {
+      border: 0px solid;
+    }
+    &.success {
+      @include bounceOut();
+    }
+
+    &.error {
+      @include shake();
+      border-color: $red;
+    }
+  }
+}
 
 /*===========================================
 =            ENVIRONMENT CLASSES            =
 ===========================================*/
 
+
 #content {
   width: 100%;
   height: 100%;
+  position: relative;
+  z-index: 1;
 }
 
-#sidebar {
-  $box-shadow: 30px;
-  $width: 250px;
-  $padding: 10px;
+#path {
+  background: RGBA(255, 255, 255, .5);
   position: absolute;
-  background: #f3f3f3;
-  right: -($width+$box-shadow);
-  @include transition(right 200ms ease-out);
+  width: 100%;
   top: 0;
-  width: $width;
-  height: 100%;
-  z-index: 99;
-  @include box-shadow($box-shadow 0 $box-shadow $box-shadow rgba(0,0,0,.2));
-  &.show {
-    right: 0;
-  }
-  header {
-    max-height: 50px;
-    background: white;
-    padding: 14px $padding;
-    border-bottom: 1px solid #ccc;
-  }
-
-  .searchbar {
-    background: white;
-    padding: 5px $padding;
-    border-bottom: 1px solid #ccc;
-    .icon-search {
-      position: absolute;
-      margin-left: $padding;
-      margin-top: 5px;
-      color: #ccc;
-    }
-    input {
-      width: 100%;
-      @include border-radius(20px);
-      border: 1px solid #ccc;
-      padding: 2px $padding 2px 30px;
-      box-sizing: border-box;
-
-      &:focus {
-        outline: 0;
-        border-color: #34495E;
-      }
-    }
-  }
-
-  #nodelist {
-    max-height: 100%;
+  left: 0;
+  padding: 5px 0;
+  font-size: 13px;
+  white-space: nowrap;
+  text-align: center;
+  z-index: 9;
+  min-height: 23px;
+  .content {
     overflow: auto;
-    background: #fff;
-    .listitem {
-      padding: $padding;
-      position: relative;
-      margin-bottom: 1px;
-      cursor: pointer;
-      font-size: 13px;
-      @include transition(box-shadow 100ms ease-out);
-      &:hover {
-        @include box-shadow(0 0 10px rgba(0,0,0,.6));
-        z-index: 9999;
-      }
+    padding-right: $padding;
+    padding-left: $padding;
+  }
+  .active {
+    font-weight: bold;
+  }
+  button {
+    background: rgba(0, 0, 0, .09);
+    border: none;
+    @include border-radius(5px);
 
-      &.active {
-        background: #BDDBFB !important;
-      }
-
-      &.hide {
-        display: none;
-      }
+    &:hover {
+      background: RGBA(255, 255, 255, .7);
     }
+
+    &:focus {
+      outline: 0;
+    }
+  }
+  .divider {
+    padding-right: .45em;
+    padding-left: .45em;
+    color: #828f96;
+    @extend .icon-angle-right;
   }
 }
+
+
 
 #menubutton {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 4px;
+  right: 4px;
   z-index: 999;
   text-transform: uppercase;
+}
+
+#searchterm {
+  position: absolute;
+  top: 38px;
+  right: 5px;
+  z-index: 9;
+  text-transform: uppercase;
+  display: none;
+  @extend .icon-search;
+  &:before {
+    margin-right: 5px;
+    width: 10px;
+  }
+  &.show {
+    display: block;
+  }
+  &:hover {
+    @extend .icon-close;
+  }
 }
 
 #toRoot {
@@ -139,17 +209,16 @@ body {
 }
 
 .button {
-  border: 2px solid #34495E;
-  color: #34495E;
-  padding: 5px 10px;
-  background: rgba(255,255,255,.5);
+  border: 2px solid rgba(0,0,0,.1);
+  color: #000;
+  //fpadding: 4px 10px;
+  background: rgba(0, 0, 0, .09);
   border-radius: 5px;
   cursor: pointer;
   font-size: 12px;
 
   &:hover:not(:disabled) {
-    color: #fff;
-    background: #34495E;
+    background: #fff;
   }
 
   &:disabled {
@@ -169,6 +238,8 @@ body {
   color: #fff;
   font-size: 12px;
   border-radius: 2px;
+  position: relative;
+  z-index: 10;
 
   &:after {
     box-sizing: border-box;
@@ -200,6 +271,7 @@ body {
 
 .node {
   cursor: pointer;
+  @include transition(opacity 200ms ease-out);
 
   /**
    * Node styling subclasses
@@ -208,7 +280,10 @@ body {
   // This is the Mother of all Nodes.
   &.root {
     //pointer-events: none; // important to prevent default behavior
-    fill: #f0f0f0 !important;
+    fill: $grey !important;
+    &.hide {
+      opacity: .4;
+    }
   }
 
   // This is a node without any childnodes
@@ -234,30 +309,102 @@ body {
    * Node status subclasses
    */
   
-  &:hover, &.highlight {
+  &:hover, &.hover {
     stroke: #000;
     stroke-width: 1.5px;
-    -webkit-filter: drop-shadow(12px 12px 7px rgba(0,0,0,0.5)); 
-    filter: drop-shadow(12px 12px 7px rgba(0,0,0,0.5));
-    filter: url(shadow.svg#drop-shadow);
-  }
-
-  &.visited {
-    opacity: 0.5;
   }
 
   &.hide {
-    opacity: .2;
+    opacity: .12;
   }
   
 }
 
 .label {
   pointer-events: none; // important to prevent default behavior
-  font-size: 13px;
+  font-size: 14px;
   text-anchor: middle;
-  text-shadow: 0 2px 0 #fff, 2px 0 0 #fff, -2px 0 0 #fff, 0 -2px 0 #fff;
+  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+  
+  tspan {
+    text-anchor: middle;
+  }
+
   &.hide {
     opacity: .2;
   }
+}
+
+.hide-visited .node.visited {
+  opacity: 0.3;
+  fill: darken($grey, 10%) !important;
+}
+
+.tgl {
+  display: none;
+}
+
+.tgl,
+.tgl *,
+.tgl :after,
+.tgl :before,
+.tgl+.tgl-btn,
+.tgl:after,
+.tgl:before {
+  box-sizing: border-box;
+}
+
+.tgl ::selection,
+.tgl :after::selection,
+.tgl :before::selection,
+.tgl+.tgl-btn::selection,
+.tgl::selection,
+.tgl:after::selection,
+.tgl:before::selection {
+  background: 0 0;
+}
+
+.tgl + .tgl-btn {
+  outline: 0;
+  display: inline-block;
+  width: 3em;
+  height: 1.5em;
+  margin-right: 1em;
+  position: relative;
+  cursor: pointer;
+  vertical-align: bottom;
+  -ms-user-select: none;
+  user-select: none;
+
+  background: darken($grey, 10%);
+  border-radius: 2em;
+  padding: 2px;
+  transition: all .4s ease;
+}
+
+.tgl + .tgl-btn:after, .tgl + .tgl-btn:before {
+  position: relative;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 100%;
+}
+
+.tgl + .tgl-btn:after {
+  left: 0;
+  border-radius: 50%;
+  background: #fff;
+  transition: all .2s ease;
+}
+
+.tgl + .tgl-btn:before {
+  display: none;
+}
+
+.tgl:checked + .tgl-btn:after {
+  left: 50%;
+}
+
+.tgl:checked + .tgl-btn {
+  background: $green;
 }

@@ -1,0 +1,134 @@
+#sidebar {
+  $box-shadow: 30px;
+  $width: 250px;
+  position: absolute;
+  background: #f3f3f3;
+  @include transition(200ms ease-out all);
+  top: 0;
+  right: 0;
+  width: $width;
+  height: 100vh;
+  z-index: 99;
+  @include box-shadow($box-shadow 0 $box-shadow $box-shadow rgba(0,0,0,.2));
+  @include transform(translateX(+ $width + $box-shadow));
+  @include transition(translateX 200ms ease-out);
+
+  &.show {
+    @include transform(translateX(0));
+  }
+  header {
+    max-height: 50px;
+    background: white;
+    padding: 5px $padding;
+    border-bottom: 1px solid #ccc;
+  }
+
+input {
+  width: 85%;
+  font-size: 13px;
+  @include border-radius(20px);
+  border: 1px solid #ccc;
+  padding: 2px $padding 2px 30px;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: 0;
+    border-color: $green;
+  }
+}
+
+  .searchbar {
+    background: white;
+    padding: 5px $padding;
+    border-bottom: 1px solid #ccc;
+    .icon-search {
+      position: absolute;
+      margin-left: $padding;
+      margin-top: 1px;
+      color: #ccc;
+    }
+  }
+
+  .content {
+    position: relative;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    z-index: 99;
+    width: 100%;
+    box-sizing: border-box;
+
+    #nodelist {
+      background: #fff;
+      display: none;
+      .listitem {
+        padding: $padding;
+        position: relative;
+        margin-bottom: 1px;
+        cursor: pointer;
+        font-size: 13px;
+        @include transition(box-shadow 100ms ease-out);
+        &:hover {
+          background: #fff !important;
+          z-index: 9999;
+        }
+
+        &.active {
+          background: #BDDBFB !important;
+        }
+
+        &.hide {
+          display: none;
+        }
+      }
+      &.show {
+        display: block;
+      }
+    }
+
+    #settings {
+      background: $grey;
+      padding: 5px $padding;
+      top: 0;
+      position: absolute;
+      width: 100%;
+      display: none;
+      font-size: 13px;
+      bottom: 0;
+      @include transition(top 200ms ease-out);
+
+      &.show {
+        display: block;
+      }
+    }
+  }
+
+
+  footer {
+    .icon-share-alt {
+      position: absolute;
+      margin-left: $padding;
+      margin-top: 1px;
+      color: #ccc;
+    }
+    max-height: 50px;
+    background: white;
+    padding: 5px $padding;
+    z-index: 999;
+    position: relative;
+    border-top: 1px solid #ccc;
+
+    .icon-cog {
+      width: 30px;
+      box-sizing: border-box;
+
+    }
+    #openSettings {
+      &.active {
+        background: $green;
+        border-color: $green;
+        color: white;
+      }
+    }
+  }
+
+}

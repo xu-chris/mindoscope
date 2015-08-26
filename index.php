@@ -1,124 +1,10 @@
-<?php 
-
-/*----------  OPTIONS  ----------*/
-
-$url         = "upload/Katzen.mm"; // This will be set later by the uploader
-$cachePath   = 'content/';
-$enableCache = true;
-
-/*=========================================
-=            JSON file builder            =
-=========================================*/
-
-function getJSONFile($url) {
- 
-  global $cachePath;
-  global $enableCache;
-
-  // If there's no file: return error
-  $fileContents= file_get_contents($url);
-  if (!file_exists($url)) return error_log('File not found');
-
-  // If file exists already: return content from file
-  $hash = hash_file('md5', $url);
-  
-  $cacheFilename = $cachePath.$hash.'.json';
-
-  if ($enableCache && file_exists($cacheFilename)) {
-    // DEV: echo to console
-    echo '<script>console.log("Found cachefile.")</script>';
-    // Return the cache filename
-    return $cacheFilename;
-  }
-
-  // read the file contents and convert JSON from Freemind XML structure
-  $xml = simplexml_load_string($fileContents);
-
-  $array = recursiveXML($xml)[0]; 
-    // The calculated array is packed in an array, so we're taking it out of it.
-  $json = json_encode($array);
-
-  // Write result to file
-  file_put_contents($cacheFilename, $json);
-
-  // DEV: echo to console
-  echo '<script>console.log("Built new cachefile.")</script>';
-
-  // Return the cache filename
-  return $cacheFilename;
-}
-
-/*=====================================================
-=            Freemind-XML to readable JSON            =
-=====================================================*/
-
-function recursiveXML($xml) 
-{
-
-  // Kill the recursive loop if needed variables are null
-  if ($xml == null) return false;
-
-  /*----------  DYNAMIC VARIABLES  ----------*/
-  $arr = null;
-
-  foreach($xml->node as $key => $node) 
-  {
-    // Save results to variables
-    $name = ($node['TEXT'] == null ? (string)$node['text'] : (string)$node['TEXT']);
-
-    // Check if node has children. If yes, explore them and save them as an array of children
-    // ATTENTION: This function is recursive.
-    if(count($node->children()) == 0) // Found leaf node
-    {
-      $arr[] = array(
-        "name" => $name
-      );
-    }
-    else { // Has children
-      $children = recursiveXML($node);
-      $arr[] = array(
-        "name" => $name,
-        "children" => $children
-      );
-    } 
-  }
-  return $arr;
-} 
-
-/*============================================
-=            XML depth calculator            =
-============================================*/
-
-function getXMLDepth($xml) {
-  $max_depth = 1;
-
-  // count depth up
-  foreach ($xml->node as $value) {
-    if ($value->children() != null) {
-      $depth = getXMLDepth($value) + 1;
-
-      // change max_depth if depth is higher
-      if ($depth > $max_depth) {
-          $max_depth = $depth;
-      }
-    }
-  }
-
-  return $max_depth;
-}
-
-/*----------  Returning area  ----------*/
-
-$cachedJSON = getJSONFile($url);
-
-?>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
 
     <!--iOS -->
-    <meta name="apple-mobile-web-app-title" content="Kellertheater">
+    <meta name="apple-mobile-web-app-title" content="Mindoscope">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -144,33 +30,119 @@ $cachedJSON = getJSONFile($url);
 
     <link rel="apple-touch-icon-precomposed" sizes="76x76" href="assets/img/app-icons/AppIcon76x76.png">
     <link rel="apple-touch-icon-precomposed" sizes="152x152" href="assets/img/app-icons/AppIcon76x76@2x.png">
-    
-  </head>
-  <body>
-    <div id="sidebar">
-      <header>
-        Content
-      </header>
-      <div class="searchbar">
-        <span class="icon-search"></span>
-        <input type="text" id="search" name="q" size="21" maxlength="120" placeholder="Search...">
-      </div>
-      <div id="nodelist">
-        
-      </div>
-    </div>
-    <button id="menubutton" class="button">Menu</button>
-    <button id="toRoot" class="button" disabled="true">Overview</button>
-    <div id="content"></div>
 
-    <script type="text/javascript">
-      var file = '<?php echo $cachedJSON ?>';
-    </script>
     <link rel='stylesheet' href='assets/css/base.css'>
     <link type="text/css" rel="stylesheet" href="vendors/d3/lib/colorbrewer/colorbrewer.css"/>
     <script type="text/javascript" src="vendors/d3/lib/colorbrewer/colorbrewer.js"></script>
     <script type="text/javascript" src="vendors/d3/d3.min.js"></script>
     <script src="vendors/d3-tip/index.js"></script>
     <script type="text/javascript" src="assets/scripts/venn.js"></script>
+
+    <link href="vendors/dropzone/dist/min/dropzone.min.css" type="text/css" rel="stylesheet" />
+
+  </head>
+  <body>
+    <div id="upload">
+      <form action="upload.php" class="dropzone" id="dropzone">
+        <span>
+        <div class="fallback">
+          <input type="file" accept="application/mm" name="file" /></span>
+        </div>
+      </form>
+      <script type="text/javascript" src="vendors/dropzone/dist/min/dropzone.min.js"></script>
+      <script>
+        dropzoneElement = d3.select('#dropzone');
+        Dropzone.options.dropzone = {
+          maxFilesize: 2, // MB
+          dictDefaultMessage: "<strong>Drag and drop your Mind Map here</strong><br>(or click to choose)",
+          dictInvalidFileType: "Was it a freemind file? Retry please.",
+          dictFileTooBig: "Uuh that's too big. Sorry",
+          success: function(file, response) {
+            dropzoneElement
+              .classed('hover', false)
+              .classed('error', false)
+              .classed('dropped', false)
+              .classed('success', true);
+            setTimeout(buildMindmap(response), 300);
+          },
+          dragover: function() {
+            dropzoneElement
+              .classed('hover', true)
+              .classed('error', false)
+              .classed('dropped', false)
+              .classed('success', false);
+          },
+          dragleave: function() {
+            dropzoneElement
+              .classed('hover', false)
+              .classed('error', false)
+              .classed('dropped', false)
+              .classed('success', false);
+          },
+          drop: function() {
+            dropzoneElement
+              .classed('hover', false)
+              .classed('error', false)
+              .classed('dropped', true)
+              .classed('success', false);
+          },
+          error: function() {
+            dropzoneElement
+              .classed('hover', false)
+              .classed('error', true)
+              .classed('dropped', false)
+              .classed('success', false);
+          }
+        }
+      </script>
+    </div>
+    <div id="mindmap">
+      <div id="sidebar">
+        <header>
+          Content
+        </header>
+        <div class="searchbar">
+          <span class="icon-search"></span>
+          <input type="text" id="search" size="21" maxlength="120" placeholder="Search...">
+        </div>
+        <div class="content">
+          <div id="nodelist" class="show"></div>
+          <div id="settings">
+            <label class="input input-with-checkbox" type="switch" value="true" autocomplete="on" for="hideVisited">
+              <input class="tgl" id="hideVisited" name="showinhero" type="checkbox">
+              <label class="tgl-btn" for="hideVisited"></label>
+              Hide visited nodes
+            </label>
+
+          </div>
+        </div>
+        <footer>
+          <span class="icon-share-alt"></span>
+          <input type="text" id="shareURL" size="21" maxlength="120" onClick="this.setSelectionRange(0, this.value.length)">
+          <button class="icon-cog button" id="openSettings"></button>
+        </footer>
+      </div>
+      <button id="menubutton" class="button">Menu</button>
+      <button id="searchterm" class="button"></button>
+      <button id="toRoot" class="button" disabled="true">Overview</button>
+      <div id="path"><div class="content"></div></div>
+      <div id="content"></div>
+    </div>
+    <?php
+
+      $cachePath   = 'content/';
+      $enableCache = true;
+
+      $uri = explode('?', ltrim($_SERVER['REQUEST_URI'],"/"), 2)[0];
+
+      $fileURL = $cachePath.$uri.'.json';
+
+      if ($uri != "" && file_exists($fileURL) && $enableCache) {
+        echo '<script>
+            buildMindmap("'.$uri.'");
+          </script>';
+      }
+
+    ?>
   </body>
 </html>
