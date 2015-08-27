@@ -1,4 +1,8 @@
 @charset "UTF-8";
+/**
+ * This SCSS is structured based on the Advanced Atomic Design Model
+ * Source (German): http://blog.eparo.de/komponentenbasierte-frontend-entwicklung/
+ */
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -6135,11 +6139,21 @@ input {
     outline: 0;
     border-color: #8dae28; }
 
+html, body {
+  height: 100%;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif, sans-serif; }
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; }
+
 .node {
   cursor: pointer;
   -webkit-transition: opacity 200ms ease-out;
   -moz-transition: opacity 200ms ease-out;
   transition: opacity 200ms ease-out;
+  opacity: 1;
   /**
    * Node styling subclasses
    */
@@ -6224,7 +6238,9 @@ input {
   left: 0;
   border-radius: 50%;
   background: #fff;
-  transition: all .2s ease; }
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  transition: all 0.2s ease; }
 
 .tgl + .tgl-btn:before {
   display: none; }
@@ -6659,16 +6675,7 @@ input {
       display: block; }
   #mindmap #toRoot {
     position: absolute;
-    bottom: 10px;
+    bottom: 5px;
     right: 10px;
     z-index: 9;
     text-transform: uppercase; }
-
-html, body {
-  height: 100%;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif, sans-serif; }
-
-body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden; }

@@ -1,6 +1,7 @@
 .node {
   cursor: pointer;
   @include transition(opacity 200ms ease-out);
+  opacity: 1;
 
   /**
    * Node styling subclasses

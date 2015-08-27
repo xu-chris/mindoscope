@@ -1,3 +1,8 @@
+/**
+ * This SCSS is structured based on the Advanced Atomic Design Model
+ * Source (German): http://blog.eparo.de/komponentenbasierte-frontend-entwicklung/
+ */
+
 @import
   "0-protons/all",
   "1-core/all",
@@ -6,14 +11,3 @@
   "4-organisms/all",
   "5-templates/all",
   "6-pages/all";
-
-html, body {
-  height: 100%;
-  font-family: $font-family;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
