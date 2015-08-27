@@ -1,0 +1,58 @@
+#upload {
+  position: relative;
+  height: 100%;
+  #dropzone {
+    background: #f0f0f0;
+    @include transition(all 200ms ease-in-out);
+    border: 3px dashed $green;
+    @include border-radius(50%);
+    position: absolute;
+    top: 50%;
+    margin-top: -250px;
+    //@include transform(translateY(-50%));
+    left: 50%;
+    margin-left: -250px;
+    height: 500px;
+    width: 500px;
+    text-align: center;
+    span {
+      position: absolute;
+      top: 50%;
+      display: block;
+      width: 100%;
+      margin-top: -10px;
+      margin-left: -20px;
+    }
+
+    [type="file"] {
+      cursor: pointer;
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    &.hover {
+      border-style: solid;
+      @include transform(scale(1.1));
+    }
+
+    &:hover {
+      @include transform(scale(1.05));
+    }
+
+    &.dropped {
+      border: 0px solid;
+    }
+    &.success {
+      @include bounceOut();
+    }
+
+    &.error {
+      @include shake();
+      border-color: $red;
+    }
+  }
+}

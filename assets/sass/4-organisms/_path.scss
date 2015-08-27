@@ -1,0 +1,40 @@
+#path {
+  background: RGBA(255, 255, 255, .5);
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 5px 0;
+  font-size: $font-size-normal;
+  white-space: nowrap;
+  text-align: center;
+  z-index: 9;
+  min-height: 23px;
+  .content {
+    overflow: auto;
+    padding-right: $padding;
+    padding-left: $padding;
+  }
+  .active {
+    font-weight: bold;
+  }
+  button {
+    background: rgba(0, 0, 0, .09);
+    border: none;
+    @include border-radius(5px);
+
+    &:hover {
+      background: RGBA(255, 255, 255, .7);
+    }
+
+    &:focus {
+      outline: 0;
+    }
+  }
+  .divider {
+    padding-right: .45em;
+    padding-left: .45em;
+    color: #828f96;
+    @extend .icon-angle-right;
+  }
+}

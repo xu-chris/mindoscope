@@ -1,0 +1,55 @@
+.node {
+  cursor: pointer;
+  @include transition(opacity 200ms ease-out);
+
+  /**
+   * Node styling subclasses
+   */
+
+  // This is the Mother of all Nodes.
+  &.root {
+    //pointer-events: none; // important to prevent default behavior
+    fill: $grey !important;
+    &.hide {
+      opacity: .4;
+    }
+  }
+
+  // This is a node without any childnodes
+  &.leaf {
+    fill: white;
+    pointer-events: none; // important to prevent default behavior
+  }
+
+  &.even {
+
+  }
+
+  &.odd {
+
+  }
+
+  &.active {
+    stroke: #fff;
+    stroke-width: 1.5px;
+  }
+  
+  /**
+   * Node status subclasses
+   */
+  
+  &:hover, &.hover {
+    stroke: #000;
+    stroke-width: 1.5px;
+  }
+
+  &.hide {
+    opacity: .12;
+  }
+  
+}
+
+.hide-visited .node.visited {
+  opacity: 0.3;
+  fill: darken($grey, 10%) !important;
+}

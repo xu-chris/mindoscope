@@ -1,0 +1,22 @@
+.button, button {
+  border: 2px solid rgba(0,0,0,.1);
+  color: #000;
+  //fpadding: 4px 10px;
+  background: rgba(0, 0, 0, .09);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: $font-size-small;
+
+  &:hover:not(:disabled) {
+    background: #fff;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: no-drop;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}

@@ -1,0 +1,20 @@
+// Always required
+@import
+  "../../vendors/animate/properties";
+
+// Import the animations
+@import
+  "rotate",
+  "../../vendors/animate/_attention-seekers/attention-seekers.scss",
+  "../../vendors/animate/_bouncing-entrances/bouncing-entrances.scss",
+  "../../vendors/animate/_bouncing-exits/bouncing-exits.scss",
+  "../../vendors/animate/_fading-entrances/fading-entrances.scss",
+  // "../../vendors/animate/_fading-exits/fading-exits.scss",
+  // "../../vendors/animate/_flippers/flippers.scss",
+  // "../../vendors/animate/_lightspeed/lightspeed.scss",
+  // "../../vendors/animate/_rotating-entrances/rotating-entrances.scss",
+  // "../../vendors/animate/_rotating-exits/rotating-exits.scss",
+  // "../../vendors/animate/_specials/specials.scss",
+  "../../vendors/animate/_zooming-entrances/zooming-entrances.scss",
+  "../../vendors/animate/_sliding-entrances/sliding-entrances.scss",
+  "../../vendors/animate/_sliding-exits/sliding-exits.scss";

@@ -1,0 +1,14 @@
+.label {
+  pointer-events: none; // important to prevent default behavior
+  font-size: $font-size-large;
+  text-anchor: middle;
+  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+  
+  tspan {
+    text-anchor: middle;
+  }
+
+  &.hide {
+    opacity: .2;
+  }
+}

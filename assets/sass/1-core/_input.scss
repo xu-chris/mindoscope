@@ -1,0 +1,13 @@
+input {
+  font-size: 13px;
+  width: 100%;
+  @include border-radius(20px);
+  border: 1px solid #ccc;
+  padding: 2px $padding 2px 30px;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: 0;
+    border-color: $green;
+  }
+}
