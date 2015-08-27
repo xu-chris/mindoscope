@@ -16,7 +16,8 @@
 
 // Import the animations
 @import 
-  "../../vendors/animate/_attention-seekers/shake.scss",
+  "animations/rotate",
+  "../../vendors/animate/_attention-seekers/attention-seekers.scss",
   "../../vendors/animate/_bouncing-entrances/bouncing-entrances.scss",
   "../../vendors/animate/_bouncing-exits/bouncing-exits.scss",
   "../../vendors/animate/_fading-entrances/fading-entrances.scss",
@@ -27,7 +28,8 @@
   // "../../vendors/animate/_rotating-exits/rotating-exits.scss",
   // "../../vendors/animate/_specials/specials.scss",
   "../../vendors/animate/_zooming-entrances/zooming-entrances.scss",
-  "../../vendors/animate/_sliding-entrances/sliding-entrances.scss";
+  "../../vendors/animate/_sliding-entrances/sliding-entrances.scss",
+  "../../vendors/animate/_sliding-exits/sliding-exits.scss";
 
 
 // Options
@@ -175,7 +177,7 @@ body {
 #menubutton {
   position: absolute;
   top: 4px;
-  right: 4px;
+  right: $padding;
   z-index: 999;
   text-transform: uppercase;
 }
@@ -183,7 +185,7 @@ body {
 #searchterm {
   position: absolute;
   top: 38px;
-  right: 5px;
+  right: $padding;
   z-index: 9;
   text-transform: uppercase;
   display: none;

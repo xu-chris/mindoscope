@@ -20,12 +20,11 @@
     max-height: 50px;
     background: white;
     padding: 5px $padding;
-    border-bottom: 1px solid #ccc;
   }
 
 input {
-  width: 85%;
   font-size: 13px;
+  width: 100%;
   @include border-radius(20px);
   border: 1px solid #ccc;
   padding: 2px $padding 2px 30px;
@@ -51,7 +50,8 @@ input {
 
   .content {
     position: relative;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
     z-index: 99;
     width: 100%;
@@ -59,7 +59,7 @@ input {
 
     #nodelist {
       background: #fff;
-      display: none;
+      //display: none;
       .listitem {
         padding: $padding;
         position: relative;
@@ -91,13 +91,14 @@ input {
       top: 0;
       position: absolute;
       width: 100%;
-      display: none;
+      opacity: 1;
       font-size: 13px;
       bottom: 0;
       @include transition(top 200ms ease-out);
+      @include slideOutDown($duration: 300ms);
 
       &.show {
-        display: block;
+        @include slideInUp($duration: 300ms);
       }
     }
   }
@@ -109,6 +110,9 @@ input {
       margin-left: $padding;
       margin-top: 1px;
       color: #ccc;
+    }
+    input {
+      width: 85%;
     }
     max-height: 50px;
     background: white;
@@ -127,6 +131,9 @@ input {
         background: $green;
         border-color: $green;
         color: white;
+        &:before {
+          @include rotate($duration: 500ms);
+        }
       }
     }
   }

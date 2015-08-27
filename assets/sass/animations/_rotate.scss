@@ -1,0 +1,20 @@
+@include keyframes(rotate) {
+  0% {
+    @include transform(rotate(-200deg));
+    @include transform-origin(center center);
+  }
+  100% {
+    @include transform(rotate(0));
+    @include transform-origin(center center);
+  }
+}
+
+@mixin rotate($count: $countDefault, $duration: $durationDefault, $delay: $delayDefault, $function: $functionDefault, $fill: $fillDefault, $visibility: $visibilityDefault) {
+  @include animation-name(rotate);
+  @include count($count);
+  @include duration($duration);
+  @include delay($delay);
+  @include function($function);
+  @include fill-mode($fill);
+  @include visibility($visibility);
+}

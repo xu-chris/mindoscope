@@ -103,7 +103,7 @@
         </header>
         <div class="searchbar">
           <span class="icon-search"></span>
-          <input type="text" id="search" size="21" maxlength="120" placeholder="Search...">
+          <input type="text" id="search" size="21" maxlength="120" placeholder="Search">
         </div>
         <div class="content">
           <div id="nodelist" class="show"></div>
