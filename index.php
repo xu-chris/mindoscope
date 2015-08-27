@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
 
+    <title>Mind-o-scope</title>
+
     <!--iOS -->
     <meta name="apple-mobile-web-app-title" content="Mindoscope">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
