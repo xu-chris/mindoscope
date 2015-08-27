@@ -1,8 +1,0 @@
-@include font-face(Fira Sans, '#{$font-path}/Fira_Sans/medium/font', bold);
-@include font-face(Fira Sans, '#{$font-path}/Fira_Sans/medium/italic/font', bold, italic);
-
-@include font-face(Fira Sans, '#{$font-path}/Fira_Sans/book/font', normal);
-@include font-face(Fira Sans, '#{$font-path}/Fira_Sans/book/italic/font', normal,italic);
-
-@include font-face(Fira Sans, '#{$font-path}/Fira_Sans/light/font', lighter);
-@include font-face(Fira Sans, '#{$font-path}/Fira_Sans/light/italic/font', lighter,italic);
