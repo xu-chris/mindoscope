@@ -19,7 +19,8 @@ function buildMindmap(hash) {
       width       = document.getElementById(container).offsetWidth,
       height      = document.getElementById(container).offsetHeight,
       maxNodeSize = 1000, // The standard size of a node. Will be used to calc the node size
-      title       = "Mind-o-scope"
+      title       = "Mind-o-scope",
+      zoomDuration = 750;
   ;
 
 
@@ -312,7 +313,7 @@ function buildMindmap(hash) {
 
     // interpolates the Zoom from current focused node to target node d
     var transition = d3.transition()
-      .duration(d3.event.altKey ? 7500 : 750)
+      .duration(d3.event.altKey ? zoomDuration * 10 : zoomDuration)
       .tween("zoom", function() {
         var i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2]);
         return function(t) { zoomTo(i(t)); };
@@ -453,6 +454,10 @@ function buildMindmap(hash) {
     }
   }
 
+  function setZoomDuration(duration) {
+    zoomDuration = duration;
+  }
+
   /*=====  End of INTERACTION ACTION FUNCTIONS  ======*/
 
   /*=============================================
@@ -554,9 +559,8 @@ function buildMindmap(hash) {
       -($sidebar.select('footer').node().getBoundingClientRect().height)
     );
 
-    console.log(listheight);
-
-    d3.select('#sidebar .content').style('height', listheight+'px');
+    $sidebar.select('.content').style('height', listheight+'px');
+    $sidebar.select('.scrollmask').style('height', listheight+'px');
   }
 
   /*=====  End of ARRANGEMENT FUNCTIONS  ======*/
@@ -718,6 +722,27 @@ function buildMindmap(hash) {
         d3.select('body').classed('hide-visited',hide);
       });
 
+    d3.select("#hideLabels")
+      .on("change", function() {
+        var hide = this.checked ? true : false;
+        d3.select('body').classed('hide-labels',hide);
+      });
+    d3.select("#disableTooltip")
+      .on("change", function() {
+        var hide = this.checked ? true : false;
+        d3.select('body').classed('hide-tooltip',hide);
+      });
+
+    d3.select('#zoomDuration')
+      .on("mousedown", function() {
+        d3.select('#zoomDurationOutput').classed('active', true);
+      })
+      .on("mouseout", function() {
+        d3.select('#zoomDurationOutput').classed('active', false);
+      })
+      .on("change", function() {
+        setZoomDuration(this.value);
+      })
 
     /**
      * Keyboard interactions

@@ -24,7 +24,7 @@
 
   .searchbar {
     background: white;
-    padding: 5px $padding;
+    padding: 5px $padding $padding;
     border-bottom: 1px solid #ccc;
     .icon-search {
       position: absolute;
@@ -36,16 +36,12 @@
 
   .content {
     position: relative;
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
     z-index: 99;
     width: 100%;
-    box-sizing: border-box;
+    overflow: hidden;
 
     #nodelist {
       background: #fff;
-      //display: none;
       .listitem {
         padding: $padding;
         position: relative;
@@ -69,11 +65,14 @@
       &.show {
         display: block;
       }
+      &.hide {
+        display: none;
+      }
     }
 
     #settings {
       background: $grey;
-      padding: 5px $padding;
+      padding: $padding;
       top: 0;
       position: absolute;
       width: 100%;
@@ -82,6 +81,43 @@
       bottom: 0;
       @include transition(top 200ms ease-out);
       @include slideOutDown($duration: 300ms);
+      z-index: 999;
+      .option {
+        display: block;
+        height: 25px;
+        position: relative;
+        width: 100%;
+
+        .range-field {
+          position: relative;
+          margin: $padding 0;
+        }
+
+        input[type=range] {
+          width: 175px;
+          display: inline-block;
+        }
+        output {
+          right: 0;
+          bottom: 0;
+          margin-bottom: -4.5px;
+          @-moz-document url-prefix() {
+            margin-bottom: 1.5px;
+          }
+          &:before {
+            right: 52px;
+          }
+        }
+      }
+
+      .heading {
+        &:not(:first-child) {
+          border-top: 1px solid darken($grey, 10%);
+          margin-top: $padding;
+        }
+        padding: $padding 0;
+        font-weight: bold;
+      }
 
       &.show {
         @include slideInUp($duration: 300ms);
@@ -109,7 +145,6 @@
 
     .icon-cog {
       width: 30px;
-      box-sizing: border-box;
 
     }
     #openSettings {

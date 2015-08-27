@@ -1,4 +1,4 @@
-input {
+input[type=text] {
   font-size: 13px;
   width: 100%;
   @include border-radius(20px);
@@ -10,4 +10,8 @@ input {
     outline: 0;
     border-color: $green;
   }
+}
+
+input {
+  outline: 0;
 }

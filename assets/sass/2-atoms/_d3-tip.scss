@@ -30,3 +30,9 @@
     //-webkit-animation: fadeInUp 0.2s ease-out;
   }
 }
+
+.hide-tooltip {
+  .d3-tip {
+    display: none !important;
+  }
+}

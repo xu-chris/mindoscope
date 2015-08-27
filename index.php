@@ -108,28 +108,50 @@
           <input type="text" id="search" size="21" maxlength="120" placeholder="Search">
         </div>
         <div class="content">
-          <div id="nodelist" class="show"></div>
           <div id="settings">
-            <label class="input input-with-checkbox" type="switch" value="true" autocomplete="on" for="hideVisited">
+            <div class="heading">General</div>
+            <label class="option" type="switch" value="false" for="hideVisited">
               <input class="tgl" id="hideVisited" name="showinhero" type="checkbox">
               <label class="tgl-btn" for="hideVisited"></label>
               Hide visited nodes
             </label>
 
+            <label class="option" type="switch" value="false" for="hideLabels">
+              <input class="tgl" id="hideLabels" name="hideLabels" type="checkbox">
+              <label class="tgl-btn" for="hideLabels"></label>
+              Hide Labels
+            </label>
+
+            <label class="option" type="switch" value="false" for="disableTooltip">
+              <input class="tgl" id="disableTooltip" name="disableTooltip" type="checkbox">
+              <label class="tgl-btn" for="disableTooltip"></label>
+              Disable tooltips
+            </label>
+            <div class="heading">Animation</div>
+            <form  class="option" onsubmit="return false" oninput="level.value = zoomDurationLevel.valueAsNumber + ' ms'">
+              <div>Zoom duration time:</div>
+              <div class="range-field">
+                <input type="range" id="zoomDuration" name="zoomDurationLevel" min="0" max="1500" value="750" />
+                <output for="zoomDuration" name="level" id="zoomDurationOutput">750 ms</output>
+              </div>
+            </form>
+           </div>
+            <div class="scrollmask">
+              <div id="nodelist" class="show"></div>
+            </div>
           </div>
+          <footer>
+            <span class="icon-share-alt"></span>
+            <input type="text" id="shareURL" size="21" maxlength="120" onClick="this.setSelectionRange(0, this.value.length)">
+            <button class="icon-cog button" id="openSettings"></button>
+          </footer>
         </div>
-        <footer>
-          <span class="icon-share-alt"></span>
-          <input type="text" id="shareURL" size="21" maxlength="120" onClick="this.setSelectionRange(0, this.value.length)">
-          <button class="icon-cog button" id="openSettings"></button>
-        </footer>
+        <button id="menubutton" class="button">Menu</button>
+        <button id="searchterm" class="button"></button>
+        <button id="toRoot" class="button" disabled="true">Overview</button>
+        <div id="path"><div class="content"></div></div>
+        <div id="content"></div>
       </div>
-      <button id="menubutton" class="button">Menu</button>
-      <button id="searchterm" class="button"></button>
-      <button id="toRoot" class="button" disabled="true">Overview</button>
-      <div id="path"><div class="content"></div></div>
-      <div id="content"></div>
-    </div>
     <?php
 
       $cachePath   = 'content/';

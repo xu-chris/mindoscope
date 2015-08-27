@@ -7,3 +7,7 @@
   "animations/animations",
   "utilities",
   "settings";
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
