@@ -60,11 +60,6 @@ function buildMindmap(hash) {
     .interpolate(d3.interpolateRgb);
 
 
-  /*----------  State identifying variables  ----------*/
-  var isSidebarOpen = false;
-  var isSettingsOpen = false;
-
-
   /*----------  Specifying the packing algorithm  ----------*/
 
   var pack = d3.layout.pack()
@@ -291,6 +286,10 @@ function buildMindmap(hash) {
   =            INTERACTION ACTION FUNCTIONS            =
   ====================================================*/
 
+  /*----------  Variables  ----------*/
+  var isSidebarOpen = false;
+  var isSettingsOpen = false;
+
   /**
    * Translates the zoom from current focused node to node d
    * @param  {Object} d The target node
@@ -368,6 +367,9 @@ function buildMindmap(hash) {
   }
 
 
+  /**
+   * Shows and hides the sidebar and handles the focus on the #search input field
+   */
   function toggleSidebar() {
     $sidebar.classed("show", !$sidebar.classed("show"));
     if (isSidebarOpen == false) {
@@ -383,12 +385,20 @@ function buildMindmap(hash) {
     }
   }
 
+
+  /**
+   * Closes immediately the sidebar
+   */
   function closeSidebar() {
     $sidebar.classed("show", false);
     isSidebarOpen = false;
     d3.select('#search').node().blur();
   }
 
+
+  /**
+   * Shows and hides the settings pane
+   */
   function toggleSettings() {
     var nodeListElement = '#nodelist';
     var settingsElement = '#settings';
@@ -557,7 +567,7 @@ function buildMindmap(hash) {
   =            READ DATA AND BUILD VISUALIZATION            =
   =========================================================*/
 
-  /*----------  Variables for the information visualization  ----------*/
+  /*----------  Variables  ----------*/
 
   var focus, nodes, view;
   var circle, text, nodelist, node;
