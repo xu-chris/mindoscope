@@ -469,9 +469,10 @@ function buildMindmap(hash) {
     diameter = getDiameter();
 
     // reset the sizes
-    d3.select('#'+container+' svg')
-      .style('width',width)
-      .style('height',height);
+    d3.select('#'+container)
+      .select('svg')
+        .style('width',width+'px')
+        .style('height',height+'px');
 
     d3.select(self.frameElement)
       .style("height", diameter + "px");
@@ -556,8 +557,6 @@ function buildMindmap(hash) {
     console.log(listheight);
 
     d3.select('#sidebar .content').style('height', listheight+'px');
-
-    //d3.select('#nodelist').style('height', listheight);
   }
 
   /*=====  End of ARRANGEMENT FUNCTIONS  ======*/
