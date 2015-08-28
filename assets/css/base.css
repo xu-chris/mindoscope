@@ -6796,7 +6796,12 @@ output {
     position: absolute;
     top: 4px;
     right: 10px;
-    z-index: 999;
+    z-index: 9999;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
     text-transform: uppercase; }
   #mindmap #searchterm {
     position: absolute;

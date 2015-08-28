@@ -1,7 +1,7 @@
 <?php
   // DEV Stuff
-  error_reporting(E_ALL);
-  ini_set("display_errors", 1);
+  // error_reporting(E_ALL);
+  // ini_set("display_errors", 1);
 
   $visitedNodes = (isset($_GET["visited"]) && $_GET["visited"] != "" ? "checked" : null );
   $labels = (isset($_GET["labels"]) && $_GET["labels"] != "" ? "checked" : null );

@@ -17,7 +17,8 @@
     position: absolute;
     top: 4px;
     right: $padding;
-    z-index: 999;
+    z-index: 9999;
+    @include transform(translateZ(0)); // Hack that prevents disappearing browser button
     text-transform: uppercase;
   }
 

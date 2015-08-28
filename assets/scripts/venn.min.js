@@ -20,7 +20,6 @@ function buildMindmap(hash, zoomDuration) {
       height      = document.getElementById(container).offsetHeight,
       maxNodeSize = 1000, // The standard size of a node. Will be used to calc the node size
       title       = "Mind-o-scope";
-  ;
 
 
   /*----------  Colors  ----------*/
