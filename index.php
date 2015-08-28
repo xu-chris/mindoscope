@@ -1,8 +1,20 @@
 <?php
+  // DEV Stuff
+  error_reporting(E_ALL);
+  ini_set("display_errors", 1);
+
   $visitedNodes = (isset($_GET["visited"]) && $_GET["visited"] != "" ? "checked" : null );
   $labels = (isset($_GET["labels"]) && $_GET["labels"] != "" ? "checked" : null );
   $tooltips = (isset($_GET["tooltips"]) && $_GET["tooltips"] != "" ? "checked" : null );
   $zoom = (isset($_GET["zoom"]) && $_GET["zoom"] != "" ? $_GET["zoom"] : 750 );
+
+  // Detect mobile devices
+  require_once 'vendors/mobile-detect/Mobile_Detect.php';
+  $detect = new Mobile_Detect;
+
+  // Tooltips doesn't make sense on mobile touch devices.
+  if($detect->isMobile()) $tooltips = "checked";
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -164,8 +176,6 @@
       $url = $_SERVER['REQUEST_URI'];
       $urlEnd = end((explode('/', rtrim($url, '/'))));;
       $hash = strtok($urlEnd,'?');
-
-      echo $hash. ' '.$urlEnd;
 
       $fileURL = $cachePath.$hash.'.json';
 

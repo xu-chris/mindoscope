@@ -10,3 +10,6 @@
 [submodule "vendors/dropzone"]
 	path = vendors/dropzone
 	url = https://github.com/enyo/dropzone
+[submodule "vendors/mobile-detect"]
+	path = vendors/mobile-detect
+	url = https://github.com/serbanghita/Mobile-Detect

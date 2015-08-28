@@ -525,6 +525,8 @@ function buildMindmap(hash, zoomDuration) {
    * Sets the size of the visualization and of every single UI element
    */
   function setSize() {
+    // Disable overflow scrolling hack
+    d3.select('body').style('position', 'relative');
     // update variables
     width  = document.getElementById(container).offsetWidth;
     height = document.getElementById(container).offsetHeight;
@@ -543,7 +545,8 @@ function buildMindmap(hash, zoomDuration) {
       .select('svg')
         .select('g')
           .attr('transform', 'translate('+(width/2)+','+((height/2)+(margin/2))+')'); // centering
-
+    // Apply overflow scrolling hack for iOS
+    d3.select('body').style('position', 'fixed');
   }
 
 
@@ -772,10 +775,16 @@ function buildMindmap(hash, zoomDuration) {
         handleSearchInput(searchterm);
       });
 
+    // Prevent Zooming to input field
+    d3.selectAll('input')
+      .on("focus", function() {
+        d3.event.preventDefault();
+      });
+
     // Option: hide visited nodes
     d3.select("#hideVisited")
       .on("change", function() {
-        optionVisited(this.checked);
+        optionHideVisited(this.checked);
       });
 
     d3.select("#hideLabels")
@@ -795,7 +804,7 @@ function buildMindmap(hash, zoomDuration) {
         d3.select('#zoomDurationOutput').classed('active', false);
       })
       .on("change", function() {
-        setZoomDuration(this.value);
+        optionSetZoomDuration(this.value);
       })
 
     /**
@@ -824,7 +833,7 @@ function buildMindmap(hash, zoomDuration) {
 
     // Register the nodes
     node = svg.selectAll("circle,text");
-    
+
     // Set options
     optionHideVisited(d3.select("#hideVisited").node().checked);
     optionHideLabels(d3.select("#hideLabels").node().checked);

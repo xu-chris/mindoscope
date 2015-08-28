@@ -10,10 +10,10 @@ $thumb-border-color: white;
 $track-width: 100%;
 $track-height: 5px;
 $track-border-width: 0;
-$track-border-color: black;
+$track-border-color: transparent;
 
 $track-radius: 5px;
-$contrast: 5%;
+$contrast: 10%;
 
 
 @mixin track {
@@ -57,7 +57,7 @@ input[type=range] {
   }
 
   &:focus::-webkit-slider-runnable-track {
-    background: lighten($track-color, $contrast);
+    background: $track-color;
   }
 
   &::-moz-range-track {
@@ -79,13 +79,11 @@ input[type=range] {
   }
 
   &::-ms-fill-lower {
-    background: darken($track-color, $contrast);
-    border: $track-border-width solid $track-border-color;
+    background: $track-color;
     border-radius: $track-radius*2;
   }
   &::-ms-fill-upper {
     background: $track-color;
-    border: $track-border-width solid $track-border-color;
     border-radius: $track-radius*2;
   }
   &::-ms-thumb {
@@ -95,7 +93,7 @@ input[type=range] {
     background: $track-color;
   }
   &:focus::-ms-fill-upper {
-    background: lighten($track-color, $contrast);
+    background: $track-color;
   }
 }
 

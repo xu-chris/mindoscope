@@ -6149,7 +6149,7 @@ input[type=range] {
     animate: 0.2s;
     background: #d7d7d7;
     border-radius: 5px;
-    border: 0 solid black; }
+    border: 0 solid transparent; }
   input[type=range]::-webkit-slider-thumb {
     border: 0 solid white;
     height: 20px;
@@ -6160,7 +6160,7 @@ input[type=range] {
     -webkit-appearance: none;
     margin-top: -7.5px; }
   input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #e3e3e3; }
+    background: #d7d7d7; }
   input[type=range]::-moz-range-track {
     width: 100%;
     height: 5px;
@@ -6168,7 +6168,7 @@ input[type=range] {
     animate: 0.2s;
     background: #d7d7d7;
     border-radius: 5px;
-    border: 0 solid black; }
+    border: 0 solid transparent; }
   input[type=range]::-moz-range-thumb {
     border: 0 solid white;
     height: 20px;
@@ -6186,12 +6186,10 @@ input[type=range] {
     border-width: 20px 0;
     color: transparent; }
   input[type=range]::-ms-fill-lower {
-    background: #cacaca;
-    border: 0 solid black;
+    background: #d7d7d7;
     border-radius: 10px; }
   input[type=range]::-ms-fill-upper {
     background: #d7d7d7;
-    border: 0 solid black;
     border-radius: 10px; }
   input[type=range]::-ms-thumb {
     border: 0 solid white;
@@ -6203,7 +6201,7 @@ input[type=range] {
   input[type=range]:focus::-ms-fill-lower {
     background: #d7d7d7; }
   input[type=range]:focus::-ms-fill-upper {
-    background: #e3e3e3; }
+    background: #d7d7d7; }
 
 output {
   background: #d7d7d7;
@@ -6423,6 +6421,7 @@ output {
 
 #sidebar {
   position: absolute;
+  overflow: hidden;
   background: #f3f3f3;
   -webkit-transition: 200ms ease-out all;
   -moz-transition: 200ms ease-out all;
@@ -6543,17 +6542,18 @@ output {
         width: 100%; }
         #sidebar .content #settings .option .range-field {
           position: relative;
-          margin: 10px 0; }
+          margin: 10px 0;
+          height: 22px; }
         #sidebar .content #settings .option input[type=range] {
           width: 175px;
           display: inline-block; }
         #sidebar .content #settings .option output {
           right: 0;
-          bottom: 0;
-          margin-bottom: -4.5px; }
+          top: 0;
+          margin-top: 0.5px; }
 @-moz-document url-prefix() {
   #sidebar .content #settings .option output {
-    margin-bottom: 1.5px; } }
+    margin-top: -2.5px; } }
           #sidebar .content #settings .option output:before {
             right: 52px; }
       #sidebar .content #settings .heading {
@@ -6784,7 +6784,9 @@ output {
 
 #mindmap {
   display: none;
-  height: 100%; }
+  height: 100%;
+  width: 100%;
+  overflow: hidden; }
   #mindmap #content {
     width: 100%;
     height: 100%;
