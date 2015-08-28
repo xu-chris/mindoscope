@@ -1,3 +1,9 @@
+<?php
+  $visitedNodes = (isset($_GET["visited"]) && $_GET["visited"] != "" ? "checked" : null );
+  $labels = (isset($_GET["labels"]) && $_GET["labels"] != "" ? "checked" : null );
+  $tooltips = (isset($_GET["tooltips"]) && $_GET["tooltips"] != "" ? "checked" : null );
+  $zoom = (isset($_GET["zoom"]) && $_GET["zoom"] != "" ? $_GET["zoom"] : 750 );
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -34,11 +40,9 @@
     <link rel="apple-touch-icon-precomposed" sizes="152x152" href="assets/img/app-icons/AppIcon76x76@2x.png">
 
     <link rel='stylesheet' href='assets/css/base.css'>
-    <link type="text/css" rel="stylesheet" href="vendors/d3/lib/colorbrewer/colorbrewer.css"/>
-    <script type="text/javascript" src="vendors/d3/lib/colorbrewer/colorbrewer.js"></script>
     <script type="text/javascript" src="vendors/d3/d3.min.js"></script>
     <script src="vendors/d3-tip/index.js"></script>
-    <script type="text/javascript" src="assets/scripts/venn.js"></script>
+    <script type="text/javascript" src="assets/scripts/venn.min.js"></script>
 
     <link href="vendors/dropzone/dist/min/dropzone.min.css" type="text/css" rel="stylesheet" />
 
@@ -111,19 +115,19 @@
           <div id="settings">
             <div class="heading">General</div>
             <label class="option" type="switch" value="false" for="hideVisited">
-              <input class="tgl" id="hideVisited" name="showinhero" type="checkbox">
+              <input class="tgl" id="hideVisited" name="hideVisited" type="checkbox" <?php echo $visitedNodes ?>>
               <label class="tgl-btn" for="hideVisited"></label>
               Hide visited nodes
             </label>
 
             <label class="option" type="switch" value="false" for="hideLabels">
-              <input class="tgl" id="hideLabels" name="hideLabels" type="checkbox">
+              <input class="tgl" id="hideLabels" name="hideLabels" type="checkbox" <?php echo $labels ?>>
               <label class="tgl-btn" for="hideLabels"></label>
               Hide Labels
             </label>
 
             <label class="option" type="switch" value="false" for="disableTooltip">
-              <input class="tgl" id="disableTooltip" name="disableTooltip" type="checkbox">
+              <input class="tgl" id="disableTooltip" name="disableTooltip" type="checkbox" <?php echo $tooltips ?>>
               <label class="tgl-btn" for="disableTooltip"></label>
               Disable tooltips
             </label>
@@ -131,8 +135,8 @@
             <form  class="option" onsubmit="return false" oninput="level.value = zoomDurationLevel.valueAsNumber + ' ms'">
               <div>Zoom duration time:</div>
               <div class="range-field">
-                <input type="range" id="zoomDuration" name="zoomDurationLevel" min="0" max="1500" value="750" />
-                <output for="zoomDuration" name="level" id="zoomDurationOutput">750 ms</output>
+                <input type="range" id="zoomDuration" name="zoomDurationLevel" min="0" max="1500" value="<?php echo $zoom ?>" />
+                <output for="zoomDuration" name="level" id="zoomDurationOutput"><?php echo $zoom ?> ms</output>
               </div>
             </form>
            </div>
@@ -157,13 +161,17 @@
       $cachePath   = 'content/';
       $enableCache = true;
 
-      $uri = explode('?', ltrim($_SERVER['REQUEST_URI'],"/"), 2)[0];
+      $url = $_SERVER['REQUEST_URI'];
+      $urlEnd = end((explode('/', rtrim($url, '/'))));;
+      $hash = strtok($urlEnd,'?');
 
-      $fileURL = $cachePath.$uri.'.json';
+      echo $hash. ' '.$urlEnd;
 
-      if ($uri != "" && file_exists($fileURL) && $enableCache) {
+      $fileURL = $cachePath.$hash.'.json';
+
+      if ($hash != "" && file_exists($fileURL) && $enableCache) {
         echo '<script>
-            buildMindmap("'.$uri.'");
+            buildMindmap("'.$hash.'", '.$zoom.');
           </script>';
       }
 

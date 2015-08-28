@@ -1,6 +1,6 @@
 /*global d3:false*/
 
-function buildMindmap(hash) {
+function buildMindmap(hash, zoomDuration) {
   'use strict';
 
   d3.select('#upload').style('display', 'none');
@@ -19,8 +19,7 @@ function buildMindmap(hash) {
       width       = document.getElementById(container).offsetWidth,
       height      = document.getElementById(container).offsetHeight,
       maxNodeSize = 1000, // The standard size of a node. Will be used to calc the node size
-      title       = "Mind-o-scope",
-      zoomDuration = 750;
+      title       = "Mind-o-scope";
   ;
 
 
@@ -166,6 +165,38 @@ function buildMindmap(hash) {
        s_ = useWordBoundary && toLong ? s_.substr(0,s_.lastIndexOf(' ')) : s_;
        return  toLong ? s_ + '…' : s_;
     };
+
+  /**
+   * http://stackoverflow.com/a/13064060
+   */
+  function setGetParameter(paramName, paramValue)
+  {
+    var url = window.location.href;
+    if (url.indexOf(paramName + "=") >= 0)
+    {
+      var prefix = url.substring(0, url.indexOf(paramName));
+      var suffix = url.substring(url.indexOf(paramName));
+      suffix = suffix.substring(suffix.indexOf("=") + 1);
+      suffix = (suffix.indexOf("&") >= 0) ? suffix.substring(suffix.indexOf("&")) : "";
+      url = prefix + paramName + "=" + paramValue + suffix;
+    }
+    else
+    {
+    if (url.indexOf("?") < 0)
+      url += "?" + paramName + "=" + paramValue;
+    else
+      url += "&" + paramName + "=" + paramValue;
+    }
+    updateURL(url);
+  }
+
+  function updateURL(url) {
+    history.pushState('', title, url);
+
+    document.getElementById("shareURL").value = url;
+    // set the title of the document (for browser history)
+    document.title = title;
+  }
 
   /*=====  End of CALCULATION FUNCTIONS  ======*/
 
@@ -382,6 +413,7 @@ function buildMindmap(hash) {
     }
     else {
       isSidebarOpen = false;
+      closeSettings();
       d3.select('#search').node().blur();
     }
   }
@@ -394,6 +426,7 @@ function buildMindmap(hash) {
     $sidebar.classed("show", false);
     isSidebarOpen = false;
     d3.select('#search').node().blur();
+    closeSettings();
   }
 
 
@@ -401,12 +434,20 @@ function buildMindmap(hash) {
    * Shows and hides the settings pane
    */
   function toggleSettings() {
-    var nodeListElement = '#nodelist';
     var settingsElement = '#settings';
     var settingsButton = "#openSettings"
-    $sidebar.select(nodeListElement).classed("show", !$sidebar.select(nodeListElement).classed("show"));
     $sidebar.select(settingsElement).classed("show", !$sidebar.select(settingsElement).classed("show"));
     $sidebar.select(settingsButton).classed("active", !$sidebar.select(settingsButton).classed("active"));
+  }
+
+  /**
+   * Closes the settings pane
+   */
+  function closeSettings() {
+    var settingsElement = '#settings';
+    var settingsButton = "#openSettings"
+    $sidebar.select(settingsElement).classed("show", false);
+    $sidebar.select(settingsButton).classed("active", false);
   }
 
 
@@ -454,8 +495,24 @@ function buildMindmap(hash) {
     }
   }
 
-  function setZoomDuration(duration) {
+  function optionSetZoomDuration(duration) {
+    setGetParameter("zoom",duration)
     zoomDuration = duration;
+  }
+
+  function optionHideVisited(hide) {
+    setGetParameter("visited",(hide ? "y" : ""))
+    d3.select('body').classed('hide-visited',hide);
+  }
+
+  function optionHideLabels(hide) {
+    setGetParameter("labels",(hide ? "y" : ""))
+    d3.select('body').classed('hide-labels',hide);
+  }
+
+  function optionHideTooltips(hide) {
+    setGetParameter("tooltips",(hide ? "y" : ""))
+    d3.select('body').classed('hide-tooltip',hide);
   }
 
   /*=====  End of INTERACTION ACTION FUNCTIONS  ======*/
@@ -718,26 +775,23 @@ function buildMindmap(hash) {
     // Option: hide visited nodes
     d3.select("#hideVisited")
       .on("change", function() {
-        var hide = this.checked ? true : false;
-        d3.select('body').classed('hide-visited',hide);
+        optionVisited(this.checked);
       });
 
     d3.select("#hideLabels")
       .on("change", function() {
-        var hide = this.checked ? true : false;
-        d3.select('body').classed('hide-labels',hide);
+        optionHideLabels(this.checked);
       });
     d3.select("#disableTooltip")
       .on("change", function() {
-        var hide = this.checked ? true : false;
-        d3.select('body').classed('hide-tooltip',hide);
+        optionHideTooltips(this.checked);
       });
 
     d3.select('#zoomDuration')
-      .on("mousedown", function() {
+      .on("mousedown touchstart", function() {
         d3.select('#zoomDurationOutput').classed('active', true);
       })
-      .on("mouseout", function() {
+      .on("mouseout touchend", function() {
         d3.select('#zoomDurationOutput').classed('active', false);
       })
       .on("change", function() {
@@ -770,17 +824,21 @@ function buildMindmap(hash) {
 
     // Register the nodes
     node = svg.selectAll("circle,text");
+    
+    // Set options
+    optionHideVisited(d3.select("#hideVisited").node().checked);
+    optionHideLabels(d3.select("#hideLabels").node().checked);
+    optionHideTooltips(d3.select("#disableTooltip").node().checked);
 
     // Set initial zoom to root
     zoomTo([root.x, root.y, root.r * 2 + margin]);
     setPath(root);
 
     // set the URL to the found hash value
-    history.pushState('', root.name, "/"+hash);
-
-    document.getElementById("shareURL").value = window.location.href;
-    // set the title of the document (for browser history)
-    document.title = root.name + ' | '+title;
+    var url = window.location.href;
+    var newURL = url.substring(0,url.lastIndexOf("/"))+"/"+hash+location.search;
+    title = root.name+' | '+title;
+    updateURL(newURL);
   });
 
   /*=====  End of READ DATA AND BUILD VISUALIZATION  ======*/
