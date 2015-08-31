@@ -1,6 +1,6 @@
 #sidebar {
   $box-shadow: 30px;
-  $width: 250px;
+  $width: 300px;
   position: absolute;
   overflow: hidden;
   background: #f3f3f3;
@@ -17,10 +17,10 @@
   &.show {
     @include transform(translateX(0));
   }
-  header {
+  > header {
     max-height: 50px;
     background: white;
-    padding: 5px $padding;
+    padding: 7px $padding;
   }
 
   .searchbar {
@@ -35,41 +35,17 @@
     }
   }
 
+  &.visibleSettings {
+    footer {
+      border-color: #fff;
+    }
+  }
+
   .content {
     position: relative;
     z-index: 99;
     width: 100%;
     overflow: hidden;
-
-    #nodelist {
-      background: #fff;
-      .listitem {
-        padding: $padding;
-        position: relative;
-        margin-bottom: 1px;
-        cursor: pointer;
-        font-size: 13px;
-        @include transition(box-shadow 100ms ease-out);
-        &:hover {
-          background: #fff !important;
-          z-index: 9999;
-        }
-
-        &.active {
-          background: #BDDBFB !important;
-        }
-
-        &.hide {
-          display: none;
-        }
-      }
-      &.show {
-        display: block;
-      }
-      &.hide {
-        display: none;
-      }
-    }
 
     #settings {
       background: $grey;
@@ -83,11 +59,26 @@
       @include transition(top 200ms ease-out);
       @include slideOutDown($duration: 300ms);
       z-index: 999;
-      .option {
+
+      .optionbottom {
+        border-top: 1px solid darken($grey, 10%);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 0 $padding;
+        background: #fff;
+      }
+
+      .option[type="switch"], .option.range {
         display: block;
         height: 25px;
         position: relative;
         width: 100%;
+
+        &.range {
+          margin-bottom: 45px !important;
+        }
 
         .range-field {
           position: relative;
@@ -96,7 +87,7 @@
         }
 
         input[type=range] {
-          width: 175px;
+          width: 222px;
           display: inline-block;
         }
         output {
@@ -136,7 +127,7 @@
       color: #ccc;
     }
     input {
-      width: 85%;
+      width: 245px;
     }
     max-height: 50px;
     background: white;
@@ -144,6 +135,8 @@
     z-index: 999;
     position: relative;
     border-top: 1px solid #ccc;
+
+    @include transition(border-color 300ms ease-out);
 
     .icon-cog {
       width: 30px;

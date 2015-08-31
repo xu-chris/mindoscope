@@ -1,11 +1,30 @@
-.button, button {
-  border: 2px solid rgba(0,0,0,.1);
+input[type=button], input[type=submit], button, .button {
+  border: 1px solid rgba(0,0,0,.1);
   color: #000;
   //fpadding: 4px 10px;
   background: rgba(0, 0, 0, .09);
   border-radius: 5px;
-  cursor: pointer;
   font-size: $font-size-small;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-decoration: none;
+  display: inline-block;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  line-height: 1;
+  @include user-select();
+
+  height: 25px;
+
+  &:before {
+    @include box-sizing(border-box);
+  }
+  &:after {
+    @include box-sizing(border-box);
+  }
 
   &:hover:not(:disabled) {
     background: #fff;

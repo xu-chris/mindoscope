@@ -186,7 +186,7 @@ th {
 /* No files to import found in * */
 /* Mixin: font size calculation */
 /* Mixin: font-smoothing */
-.icon, .icon-adjust:before, .icon-adn:before, .icon-align-center:before, .icon-align-justify:before, .icon-align-left:before, .icon-align-right:before, .icon-ambulance:before, .icon-anchor:before, .icon-android:before, .icon-angellist:before, .icon-angle-double-down:before, .icon-angle-double-left:before, .icon-angle-double-right:before, .icon-angle-double-up:before, .icon-angle-down:before, .icon-angle-left:before, .icon-angle-right:before, #path .divider:before, .icon-angle-up:before, .icon-apple:before, .icon-archive:before, .icon-area-chart:before, .icon-arrow-circle-down:before, .icon-arrow-circle-left:before, .icon-arrow-circle-o-down:before, .icon-arrow-circle-o-left:before, .icon-arrow-circle-o-right:before, .icon-arrow-circle-o-up:before, .icon-arrow-circle-right:before, .icon-arrow-circle-up:before, .icon-arrow-down:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-arrow-up:before, .icon-arrows:before, .icon-arrows-alt:before, .icon-arrows-h:before, .icon-arrows-v:before, .icon-asterisk:before, .icon-at:before, .icon-automobile:before, .icon-backward:before, .icon-ban:before, .icon-bank:before, .icon-bar-chart:before, .icon-bar-chart-o:before, .icon-barcode:before, .icon-bars:before, .icon-bed:before, .icon-beer:before, .icon-behance:before, .icon-behance-square:before, .icon-bell:before, .icon-bell-o:before, .icon-bell-slash:before, .icon-bell-slash-o:before, .icon-bicycle:before, .icon-binoculars:before, .icon-birthday-cake:before, .icon-bitbucket:before, .icon-bitbucket-square:before, .icon-bitcoin:before, .icon-bold:before, .icon-bolt:before, .icon-bomb:before, .icon-book:before, .icon-bookmark:before, .icon-bookmark-o:before, .icon-briefcase:before, .icon-btc:before, .icon-bug:before, .icon-building:before, .icon-building-o:before, .icon-bullhorn:before, .icon-bullseye:before, .icon-bus:before, .icon-buysellads:before, .icon-cab:before, .icon-calculator:before, .icon-calendar:before, .icon-calendar-o:before, .icon-camera:before, .icon-camera-retro:before, .icon-car:before, .icon-caret-down:before, .icon-caret-left:before, .icon-caret-right:before, .icon-caret-square-o-down:before, .icon-caret-square-o-left:before, .icon-caret-square-o-right:before, .icon-caret-square-o-up:before, .icon-caret-up:before, .icon-cart-arrow-down:before, .icon-cart-plus:before, .icon-cc:before, .icon-cc-amex:before, .icon-cc-discover:before, .icon-cc-mastercard:before, .icon-cc-paypal:before, .icon-cc-stripe:before, .icon-cc-visa:before, .icon-certificate:before, .icon-chain:before, .icon-chain-broken:before, .icon-check:before, .icon-check-circle:before, .icon-check-circle-o:before, .icon-check-square:before, .icon-check-square-o:before, .icon-chevron-circle-down:before, .icon-chevron-circle-left:before, .icon-chevron-circle-right:before, .icon-chevron-circle-up:before, .icon-chevron-down:before, .icon-chevron-left:before, .icon-chevron-right:before, .icon-chevron-up:before, .icon-child:before, .icon-circle:before, .icon-circle-o:before, .icon-circle-o-notch:before, .icon-circle-thin:before, .icon-clipboard:before, .icon-clock-o:before, .icon-close:before, #mindmap #searchterm:hover:before, .icon-cloud:before, .icon-cloud-download:before, .icon-cloud-upload:before, .icon-cny:before, .icon-code:before, .icon-code-fork:before, .icon-codepen:before, .icon-coffee:before, .icon-cog:before, .icon-cogs:before, .icon-columns:before, .icon-comment:before, .icon-comment-o:before, .icon-comments:before, .icon-comments-o:before, .icon-compass:before, .icon-compress:before, .icon-connectdevelop:before, .icon-copy:before, .icon-copyright:before, .icon-credit-card:before, .icon-crop:before, .icon-crosshairs:before, .icon-css3:before, .icon-cube:before, .icon-cubes:before, .icon-cut:before, .icon-cutlery:before, .icon-dashboard:before, .icon-dashcube:before, .icon-database:before, .icon-dedent:before, .icon-delicious:before, .icon-desktop:before, .icon-deviantart:before, .icon-diamond:before, .icon-digg:before, .icon-dollar:before, .icon-dot-circle-o:before, .icon-download:before, .icon-dribbble:before, .icon-dropbox:before, .icon-drupal:before, .icon-edit:before, .icon-eject:before, .icon-ellipsis-h:before, .icon-ellipsis-v:before, .icon-empire:before, .icon-envelope:before, .icon-envelope-o:before, .icon-envelope-square:before, .icon-eraser:before, .icon-eur:before, .icon-euro:before, .icon-exchange:before, .icon-exclamation:before, .icon-exclamation-circle:before, .icon-exclamation-triangle:before, .icon-expand:before, .icon-external-link:before, .icon-external-link-square:before, .icon-eye:before, .icon-eye-slash:before, .icon-eyedropper:before, .icon-facebook:before, .icon-facebook-f:before, .icon-facebook-official:before, .icon-facebook-square:before, .icon-fast-backward:before, .icon-fast-forward:before, .icon-fax:before, .icon-female:before, .icon-fighter-jet:before, .icon-file:before, .icon-file-archive-o:before, .icon-file-audio-o:before, .icon-file-code-o:before, .icon-file-excel-o:before, .icon-file-image-o:before, .icon-file-movie-o:before, .icon-file-o:before, .icon-file-pdf-o:before, .icon-file-photo-o:before, .icon-file-picture-o:before, .icon-file-powerpoint-o:before, .icon-file-sound-o:before, .icon-file-text:before, .icon-file-text-o:before, .icon-file-video-o:before, .icon-file-word-o:before, .icon-file-zip-o:before, .icon-files-o:before, .icon-film:before, .icon-filter:before, .icon-fire:before, .icon-fire-extinguisher:before, .icon-flag:before, .icon-flag-checkered:before, .icon-flag-o:before, .icon-flash:before, .icon-flask:before, .icon-flickr:before, .icon-floppy-o:before, .icon-folder:before, .icon-folder-o:before, .icon-folder-open:before, .icon-folder-open-o:before, .icon-font:before, .icon-forumbee:before, .icon-forward:before, .icon-foursquare:before, .icon-frown-o:before, .icon-futbol-o:before, .icon-gamepad:before, .icon-gavel:before, .icon-gbp:before, .icon-ge:before, .icon-gear:before, .icon-gears:before, .icon-genderless:before, .icon-gift:before, .icon-git:before, .icon-git-square:before, .icon-github:before, .icon-github-alt:before, .icon-github-square:before, .icon-gittip:before, .icon-glass:before, .icon-globe:before, .icon-google:before, .icon-google-plus:before, .icon-google-plus-square:before, .icon-google-wallet:before, .icon-graduation-cap:before, .icon-gratipay:before, .icon-group:before, .icon-h-square:before, .icon-hacker-news:before, .icon-hand-o-down:before, .icon-hand-o-left:before, .icon-hand-o-right:before, .icon-hand-o-up:before, .icon-hdd-o:before, .icon-header:before, .icon-headphones:before, .icon-heart:before, .icon-heart-o:before, .icon-heartbeat:before, .icon-history:before, .icon-home:before, .icon-hospital-o:before, .icon-hotel:before, .icon-html5:before, .icon-ils:before, .icon-image:before, .icon-inbox:before, .icon-indent:before, .icon-info:before, .icon-info-circle:before, .icon-inr:before, .icon-instagram:before, .icon-institution:before, .icon-ioxhost:before, .icon-italic:before, .icon-joomla:before, .icon-jpy:before, .icon-jsfiddle:before, .icon-key:before, .icon-keyboard-o:before, .icon-krw:before, .icon-language:before, .icon-laptop:before, .icon-lastfm:before, .icon-lastfm-square:before, .icon-leaf:before, .icon-leanpub:before, .icon-legal:before, .icon-lemon-o:before, .icon-level-down:before, .icon-level-up:before, .icon-life-bouy:before, .icon-life-buoy:before, .icon-life-ring:before, .icon-life-saver:before, .icon-lightbulb-o:before, .icon-line-chart:before, .icon-link:before, .icon-linkedin:before, .icon-linkedin-square:before, .icon-linux:before, .icon-list:before, .icon-list-alt:before, .icon-list-ol:before, .icon-list-ul:before, .icon-location-arrow:before, .icon-lock:before, .icon-long-arrow-down:before, .icon-long-arrow-left:before, .icon-long-arrow-right:before, .icon-long-arrow-up:before, .icon-magic:before, .icon-magnet:before, .icon-mail-forward:before, .icon-mail-reply:before, .icon-mail-reply-all:before, .icon-male:before, .icon-map-marker:before, .icon-mars:before, .icon-mars-double:before, .icon-mars-stroke:before, .icon-mars-stroke-h:before, .icon-mars-stroke-v:before, .icon-maxcdn:before, .icon-meanpath:before, .icon-medium:before, .icon-medkit:before, .icon-meh-o:before, .icon-mercury:before, .icon-microphone:before, .icon-microphone-slash:before, .icon-minus:before, .icon-minus-circle:before, .icon-minus-square:before, .icon-minus-square-o:before, .icon-mobile:before, .icon-mobile-phone:before, .icon-money:before, .icon-moon-o:before, .icon-mortar-board:before, .icon-motorcycle:before, .icon-music:before, .icon-navicon:before, .icon-neuter:before, .icon-newspaper-o:before, .icon-openid:before, .icon-outdent:before, .icon-pagelines:before, .icon-paint-brush:before, .icon-paper-plane:before, .icon-paper-plane-o:before, .icon-paperclip:before, .icon-paragraph:before, .icon-paste:before, .icon-pause:before, .icon-paw:before, .icon-paypal:before, .icon-pencil:before, .icon-pencil-square:before, .icon-pencil-square-o:before, .icon-phone:before, .icon-phone-square:before, .icon-photo:before, .icon-picture-o:before, .icon-pie-chart:before, .icon-pied-piper:before, .icon-pied-piper-alt:before, .icon-pinterest:before, .icon-pinterest-p:before, .icon-pinterest-square:before, .icon-plane:before, .icon-play:before, .icon-play-circle:before, .icon-play-circle-o:before, .icon-plug:before, .icon-plus:before, .icon-plus-circle:before, .icon-plus-square:before, .icon-plus-square-o:before, .icon-power-off:before, .icon-print:before, .icon-puzzle-piece:before, .icon-qq:before, .icon-qrcode:before, .icon-question:before, .icon-question-circle:before, .icon-quote-left:before, .icon-quote-right:before, .icon-ra:before, .icon-random:before, .icon-rebel:before, .icon-recycle:before, .icon-reddit:before, .icon-reddit-square:before, .icon-refresh:before, .icon-remove:before, .icon-renren:before, .icon-reorder:before, .icon-repeat:before, .icon-reply:before, .icon-reply-all:before, .icon-retweet:before, .icon-rmb:before, .icon-road:before, .icon-rocket:before, .icon-rotate-left:before, .icon-rotate-right:before, .icon-rouble:before, .icon-rss:before, .icon-rss-square:before, .icon-rub:before, .icon-ruble:before, .icon-rupee:before, .icon-save:before, .icon-scissors:before, .icon-search:before, #mindmap #searchterm:before, .icon-search-minus:before, .icon-search-plus:before, .icon-sellsy:before, .icon-send:before, .icon-send-o:before, .icon-server:before, .icon-share:before, .icon-share-alt:before, .icon-share-alt-square:before, .icon-share-square:before, .icon-share-square-o:before, .icon-shekel:before, .icon-sheqel:before, .icon-shield:before, .icon-ship:before, .icon-shirtsinbulk:before, .icon-shopping-cart:before, .icon-sign-in:before, .icon-sign-out:before, .icon-signal:before, .icon-simplybuilt:before, .icon-sitemap:before, .icon-skyatlas:before, .icon-skype:before, .icon-slack:before, .icon-sliders:before, .icon-slideshare:before, .icon-smile-o:before, .icon-soccer-ball-o:before, .icon-sort:before, .icon-sort-alpha-asc:before, .icon-sort-alpha-desc:before, .icon-sort-amount-asc:before, .icon-sort-amount-desc:before, .icon-sort-asc:before, .icon-sort-desc:before, .icon-sort-down:before, .icon-sort-numeric-asc:before, .icon-sort-numeric-desc:before, .icon-sort-up:before, .icon-soundcloud:before, .icon-space-shuttle:before, .icon-spinner:before, .icon-spoon:before, .icon-spotify:before, .icon-square:before, .icon-square-o:before, .icon-stack-exchange:before, .icon-stack-overflow:before, .icon-star:before, .icon-star-half:before, .icon-star-half-empty:before, .icon-star-half-full:before, .icon-star-half-o:before, .icon-star-o:before, .icon-steam:before, .icon-steam-square:before, .icon-step-backward:before, .icon-step-forward:before, .icon-stethoscope:before, .icon-stop:before, .icon-street-view:before, .icon-strikethrough:before, .icon-stumbleupon:before, .icon-stumbleupon-circle:before, .icon-subscript:before, .icon-subway:before, .icon-suitcase:before, .icon-sun-o:before, .icon-superscript:before, .icon-support:before, .icon-table:before, .icon-tablet:before, .icon-tachometer:before, .icon-tag:before, .icon-tags:before, .icon-tasks:before, .icon-taxi:before, .icon-tencent-weibo:before, .icon-terminal:before, .icon-text-height:before, .icon-text-width:before, .icon-th:before, .icon-th-large:before, .icon-th-list:before, .icon-thumb-tack:before, .icon-thumbs-down:before, .icon-thumbs-o-down:before, .icon-thumbs-o-up:before, .icon-thumbs-up:before, .icon-ticket:before, .icon-times:before, .icon-times-circle:before, .icon-times-circle-o:before, .icon-tint:before, .icon-toggle-down:before, .icon-toggle-left:before, .icon-toggle-off:before, .icon-toggle-on:before, .icon-toggle-right:before, .icon-toggle-up:before, .icon-train:before, .icon-transgender:before, .icon-transgender-alt:before, .icon-trash:before, .icon-trash-o:before, .icon-tree:before, .icon-trello:before, .icon-trophy:before, .icon-truck:before, .icon-try:before, .icon-tty:before, .icon-tumblr:before, .icon-tumblr-square:before, .icon-turkish-lira:before, .icon-twitch:before, .icon-twitter:before, .icon-twitter-square:before, .icon-umbrella:before, .icon-underline:before, .icon-undo:before, .icon-university:before, .icon-unlink:before, .icon-unlock:before, .icon-unlock-alt:before, .icon-unsorted:before, .icon-upload:before, .icon-usd:before, .icon-user:before, .icon-user-md:before, .icon-user-plus:before, .icon-user-secret:before, .icon-user-times:before, .icon-users:before, .icon-venus:before, .icon-venus-double:before, .icon-venus-mars:before, .icon-viacoin:before, .icon-video-camera:before, .icon-vimeo-square:before, .icon-vine:before, .icon-vk:before, .icon-volume-down:before, .icon-volume-off:before, .icon-volume-up:before, .icon-warning:before, .icon-wechat:before, .icon-weibo:before, .icon-weixin:before, .icon-whatsapp:before, .icon-wheelchair:before, .icon-wifi:before, .icon-windows:before, .icon-won:before, .icon-wordpress:before, .icon-wrench:before, .icon-xing:before, .icon-xing-square:before, .icon-yahoo:before, .icon-yelp:before, .icon-yen:before, .icon-youtube:before, .icon-youtube-play:before, .icon-youtube-square:before {
+.icon, .icon-adjust:before, .icon-adn:before, .icon-align-center:before, .icon-align-justify:before, .icon-align-left:before, .icon-align-right:before, .icon-ambulance:before, .icon-anchor:before, .icon-android:before, .icon-angellist:before, .icon-angle-double-down:before, .icon-angle-double-left:before, .icon-angle-double-right:before, .icon-angle-double-up:before, .icon-angle-down:before, .icon-angle-left:before, .icon-angle-right:before, #path .divider:before, .icon-angle-up:before, .icon-apple:before, .icon-archive:before, .icon-area-chart:before, .icon-arrow-circle-down:before, .icon-arrow-circle-left:before, .icon-arrow-circle-o-down:before, .icon-arrow-circle-o-left:before, .icon-arrow-circle-o-right:before, .icon-arrow-circle-o-up:before, .icon-arrow-circle-right:before, .icon-arrow-circle-up:before, .icon-arrow-down:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-arrow-up:before, .icon-arrows:before, .icon-arrows-alt:before, .icon-arrows-h:before, .icon-arrows-v:before, .icon-asterisk:before, .icon-at:before, .icon-automobile:before, .icon-backward:before, .icon-ban:before, .icon-bank:before, .icon-bar-chart:before, .icon-bar-chart-o:before, .icon-barcode:before, .icon-bars:before, .icon-bed:before, .icon-beer:before, .icon-behance:before, .icon-behance-square:before, .icon-bell:before, .icon-bell-o:before, .icon-bell-slash:before, .icon-bell-slash-o:before, .icon-bicycle:before, .icon-binoculars:before, .icon-birthday-cake:before, .icon-bitbucket:before, .icon-bitbucket-square:before, .icon-bitcoin:before, .icon-bold:before, .icon-bolt:before, .icon-bomb:before, .icon-book:before, .icon-bookmark:before, .icon-bookmark-o:before, .icon-briefcase:before, .icon-btc:before, .icon-bug:before, .icon-building:before, .icon-building-o:before, .icon-bullhorn:before, .icon-bullseye:before, .icon-bus:before, .icon-buysellads:before, .icon-cab:before, .icon-calculator:before, .icon-calendar:before, .icon-calendar-o:before, .icon-camera:before, .icon-camera-retro:before, .icon-car:before, .icon-caret-down:before, .icon-caret-left:before, .icon-caret-right:before, .icon-caret-square-o-down:before, .icon-caret-square-o-left:before, .icon-caret-square-o-right:before, .icon-caret-square-o-up:before, .icon-caret-up:before, .icon-cart-arrow-down:before, .icon-cart-plus:before, .icon-cc:before, .icon-cc-amex:before, .icon-cc-discover:before, .icon-cc-mastercard:before, .icon-cc-paypal:before, .icon-cc-stripe:before, .icon-cc-visa:before, .icon-certificate:before, .icon-chain:before, .icon-chain-broken:before, .icon-check:before, .icon-check-circle:before, .icon-check-circle-o:before, .icon-check-square:before, .icon-check-square-o:before, .icon-chevron-circle-down:before, .icon-chevron-circle-left:before, .icon-chevron-circle-right:before, .icon-chevron-circle-up:before, .icon-chevron-down:before, .icon-chevron-left:before, .icon-chevron-right:before, .icon-chevron-up:before, .icon-child:before, .icon-circle:before, #treelist .item span.value .point:before, .icon-circle-o:before, .icon-circle-o-notch:before, .icon-circle-thin:before, .icon-clipboard:before, .icon-clock-o:before, .icon-close:before, #mindmap #searchterm:hover:before, .icon-cloud:before, .icon-cloud-download:before, .icon-cloud-upload:before, .icon-cny:before, .icon-code:before, .icon-code-fork:before, .icon-codepen:before, .icon-coffee:before, .icon-cog:before, .icon-cogs:before, .icon-columns:before, .icon-comment:before, .icon-comment-o:before, .icon-comments:before, .icon-comments-o:before, .icon-compass:before, .icon-compress:before, .icon-connectdevelop:before, .icon-copy:before, .icon-copyright:before, .icon-credit-card:before, .icon-crop:before, .icon-crosshairs:before, .icon-css3:before, .icon-cube:before, .icon-cubes:before, .icon-cut:before, .icon-cutlery:before, .icon-dashboard:before, .icon-dashcube:before, .icon-database:before, .icon-dedent:before, .icon-delicious:before, .icon-desktop:before, .icon-deviantart:before, .icon-diamond:before, .icon-digg:before, .icon-dollar:before, .icon-dot-circle-o:before, .icon-download:before, .icon-dribbble:before, .icon-dropbox:before, .icon-drupal:before, .icon-edit:before, .icon-eject:before, .icon-ellipsis-h:before, .icon-ellipsis-v:before, .icon-empire:before, .icon-envelope:before, .icon-envelope-o:before, .icon-envelope-square:before, .icon-eraser:before, .icon-eur:before, .icon-euro:before, .icon-exchange:before, .icon-exclamation:before, .icon-exclamation-circle:before, .icon-exclamation-triangle:before, .icon-expand:before, .icon-external-link:before, .icon-external-link-square:before, .icon-eye:before, .icon-eye-slash:before, .icon-eyedropper:before, .icon-facebook:before, .icon-facebook-f:before, .icon-facebook-official:before, .icon-facebook-square:before, .icon-fast-backward:before, .icon-fast-forward:before, .icon-fax:before, .icon-female:before, .icon-fighter-jet:before, .icon-file:before, .icon-file-archive-o:before, .icon-file-audio-o:before, .icon-file-code-o:before, .icon-file-excel-o:before, .icon-file-image-o:before, .icon-file-movie-o:before, .icon-file-o:before, .icon-file-pdf-o:before, .icon-file-photo-o:before, .icon-file-picture-o:before, .icon-file-powerpoint-o:before, .icon-file-sound-o:before, .icon-file-text:before, .icon-file-text-o:before, .icon-file-video-o:before, .icon-file-word-o:before, .icon-file-zip-o:before, .icon-files-o:before, .icon-film:before, .icon-filter:before, .icon-fire:before, .icon-fire-extinguisher:before, .icon-flag:before, .icon-flag-checkered:before, .icon-flag-o:before, .icon-flash:before, .icon-flask:before, .icon-flickr:before, .icon-floppy-o:before, .icon-folder:before, .icon-folder-o:before, .icon-folder-open:before, .icon-folder-open-o:before, .icon-font:before, .icon-forumbee:before, .icon-forward:before, .icon-foursquare:before, .icon-frown-o:before, .icon-futbol-o:before, .icon-gamepad:before, .icon-gavel:before, .icon-gbp:before, .icon-ge:before, .icon-gear:before, .icon-gears:before, .icon-genderless:before, .icon-gift:before, .icon-git:before, .icon-git-square:before, .icon-github:before, .icon-github-alt:before, .icon-github-square:before, .icon-gittip:before, .icon-glass:before, .icon-globe:before, .icon-google:before, .icon-google-plus:before, .icon-google-plus-square:before, .icon-google-wallet:before, .icon-graduation-cap:before, .icon-gratipay:before, .icon-group:before, .icon-h-square:before, .icon-hacker-news:before, .icon-hand-o-down:before, .icon-hand-o-left:before, .icon-hand-o-right:before, .icon-hand-o-up:before, .icon-hdd-o:before, .icon-header:before, .icon-headphones:before, .icon-heart:before, .icon-heart-o:before, .icon-heartbeat:before, .icon-history:before, .icon-home:before, .icon-hospital-o:before, .icon-hotel:before, .icon-html5:before, .icon-ils:before, .icon-image:before, .icon-inbox:before, .icon-indent:before, .icon-info:before, .icon-info-circle:before, .icon-inr:before, .icon-instagram:before, .icon-institution:before, .icon-ioxhost:before, .icon-italic:before, .icon-joomla:before, .icon-jpy:before, .icon-jsfiddle:before, .icon-key:before, .icon-keyboard-o:before, .icon-krw:before, .icon-language:before, .icon-laptop:before, .icon-lastfm:before, .icon-lastfm-square:before, .icon-leaf:before, .icon-leanpub:before, .icon-legal:before, .icon-lemon-o:before, .icon-level-down:before, .icon-level-up:before, .icon-life-bouy:before, .icon-life-buoy:before, .icon-life-ring:before, .icon-life-saver:before, .icon-lightbulb-o:before, .icon-line-chart:before, .icon-link:before, .icon-linkedin:before, .icon-linkedin-square:before, .icon-linux:before, .icon-list:before, .icon-list-alt:before, .icon-list-ol:before, .icon-list-ul:before, .icon-location-arrow:before, .icon-lock:before, .icon-long-arrow-down:before, .icon-long-arrow-left:before, .icon-long-arrow-right:before, .icon-long-arrow-up:before, .icon-magic:before, .icon-magnet:before, .icon-mail-forward:before, .icon-mail-reply:before, .icon-mail-reply-all:before, .icon-male:before, .icon-map-marker:before, .icon-mars:before, .icon-mars-double:before, .icon-mars-stroke:before, .icon-mars-stroke-h:before, .icon-mars-stroke-v:before, .icon-maxcdn:before, .icon-meanpath:before, .icon-medium:before, .icon-medkit:before, .icon-meh-o:before, .icon-mercury:before, .icon-microphone:before, .icon-microphone-slash:before, .icon-minus:before, .icon-minus-circle:before, .icon-minus-square:before, .icon-minus-square-o:before, .icon-mobile:before, .icon-mobile-phone:before, .icon-money:before, .icon-moon-o:before, .icon-mortar-board:before, .icon-motorcycle:before, .icon-music:before, .icon-navicon:before, .icon-neuter:before, .icon-newspaper-o:before, .icon-openid:before, .icon-outdent:before, .icon-pagelines:before, .icon-paint-brush:before, .icon-paper-plane:before, .icon-paper-plane-o:before, .icon-paperclip:before, .icon-paragraph:before, .icon-paste:before, .icon-pause:before, .icon-paw:before, .icon-paypal:before, .icon-pencil:before, .icon-pencil-square:before, .icon-pencil-square-o:before, .icon-phone:before, .icon-phone-square:before, .icon-photo:before, .icon-picture-o:before, .icon-pie-chart:before, .icon-pied-piper:before, .icon-pied-piper-alt:before, .icon-pinterest:before, .icon-pinterest-p:before, .icon-pinterest-square:before, .icon-plane:before, .icon-play:before, .icon-play-circle:before, .icon-play-circle-o:before, .icon-plug:before, .icon-plus:before, .icon-plus-circle:before, .icon-plus-square:before, .icon-plus-square-o:before, .icon-power-off:before, .icon-print:before, .icon-puzzle-piece:before, .icon-qq:before, .icon-qrcode:before, .icon-question:before, .icon-question-circle:before, .icon-quote-left:before, .icon-quote-right:before, .icon-ra:before, .icon-random:before, .icon-rebel:before, .icon-recycle:before, .icon-reddit:before, .icon-reddit-square:before, .icon-refresh:before, .icon-remove:before, .icon-renren:before, .icon-reorder:before, .icon-repeat:before, .icon-reply:before, .icon-reply-all:before, .icon-retweet:before, .icon-rmb:before, .icon-road:before, .icon-rocket:before, .icon-rotate-left:before, .icon-rotate-right:before, .icon-rouble:before, .icon-rss:before, .icon-rss-square:before, .icon-rub:before, .icon-ruble:before, .icon-rupee:before, .icon-save:before, .icon-scissors:before, .icon-search:before, #mindmap #searchterm:before, .icon-search-minus:before, .icon-search-plus:before, .icon-sellsy:before, .icon-send:before, .icon-send-o:before, .icon-server:before, .icon-share:before, .icon-share-alt:before, .icon-share-alt-square:before, .icon-share-square:before, .icon-share-square-o:before, .icon-shekel:before, .icon-sheqel:before, .icon-shield:before, .icon-ship:before, .icon-shirtsinbulk:before, .icon-shopping-cart:before, .icon-sign-in:before, .icon-sign-out:before, .icon-signal:before, .icon-simplybuilt:before, .icon-sitemap:before, .icon-skyatlas:before, .icon-skype:before, .icon-slack:before, .icon-sliders:before, .icon-slideshare:before, .icon-smile-o:before, .icon-soccer-ball-o:before, .icon-sort:before, .icon-sort-alpha-asc:before, .icon-sort-alpha-desc:before, .icon-sort-amount-asc:before, .icon-sort-amount-desc:before, .icon-sort-asc:before, .icon-sort-desc:before, .icon-sort-down:before, .icon-sort-numeric-asc:before, .icon-sort-numeric-desc:before, .icon-sort-up:before, .icon-soundcloud:before, .icon-space-shuttle:before, .icon-spinner:before, .icon-spoon:before, .icon-spotify:before, .icon-square:before, .icon-square-o:before, .icon-stack-exchange:before, .icon-stack-overflow:before, .icon-star:before, .icon-star-half:before, .icon-star-half-empty:before, .icon-star-half-full:before, .icon-star-half-o:before, .icon-star-o:before, .icon-steam:before, .icon-steam-square:before, .icon-step-backward:before, .icon-step-forward:before, .icon-stethoscope:before, .icon-stop:before, .icon-street-view:before, .icon-strikethrough:before, .icon-stumbleupon:before, .icon-stumbleupon-circle:before, .icon-subscript:before, .icon-subway:before, .icon-suitcase:before, .icon-sun-o:before, .icon-superscript:before, .icon-support:before, .icon-table:before, .icon-tablet:before, .icon-tachometer:before, .icon-tag:before, .icon-tags:before, .icon-tasks:before, .icon-taxi:before, .icon-tencent-weibo:before, .icon-terminal:before, .icon-text-height:before, .icon-text-width:before, .icon-th:before, .icon-th-large:before, .icon-th-list:before, .icon-thumb-tack:before, .icon-thumbs-down:before, .icon-thumbs-o-down:before, .icon-thumbs-o-up:before, .icon-thumbs-up:before, .icon-ticket:before, .icon-times:before, .icon-times-circle:before, .icon-times-circle-o:before, .icon-tint:before, .icon-toggle-down:before, .icon-toggle-left:before, .icon-toggle-off:before, .icon-toggle-on:before, .icon-toggle-right:before, .icon-toggle-up:before, .icon-train:before, .icon-transgender:before, .icon-transgender-alt:before, .icon-trash:before, .icon-trash-o:before, .icon-tree:before, .icon-trello:before, .icon-trophy:before, .icon-truck:before, .icon-try:before, .icon-tty:before, .icon-tumblr:before, .icon-tumblr-square:before, .icon-turkish-lira:before, .icon-twitch:before, .icon-twitter:before, .icon-twitter-square:before, .icon-umbrella:before, .icon-underline:before, .icon-undo:before, .icon-university:before, .icon-unlink:before, .icon-unlock:before, .icon-unlock-alt:before, .icon-unsorted:before, .icon-upload:before, .icon-usd:before, .icon-user:before, .icon-user-md:before, .icon-user-plus:before, .icon-user-secret:before, .icon-user-times:before, .icon-users:before, .icon-venus:before, .icon-venus-double:before, .icon-venus-mars:before, .icon-viacoin:before, .icon-video-camera:before, .icon-vimeo-square:before, .icon-vine:before, .icon-vk:before, .icon-volume-down:before, .icon-volume-off:before, .icon-volume-up:before, .icon-warning:before, .icon-wechat:before, .icon-weibo:before, .icon-weixin:before, .icon-whatsapp:before, .icon-wheelchair:before, .icon-wifi:before, .icon-windows:before, .icon-won:before, .icon-wordpress:before, .icon-wrench:before, .icon-xing:before, .icon-xing-square:before, .icon-yahoo:before, .icon-yelp:before, .icon-yen:before, .icon-youtube:before, .icon-youtube-play:before, .icon-youtube-square:before {
   display: inline-block;
   speak: none;
   font-style: normal;
@@ -200,7 +200,7 @@ th {
 .icon {
   font-family: FontAwesome; }
 
-.icon-adjust:before, .icon-adn:before, .icon-align-center:before, .icon-align-justify:before, .icon-align-left:before, .icon-align-right:before, .icon-ambulance:before, .icon-anchor:before, .icon-android:before, .icon-angellist:before, .icon-angle-double-down:before, .icon-angle-double-left:before, .icon-angle-double-right:before, .icon-angle-double-up:before, .icon-angle-down:before, .icon-angle-left:before, .icon-angle-right:before, #path .divider:before, .icon-angle-up:before, .icon-apple:before, .icon-archive:before, .icon-area-chart:before, .icon-arrow-circle-down:before, .icon-arrow-circle-left:before, .icon-arrow-circle-o-down:before, .icon-arrow-circle-o-left:before, .icon-arrow-circle-o-right:before, .icon-arrow-circle-o-up:before, .icon-arrow-circle-right:before, .icon-arrow-circle-up:before, .icon-arrow-down:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-arrow-up:before, .icon-arrows:before, .icon-arrows-alt:before, .icon-arrows-h:before, .icon-arrows-v:before, .icon-asterisk:before, .icon-at:before, .icon-automobile:before, .icon-backward:before, .icon-ban:before, .icon-bank:before, .icon-bar-chart:before, .icon-bar-chart-o:before, .icon-barcode:before, .icon-bars:before, .icon-bed:before, .icon-beer:before, .icon-behance:before, .icon-behance-square:before, .icon-bell:before, .icon-bell-o:before, .icon-bell-slash:before, .icon-bell-slash-o:before, .icon-bicycle:before, .icon-binoculars:before, .icon-birthday-cake:before, .icon-bitbucket:before, .icon-bitbucket-square:before, .icon-bitcoin:before, .icon-bold:before, .icon-bolt:before, .icon-bomb:before, .icon-book:before, .icon-bookmark:before, .icon-bookmark-o:before, .icon-briefcase:before, .icon-btc:before, .icon-bug:before, .icon-building:before, .icon-building-o:before, .icon-bullhorn:before, .icon-bullseye:before, .icon-bus:before, .icon-buysellads:before, .icon-cab:before, .icon-calculator:before, .icon-calendar:before, .icon-calendar-o:before, .icon-camera:before, .icon-camera-retro:before, .icon-car:before, .icon-caret-down:before, .icon-caret-left:before, .icon-caret-right:before, .icon-caret-square-o-down:before, .icon-caret-square-o-left:before, .icon-caret-square-o-right:before, .icon-caret-square-o-up:before, .icon-caret-up:before, .icon-cart-arrow-down:before, .icon-cart-plus:before, .icon-cc:before, .icon-cc-amex:before, .icon-cc-discover:before, .icon-cc-mastercard:before, .icon-cc-paypal:before, .icon-cc-stripe:before, .icon-cc-visa:before, .icon-certificate:before, .icon-chain:before, .icon-chain-broken:before, .icon-check:before, .icon-check-circle:before, .icon-check-circle-o:before, .icon-check-square:before, .icon-check-square-o:before, .icon-chevron-circle-down:before, .icon-chevron-circle-left:before, .icon-chevron-circle-right:before, .icon-chevron-circle-up:before, .icon-chevron-down:before, .icon-chevron-left:before, .icon-chevron-right:before, .icon-chevron-up:before, .icon-child:before, .icon-circle:before, .icon-circle-o:before, .icon-circle-o-notch:before, .icon-circle-thin:before, .icon-clipboard:before, .icon-clock-o:before, .icon-close:before, #mindmap #searchterm:hover:before, .icon-cloud:before, .icon-cloud-download:before, .icon-cloud-upload:before, .icon-cny:before, .icon-code:before, .icon-code-fork:before, .icon-codepen:before, .icon-coffee:before, .icon-cog:before, .icon-cogs:before, .icon-columns:before, .icon-comment:before, .icon-comment-o:before, .icon-comments:before, .icon-comments-o:before, .icon-compass:before, .icon-compress:before, .icon-connectdevelop:before, .icon-copy:before, .icon-copyright:before, .icon-credit-card:before, .icon-crop:before, .icon-crosshairs:before, .icon-css3:before, .icon-cube:before, .icon-cubes:before, .icon-cut:before, .icon-cutlery:before, .icon-dashboard:before, .icon-dashcube:before, .icon-database:before, .icon-dedent:before, .icon-delicious:before, .icon-desktop:before, .icon-deviantart:before, .icon-diamond:before, .icon-digg:before, .icon-dollar:before, .icon-dot-circle-o:before, .icon-download:before, .icon-dribbble:before, .icon-dropbox:before, .icon-drupal:before, .icon-edit:before, .icon-eject:before, .icon-ellipsis-h:before, .icon-ellipsis-v:before, .icon-empire:before, .icon-envelope:before, .icon-envelope-o:before, .icon-envelope-square:before, .icon-eraser:before, .icon-eur:before, .icon-euro:before, .icon-exchange:before, .icon-exclamation:before, .icon-exclamation-circle:before, .icon-exclamation-triangle:before, .icon-expand:before, .icon-external-link:before, .icon-external-link-square:before, .icon-eye:before, .icon-eye-slash:before, .icon-eyedropper:before, .icon-facebook:before, .icon-facebook-f:before, .icon-facebook-official:before, .icon-facebook-square:before, .icon-fast-backward:before, .icon-fast-forward:before, .icon-fax:before, .icon-female:before, .icon-fighter-jet:before, .icon-file:before, .icon-file-archive-o:before, .icon-file-audio-o:before, .icon-file-code-o:before, .icon-file-excel-o:before, .icon-file-image-o:before, .icon-file-movie-o:before, .icon-file-o:before, .icon-file-pdf-o:before, .icon-file-photo-o:before, .icon-file-picture-o:before, .icon-file-powerpoint-o:before, .icon-file-sound-o:before, .icon-file-text:before, .icon-file-text-o:before, .icon-file-video-o:before, .icon-file-word-o:before, .icon-file-zip-o:before, .icon-files-o:before, .icon-film:before, .icon-filter:before, .icon-fire:before, .icon-fire-extinguisher:before, .icon-flag:before, .icon-flag-checkered:before, .icon-flag-o:before, .icon-flash:before, .icon-flask:before, .icon-flickr:before, .icon-floppy-o:before, .icon-folder:before, .icon-folder-o:before, .icon-folder-open:before, .icon-folder-open-o:before, .icon-font:before, .icon-forumbee:before, .icon-forward:before, .icon-foursquare:before, .icon-frown-o:before, .icon-futbol-o:before, .icon-gamepad:before, .icon-gavel:before, .icon-gbp:before, .icon-ge:before, .icon-gear:before, .icon-gears:before, .icon-genderless:before, .icon-gift:before, .icon-git:before, .icon-git-square:before, .icon-github:before, .icon-github-alt:before, .icon-github-square:before, .icon-gittip:before, .icon-glass:before, .icon-globe:before, .icon-google:before, .icon-google-plus:before, .icon-google-plus-square:before, .icon-google-wallet:before, .icon-graduation-cap:before, .icon-gratipay:before, .icon-group:before, .icon-h-square:before, .icon-hacker-news:before, .icon-hand-o-down:before, .icon-hand-o-left:before, .icon-hand-o-right:before, .icon-hand-o-up:before, .icon-hdd-o:before, .icon-header:before, .icon-headphones:before, .icon-heart:before, .icon-heart-o:before, .icon-heartbeat:before, .icon-history:before, .icon-home:before, .icon-hospital-o:before, .icon-hotel:before, .icon-html5:before, .icon-ils:before, .icon-image:before, .icon-inbox:before, .icon-indent:before, .icon-info:before, .icon-info-circle:before, .icon-inr:before, .icon-instagram:before, .icon-institution:before, .icon-ioxhost:before, .icon-italic:before, .icon-joomla:before, .icon-jpy:before, .icon-jsfiddle:before, .icon-key:before, .icon-keyboard-o:before, .icon-krw:before, .icon-language:before, .icon-laptop:before, .icon-lastfm:before, .icon-lastfm-square:before, .icon-leaf:before, .icon-leanpub:before, .icon-legal:before, .icon-lemon-o:before, .icon-level-down:before, .icon-level-up:before, .icon-life-bouy:before, .icon-life-buoy:before, .icon-life-ring:before, .icon-life-saver:before, .icon-lightbulb-o:before, .icon-line-chart:before, .icon-link:before, .icon-linkedin:before, .icon-linkedin-square:before, .icon-linux:before, .icon-list:before, .icon-list-alt:before, .icon-list-ol:before, .icon-list-ul:before, .icon-location-arrow:before, .icon-lock:before, .icon-long-arrow-down:before, .icon-long-arrow-left:before, .icon-long-arrow-right:before, .icon-long-arrow-up:before, .icon-magic:before, .icon-magnet:before, .icon-mail-forward:before, .icon-mail-reply:before, .icon-mail-reply-all:before, .icon-male:before, .icon-map-marker:before, .icon-mars:before, .icon-mars-double:before, .icon-mars-stroke:before, .icon-mars-stroke-h:before, .icon-mars-stroke-v:before, .icon-maxcdn:before, .icon-meanpath:before, .icon-medium:before, .icon-medkit:before, .icon-meh-o:before, .icon-mercury:before, .icon-microphone:before, .icon-microphone-slash:before, .icon-minus:before, .icon-minus-circle:before, .icon-minus-square:before, .icon-minus-square-o:before, .icon-mobile:before, .icon-mobile-phone:before, .icon-money:before, .icon-moon-o:before, .icon-mortar-board:before, .icon-motorcycle:before, .icon-music:before, .icon-navicon:before, .icon-neuter:before, .icon-newspaper-o:before, .icon-openid:before, .icon-outdent:before, .icon-pagelines:before, .icon-paint-brush:before, .icon-paper-plane:before, .icon-paper-plane-o:before, .icon-paperclip:before, .icon-paragraph:before, .icon-paste:before, .icon-pause:before, .icon-paw:before, .icon-paypal:before, .icon-pencil:before, .icon-pencil-square:before, .icon-pencil-square-o:before, .icon-phone:before, .icon-phone-square:before, .icon-photo:before, .icon-picture-o:before, .icon-pie-chart:before, .icon-pied-piper:before, .icon-pied-piper-alt:before, .icon-pinterest:before, .icon-pinterest-p:before, .icon-pinterest-square:before, .icon-plane:before, .icon-play:before, .icon-play-circle:before, .icon-play-circle-o:before, .icon-plug:before, .icon-plus:before, .icon-plus-circle:before, .icon-plus-square:before, .icon-plus-square-o:before, .icon-power-off:before, .icon-print:before, .icon-puzzle-piece:before, .icon-qq:before, .icon-qrcode:before, .icon-question:before, .icon-question-circle:before, .icon-quote-left:before, .icon-quote-right:before, .icon-ra:before, .icon-random:before, .icon-rebel:before, .icon-recycle:before, .icon-reddit:before, .icon-reddit-square:before, .icon-refresh:before, .icon-remove:before, .icon-renren:before, .icon-reorder:before, .icon-repeat:before, .icon-reply:before, .icon-reply-all:before, .icon-retweet:before, .icon-rmb:before, .icon-road:before, .icon-rocket:before, .icon-rotate-left:before, .icon-rotate-right:before, .icon-rouble:before, .icon-rss:before, .icon-rss-square:before, .icon-rub:before, .icon-ruble:before, .icon-rupee:before, .icon-save:before, .icon-scissors:before, .icon-search:before, #mindmap #searchterm:before, .icon-search-minus:before, .icon-search-plus:before, .icon-sellsy:before, .icon-send:before, .icon-send-o:before, .icon-server:before, .icon-share:before, .icon-share-alt:before, .icon-share-alt-square:before, .icon-share-square:before, .icon-share-square-o:before, .icon-shekel:before, .icon-sheqel:before, .icon-shield:before, .icon-ship:before, .icon-shirtsinbulk:before, .icon-shopping-cart:before, .icon-sign-in:before, .icon-sign-out:before, .icon-signal:before, .icon-simplybuilt:before, .icon-sitemap:before, .icon-skyatlas:before, .icon-skype:before, .icon-slack:before, .icon-sliders:before, .icon-slideshare:before, .icon-smile-o:before, .icon-soccer-ball-o:before, .icon-sort:before, .icon-sort-alpha-asc:before, .icon-sort-alpha-desc:before, .icon-sort-amount-asc:before, .icon-sort-amount-desc:before, .icon-sort-asc:before, .icon-sort-desc:before, .icon-sort-down:before, .icon-sort-numeric-asc:before, .icon-sort-numeric-desc:before, .icon-sort-up:before, .icon-soundcloud:before, .icon-space-shuttle:before, .icon-spinner:before, .icon-spoon:before, .icon-spotify:before, .icon-square:before, .icon-square-o:before, .icon-stack-exchange:before, .icon-stack-overflow:before, .icon-star:before, .icon-star-half:before, .icon-star-half-empty:before, .icon-star-half-full:before, .icon-star-half-o:before, .icon-star-o:before, .icon-steam:before, .icon-steam-square:before, .icon-step-backward:before, .icon-step-forward:before, .icon-stethoscope:before, .icon-stop:before, .icon-street-view:before, .icon-strikethrough:before, .icon-stumbleupon:before, .icon-stumbleupon-circle:before, .icon-subscript:before, .icon-subway:before, .icon-suitcase:before, .icon-sun-o:before, .icon-superscript:before, .icon-support:before, .icon-table:before, .icon-tablet:before, .icon-tachometer:before, .icon-tag:before, .icon-tags:before, .icon-tasks:before, .icon-taxi:before, .icon-tencent-weibo:before, .icon-terminal:before, .icon-text-height:before, .icon-text-width:before, .icon-th:before, .icon-th-large:before, .icon-th-list:before, .icon-thumb-tack:before, .icon-thumbs-down:before, .icon-thumbs-o-down:before, .icon-thumbs-o-up:before, .icon-thumbs-up:before, .icon-ticket:before, .icon-times:before, .icon-times-circle:before, .icon-times-circle-o:before, .icon-tint:before, .icon-toggle-down:before, .icon-toggle-left:before, .icon-toggle-off:before, .icon-toggle-on:before, .icon-toggle-right:before, .icon-toggle-up:before, .icon-train:before, .icon-transgender:before, .icon-transgender-alt:before, .icon-trash:before, .icon-trash-o:before, .icon-tree:before, .icon-trello:before, .icon-trophy:before, .icon-truck:before, .icon-try:before, .icon-tty:before, .icon-tumblr:before, .icon-tumblr-square:before, .icon-turkish-lira:before, .icon-twitch:before, .icon-twitter:before, .icon-twitter-square:before, .icon-umbrella:before, .icon-underline:before, .icon-undo:before, .icon-university:before, .icon-unlink:before, .icon-unlock:before, .icon-unlock-alt:before, .icon-unsorted:before, .icon-upload:before, .icon-usd:before, .icon-user:before, .icon-user-md:before, .icon-user-plus:before, .icon-user-secret:before, .icon-user-times:before, .icon-users:before, .icon-venus:before, .icon-venus-double:before, .icon-venus-mars:before, .icon-viacoin:before, .icon-video-camera:before, .icon-vimeo-square:before, .icon-vine:before, .icon-vk:before, .icon-volume-down:before, .icon-volume-off:before, .icon-volume-up:before, .icon-warning:before, .icon-wechat:before, .icon-weibo:before, .icon-weixin:before, .icon-whatsapp:before, .icon-wheelchair:before, .icon-wifi:before, .icon-windows:before, .icon-won:before, .icon-wordpress:before, .icon-wrench:before, .icon-xing:before, .icon-xing-square:before, .icon-yahoo:before, .icon-yelp:before, .icon-yen:before, .icon-youtube:before, .icon-youtube-play:before, .icon-youtube-square:before {
+.icon-adjust:before, .icon-adn:before, .icon-align-center:before, .icon-align-justify:before, .icon-align-left:before, .icon-align-right:before, .icon-ambulance:before, .icon-anchor:before, .icon-android:before, .icon-angellist:before, .icon-angle-double-down:before, .icon-angle-double-left:before, .icon-angle-double-right:before, .icon-angle-double-up:before, .icon-angle-down:before, .icon-angle-left:before, .icon-angle-right:before, #path .divider:before, .icon-angle-up:before, .icon-apple:before, .icon-archive:before, .icon-area-chart:before, .icon-arrow-circle-down:before, .icon-arrow-circle-left:before, .icon-arrow-circle-o-down:before, .icon-arrow-circle-o-left:before, .icon-arrow-circle-o-right:before, .icon-arrow-circle-o-up:before, .icon-arrow-circle-right:before, .icon-arrow-circle-up:before, .icon-arrow-down:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-arrow-up:before, .icon-arrows:before, .icon-arrows-alt:before, .icon-arrows-h:before, .icon-arrows-v:before, .icon-asterisk:before, .icon-at:before, .icon-automobile:before, .icon-backward:before, .icon-ban:before, .icon-bank:before, .icon-bar-chart:before, .icon-bar-chart-o:before, .icon-barcode:before, .icon-bars:before, .icon-bed:before, .icon-beer:before, .icon-behance:before, .icon-behance-square:before, .icon-bell:before, .icon-bell-o:before, .icon-bell-slash:before, .icon-bell-slash-o:before, .icon-bicycle:before, .icon-binoculars:before, .icon-birthday-cake:before, .icon-bitbucket:before, .icon-bitbucket-square:before, .icon-bitcoin:before, .icon-bold:before, .icon-bolt:before, .icon-bomb:before, .icon-book:before, .icon-bookmark:before, .icon-bookmark-o:before, .icon-briefcase:before, .icon-btc:before, .icon-bug:before, .icon-building:before, .icon-building-o:before, .icon-bullhorn:before, .icon-bullseye:before, .icon-bus:before, .icon-buysellads:before, .icon-cab:before, .icon-calculator:before, .icon-calendar:before, .icon-calendar-o:before, .icon-camera:before, .icon-camera-retro:before, .icon-car:before, .icon-caret-down:before, .icon-caret-left:before, .icon-caret-right:before, .icon-caret-square-o-down:before, .icon-caret-square-o-left:before, .icon-caret-square-o-right:before, .icon-caret-square-o-up:before, .icon-caret-up:before, .icon-cart-arrow-down:before, .icon-cart-plus:before, .icon-cc:before, .icon-cc-amex:before, .icon-cc-discover:before, .icon-cc-mastercard:before, .icon-cc-paypal:before, .icon-cc-stripe:before, .icon-cc-visa:before, .icon-certificate:before, .icon-chain:before, .icon-chain-broken:before, .icon-check:before, .icon-check-circle:before, .icon-check-circle-o:before, .icon-check-square:before, .icon-check-square-o:before, .icon-chevron-circle-down:before, .icon-chevron-circle-left:before, .icon-chevron-circle-right:before, .icon-chevron-circle-up:before, .icon-chevron-down:before, .icon-chevron-left:before, .icon-chevron-right:before, .icon-chevron-up:before, .icon-child:before, .icon-circle:before, #treelist .item span.value .point:before, .icon-circle-o:before, .icon-circle-o-notch:before, .icon-circle-thin:before, .icon-clipboard:before, .icon-clock-o:before, .icon-close:before, #mindmap #searchterm:hover:before, .icon-cloud:before, .icon-cloud-download:before, .icon-cloud-upload:before, .icon-cny:before, .icon-code:before, .icon-code-fork:before, .icon-codepen:before, .icon-coffee:before, .icon-cog:before, .icon-cogs:before, .icon-columns:before, .icon-comment:before, .icon-comment-o:before, .icon-comments:before, .icon-comments-o:before, .icon-compass:before, .icon-compress:before, .icon-connectdevelop:before, .icon-copy:before, .icon-copyright:before, .icon-credit-card:before, .icon-crop:before, .icon-crosshairs:before, .icon-css3:before, .icon-cube:before, .icon-cubes:before, .icon-cut:before, .icon-cutlery:before, .icon-dashboard:before, .icon-dashcube:before, .icon-database:before, .icon-dedent:before, .icon-delicious:before, .icon-desktop:before, .icon-deviantart:before, .icon-diamond:before, .icon-digg:before, .icon-dollar:before, .icon-dot-circle-o:before, .icon-download:before, .icon-dribbble:before, .icon-dropbox:before, .icon-drupal:before, .icon-edit:before, .icon-eject:before, .icon-ellipsis-h:before, .icon-ellipsis-v:before, .icon-empire:before, .icon-envelope:before, .icon-envelope-o:before, .icon-envelope-square:before, .icon-eraser:before, .icon-eur:before, .icon-euro:before, .icon-exchange:before, .icon-exclamation:before, .icon-exclamation-circle:before, .icon-exclamation-triangle:before, .icon-expand:before, .icon-external-link:before, .icon-external-link-square:before, .icon-eye:before, .icon-eye-slash:before, .icon-eyedropper:before, .icon-facebook:before, .icon-facebook-f:before, .icon-facebook-official:before, .icon-facebook-square:before, .icon-fast-backward:before, .icon-fast-forward:before, .icon-fax:before, .icon-female:before, .icon-fighter-jet:before, .icon-file:before, .icon-file-archive-o:before, .icon-file-audio-o:before, .icon-file-code-o:before, .icon-file-excel-o:before, .icon-file-image-o:before, .icon-file-movie-o:before, .icon-file-o:before, .icon-file-pdf-o:before, .icon-file-photo-o:before, .icon-file-picture-o:before, .icon-file-powerpoint-o:before, .icon-file-sound-o:before, .icon-file-text:before, .icon-file-text-o:before, .icon-file-video-o:before, .icon-file-word-o:before, .icon-file-zip-o:before, .icon-files-o:before, .icon-film:before, .icon-filter:before, .icon-fire:before, .icon-fire-extinguisher:before, .icon-flag:before, .icon-flag-checkered:before, .icon-flag-o:before, .icon-flash:before, .icon-flask:before, .icon-flickr:before, .icon-floppy-o:before, .icon-folder:before, .icon-folder-o:before, .icon-folder-open:before, .icon-folder-open-o:before, .icon-font:before, .icon-forumbee:before, .icon-forward:before, .icon-foursquare:before, .icon-frown-o:before, .icon-futbol-o:before, .icon-gamepad:before, .icon-gavel:before, .icon-gbp:before, .icon-ge:before, .icon-gear:before, .icon-gears:before, .icon-genderless:before, .icon-gift:before, .icon-git:before, .icon-git-square:before, .icon-github:before, .icon-github-alt:before, .icon-github-square:before, .icon-gittip:before, .icon-glass:before, .icon-globe:before, .icon-google:before, .icon-google-plus:before, .icon-google-plus-square:before, .icon-google-wallet:before, .icon-graduation-cap:before, .icon-gratipay:before, .icon-group:before, .icon-h-square:before, .icon-hacker-news:before, .icon-hand-o-down:before, .icon-hand-o-left:before, .icon-hand-o-right:before, .icon-hand-o-up:before, .icon-hdd-o:before, .icon-header:before, .icon-headphones:before, .icon-heart:before, .icon-heart-o:before, .icon-heartbeat:before, .icon-history:before, .icon-home:before, .icon-hospital-o:before, .icon-hotel:before, .icon-html5:before, .icon-ils:before, .icon-image:before, .icon-inbox:before, .icon-indent:before, .icon-info:before, .icon-info-circle:before, .icon-inr:before, .icon-instagram:before, .icon-institution:before, .icon-ioxhost:before, .icon-italic:before, .icon-joomla:before, .icon-jpy:before, .icon-jsfiddle:before, .icon-key:before, .icon-keyboard-o:before, .icon-krw:before, .icon-language:before, .icon-laptop:before, .icon-lastfm:before, .icon-lastfm-square:before, .icon-leaf:before, .icon-leanpub:before, .icon-legal:before, .icon-lemon-o:before, .icon-level-down:before, .icon-level-up:before, .icon-life-bouy:before, .icon-life-buoy:before, .icon-life-ring:before, .icon-life-saver:before, .icon-lightbulb-o:before, .icon-line-chart:before, .icon-link:before, .icon-linkedin:before, .icon-linkedin-square:before, .icon-linux:before, .icon-list:before, .icon-list-alt:before, .icon-list-ol:before, .icon-list-ul:before, .icon-location-arrow:before, .icon-lock:before, .icon-long-arrow-down:before, .icon-long-arrow-left:before, .icon-long-arrow-right:before, .icon-long-arrow-up:before, .icon-magic:before, .icon-magnet:before, .icon-mail-forward:before, .icon-mail-reply:before, .icon-mail-reply-all:before, .icon-male:before, .icon-map-marker:before, .icon-mars:before, .icon-mars-double:before, .icon-mars-stroke:before, .icon-mars-stroke-h:before, .icon-mars-stroke-v:before, .icon-maxcdn:before, .icon-meanpath:before, .icon-medium:before, .icon-medkit:before, .icon-meh-o:before, .icon-mercury:before, .icon-microphone:before, .icon-microphone-slash:before, .icon-minus:before, .icon-minus-circle:before, .icon-minus-square:before, .icon-minus-square-o:before, .icon-mobile:before, .icon-mobile-phone:before, .icon-money:before, .icon-moon-o:before, .icon-mortar-board:before, .icon-motorcycle:before, .icon-music:before, .icon-navicon:before, .icon-neuter:before, .icon-newspaper-o:before, .icon-openid:before, .icon-outdent:before, .icon-pagelines:before, .icon-paint-brush:before, .icon-paper-plane:before, .icon-paper-plane-o:before, .icon-paperclip:before, .icon-paragraph:before, .icon-paste:before, .icon-pause:before, .icon-paw:before, .icon-paypal:before, .icon-pencil:before, .icon-pencil-square:before, .icon-pencil-square-o:before, .icon-phone:before, .icon-phone-square:before, .icon-photo:before, .icon-picture-o:before, .icon-pie-chart:before, .icon-pied-piper:before, .icon-pied-piper-alt:before, .icon-pinterest:before, .icon-pinterest-p:before, .icon-pinterest-square:before, .icon-plane:before, .icon-play:before, .icon-play-circle:before, .icon-play-circle-o:before, .icon-plug:before, .icon-plus:before, .icon-plus-circle:before, .icon-plus-square:before, .icon-plus-square-o:before, .icon-power-off:before, .icon-print:before, .icon-puzzle-piece:before, .icon-qq:before, .icon-qrcode:before, .icon-question:before, .icon-question-circle:before, .icon-quote-left:before, .icon-quote-right:before, .icon-ra:before, .icon-random:before, .icon-rebel:before, .icon-recycle:before, .icon-reddit:before, .icon-reddit-square:before, .icon-refresh:before, .icon-remove:before, .icon-renren:before, .icon-reorder:before, .icon-repeat:before, .icon-reply:before, .icon-reply-all:before, .icon-retweet:before, .icon-rmb:before, .icon-road:before, .icon-rocket:before, .icon-rotate-left:before, .icon-rotate-right:before, .icon-rouble:before, .icon-rss:before, .icon-rss-square:before, .icon-rub:before, .icon-ruble:before, .icon-rupee:before, .icon-save:before, .icon-scissors:before, .icon-search:before, #mindmap #searchterm:before, .icon-search-minus:before, .icon-search-plus:before, .icon-sellsy:before, .icon-send:before, .icon-send-o:before, .icon-server:before, .icon-share:before, .icon-share-alt:before, .icon-share-alt-square:before, .icon-share-square:before, .icon-share-square-o:before, .icon-shekel:before, .icon-sheqel:before, .icon-shield:before, .icon-ship:before, .icon-shirtsinbulk:before, .icon-shopping-cart:before, .icon-sign-in:before, .icon-sign-out:before, .icon-signal:before, .icon-simplybuilt:before, .icon-sitemap:before, .icon-skyatlas:before, .icon-skype:before, .icon-slack:before, .icon-sliders:before, .icon-slideshare:before, .icon-smile-o:before, .icon-soccer-ball-o:before, .icon-sort:before, .icon-sort-alpha-asc:before, .icon-sort-alpha-desc:before, .icon-sort-amount-asc:before, .icon-sort-amount-desc:before, .icon-sort-asc:before, .icon-sort-desc:before, .icon-sort-down:before, .icon-sort-numeric-asc:before, .icon-sort-numeric-desc:before, .icon-sort-up:before, .icon-soundcloud:before, .icon-space-shuttle:before, .icon-spinner:before, .icon-spoon:before, .icon-spotify:before, .icon-square:before, .icon-square-o:before, .icon-stack-exchange:before, .icon-stack-overflow:before, .icon-star:before, .icon-star-half:before, .icon-star-half-empty:before, .icon-star-half-full:before, .icon-star-half-o:before, .icon-star-o:before, .icon-steam:before, .icon-steam-square:before, .icon-step-backward:before, .icon-step-forward:before, .icon-stethoscope:before, .icon-stop:before, .icon-street-view:before, .icon-strikethrough:before, .icon-stumbleupon:before, .icon-stumbleupon-circle:before, .icon-subscript:before, .icon-subway:before, .icon-suitcase:before, .icon-sun-o:before, .icon-superscript:before, .icon-support:before, .icon-table:before, .icon-tablet:before, .icon-tachometer:before, .icon-tag:before, .icon-tags:before, .icon-tasks:before, .icon-taxi:before, .icon-tencent-weibo:before, .icon-terminal:before, .icon-text-height:before, .icon-text-width:before, .icon-th:before, .icon-th-large:before, .icon-th-list:before, .icon-thumb-tack:before, .icon-thumbs-down:before, .icon-thumbs-o-down:before, .icon-thumbs-o-up:before, .icon-thumbs-up:before, .icon-ticket:before, .icon-times:before, .icon-times-circle:before, .icon-times-circle-o:before, .icon-tint:before, .icon-toggle-down:before, .icon-toggle-left:before, .icon-toggle-off:before, .icon-toggle-on:before, .icon-toggle-right:before, .icon-toggle-up:before, .icon-train:before, .icon-transgender:before, .icon-transgender-alt:before, .icon-trash:before, .icon-trash-o:before, .icon-tree:before, .icon-trello:before, .icon-trophy:before, .icon-truck:before, .icon-try:before, .icon-tty:before, .icon-tumblr:before, .icon-tumblr-square:before, .icon-turkish-lira:before, .icon-twitch:before, .icon-twitter:before, .icon-twitter-square:before, .icon-umbrella:before, .icon-underline:before, .icon-undo:before, .icon-university:before, .icon-unlink:before, .icon-unlock:before, .icon-unlock-alt:before, .icon-unsorted:before, .icon-upload:before, .icon-usd:before, .icon-user:before, .icon-user-md:before, .icon-user-plus:before, .icon-user-secret:before, .icon-user-times:before, .icon-users:before, .icon-venus:before, .icon-venus-double:before, .icon-venus-mars:before, .icon-viacoin:before, .icon-video-camera:before, .icon-vimeo-square:before, .icon-vine:before, .icon-vk:before, .icon-volume-down:before, .icon-volume-off:before, .icon-volume-up:before, .icon-warning:before, .icon-wechat:before, .icon-weibo:before, .icon-weixin:before, .icon-whatsapp:before, .icon-wheelchair:before, .icon-wifi:before, .icon-windows:before, .icon-won:before, .icon-wordpress:before, .icon-wrench:before, .icon-xing:before, .icon-xing-square:before, .icon-yahoo:before, .icon-yelp:before, .icon-yen:before, .icon-youtube:before, .icon-youtube-play:before, .icon-youtube-square:before {
   font-family: FontAwesome; }
 
 @font-face {
@@ -561,7 +561,7 @@ th {
 .icon-child:before {
   content: "" !important; }
 
-.icon-circle:before {
+.icon-circle:before, #treelist .item span.value .point:before {
   content: "" !important; }
 
 .icon-circle-o:before {
@@ -2061,11 +2061,11 @@ th {
   src: url("../fonts/Open_Sans/regular/italic/font.eot?#iefix") format("embedded-opentype"), url("../fonts/Open_Sans/regular/italic/font.woff2") format("woff2"), url("../fonts/Open_Sans/regular/italic/font.woff") format("woff"), url("../fonts/Open_Sans/regular/italic/font.ttf") format("truetype"), url("../fonts/Open_Sans/regular/italic/font.svg#Open Sans") format("svg"); }
 @-webkit-keyframes rotate {
   0% {
-    -webkit-transform: rotate(-200deg);
-    -moz-transform: rotate(-200deg);
-    -ms-transform: rotate(-200deg);
-    -o-transform: rotate(-200deg);
-    transform: rotate(-200deg);
+    -webkit-transform: rotate(-360deg);
+    -moz-transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    -o-transform: rotate(-360deg);
+    transform: rotate(-360deg);
     -webkit-transform-origin: center center;
     -moz-transform-origin: center center;
     -ms-transform-origin: center center;
@@ -2084,11 +2084,11 @@ th {
     transform-origin: center center; } }
 @-moz-keyframes rotate {
   0% {
-    -webkit-transform: rotate(-200deg);
-    -moz-transform: rotate(-200deg);
-    -ms-transform: rotate(-200deg);
-    -o-transform: rotate(-200deg);
-    transform: rotate(-200deg);
+    -webkit-transform: rotate(-360deg);
+    -moz-transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    -o-transform: rotate(-360deg);
+    transform: rotate(-360deg);
     -webkit-transform-origin: center center;
     -moz-transform-origin: center center;
     -ms-transform-origin: center center;
@@ -2107,11 +2107,11 @@ th {
     transform-origin: center center; } }
 @-ms-keyframes rotate {
   0% {
-    -webkit-transform: rotate(-200deg);
-    -moz-transform: rotate(-200deg);
-    -ms-transform: rotate(-200deg);
-    -o-transform: rotate(-200deg);
-    transform: rotate(-200deg);
+    -webkit-transform: rotate(-360deg);
+    -moz-transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    -o-transform: rotate(-360deg);
+    transform: rotate(-360deg);
     -webkit-transform-origin: center center;
     -moz-transform-origin: center center;
     -ms-transform-origin: center center;
@@ -2130,11 +2130,11 @@ th {
     transform-origin: center center; } }
 @-o-keyframes rotate {
   0% {
-    -webkit-transform: rotate(-200deg);
-    -moz-transform: rotate(-200deg);
-    -ms-transform: rotate(-200deg);
-    -o-transform: rotate(-200deg);
-    transform: rotate(-200deg);
+    -webkit-transform: rotate(-360deg);
+    -moz-transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    -o-transform: rotate(-360deg);
+    transform: rotate(-360deg);
     -webkit-transform-origin: center center;
     -moz-transform-origin: center center;
     -ms-transform-origin: center center;
@@ -2153,11 +2153,11 @@ th {
     transform-origin: center center; } }
 @keyframes rotate {
   0% {
-    -webkit-transform: rotate(-200deg);
-    -moz-transform: rotate(-200deg);
-    -ms-transform: rotate(-200deg);
-    -o-transform: rotate(-200deg);
-    transform: rotate(-200deg);
+    -webkit-transform: rotate(-360deg);
+    -moz-transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    -o-transform: rotate(-360deg);
+    transform: rotate(-360deg);
     -webkit-transform-origin: center center;
     -moz-transform-origin: center center;
     -ms-transform-origin: center center;
@@ -6092,19 +6092,47 @@ th {
 *, *:before, *:after {
   box-sizing: border-box; }
 
-.button, button {
-  border: 2px solid rgba(0, 0, 0, 0.1);
+input[type=button], input[type=submit], button, .button {
+  border: 1px solid rgba(0, 0, 0, 0.1);
   color: #000;
   background: rgba(0, 0, 0, 0.09);
   border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-decoration: none;
+  display: inline-block;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  white-space: nowrap;
+  vertical-align: middle;
   cursor: pointer;
-  font-size: 12px; }
-  .button:hover:not(:disabled), button:hover:not(:disabled) {
+  line-height: 1;
+  -webkit-user-select: none;
+  /* Chrome all / Safari all */
+  -moz-user-select: none;
+  /* Firefox all */
+  -ms-user-select: none;
+  /* IE 10+ */
+  /* No support for these yet, use at own risk */
+  -o-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  height: 25px; }
+  input[type=button]:before, input[type=submit]:before, button:before, .button:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+  input[type=button]:after, input[type=submit]:after, button:after, .button:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+  input[type=button]:hover:not(:disabled), input[type=submit]:hover:not(:disabled), button:hover:not(:disabled), .button:hover:not(:disabled) {
     background: #fff; }
-  .button:disabled, button:disabled {
+  input[type=button]:disabled, input[type=submit]:disabled, button:disabled, .button:disabled {
     opacity: 0.3;
     cursor: no-drop; }
-  .button:focus, button:focus {
+  input[type=button]:focus, input[type=submit]:focus, button:focus, .button:focus {
     outline: 0; }
 
 input[type=text] {
@@ -6276,17 +6304,13 @@ output {
   pointer-events: none;
   font-size: 14px;
   text-anchor: middle;
-  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
-  opacity: 1;
-  -webkit-transition: opacity 200ms ease-out;
-  -moz-transition: opacity 200ms ease-out;
-  transition: opacity 200ms ease-out; }
-  .label tspan {
-    text-anchor: middle; }
-  .label.hide {
+  opacity: 1; }
+  .label text {
+    text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff; }
+  .label.hide text {
     opacity: .2; }
 
-.hide-labels .label {
+.hide-labels .label text {
   opacity: 0; }
 
 .tgl {
@@ -6383,7 +6407,124 @@ output {
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch; }
 
-/* No files to import found in * */
+#treelist {
+  background: #fff;
+  position: relative; }
+  #treelist svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9;
+    opacity: 1;
+    overflow: hidden; }
+    #treelist svg.hide {
+      opacity: 0; }
+    #treelist svg path.link {
+      fill: none;
+      stroke-width: 2.5px;
+      stroke-linecap: round;
+      stroke-linejoin: round; }
+  #treelist .selected {
+    color: #8dae28; }
+  #treelist ul {
+    margin: 0;
+    padding: 0; }
+  #treelist .item {
+    list-style: none;
+    cursor: default;
+    padding: 10px;
+    position: relative;
+    margin-bottom: 1px;
+    cursor: pointer;
+    font-size: 13px;
+    -webkit-transition: box-shadow 100ms ease-out;
+    -moz-transition: box-shadow 100ms ease-out;
+    transition: box-shadow 100ms ease-out; }
+    #treelist .item:hover {
+      background: #fff !important; }
+    #treelist .item.active {
+      background: #8dae28 !important;
+      color: #fff; }
+    #treelist .item.hide {
+      display: none !important; }
+    #treelist .item span.value {
+      display: block;
+      position: relative;
+      z-index: 99; }
+      #treelist .item span.value .point {
+        position: absolute;
+        top: 0;
+        left: 0; }
+    #treelist .item.root .point {
+      color: #e3e3e3 !important; }
+
+.button-group {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle; }
+  .button-group:not(.justified):after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden; }
+  .button-group button, .button-group .button, .button-group div button {
+    float: left; }
+    .button-group button:first-child:not(:last-child):not(.dropdown-toggle), .button-group .button:first-child:not(:last-child):not(.dropdown-toggle), .button-group div button:first-child:not(:last-child):not(.dropdown-toggle) {
+      -webkit-border-bottom-right-radius: 0;
+      border-bottom-right-radius: 0;
+      -webkit-border-top-right-radius: 0;
+      border-top-right-radius: 0;
+      background-clip: padding-box;
+      behavior: url(../javascript/PIE.htc);
+      margin-right: 1px; }
+    .button-group button:not(:first-child):not(:last-child):not(.dropdown-toggle), .button-group .button:not(:first-child):not(:last-child):not(.dropdown-toggle), .button-group div button:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+      -webkit-border-radius: 0;
+      border-radius: 0;
+      background-clip: padding-box;
+      /* stops bg color from leaking outside the border: */
+      behavior: url(../javascript/PIE.htc);
+      margin-right: 1px; }
+    .button-group button:last-child:not(:first-child):not(.dropdown-toggle), .button-group .button:last-child:not(:first-child):not(.dropdown-toggle), .button-group div button:last-child:not(:first-child):not(.dropdown-toggle) {
+      -webkit-border-bottom-left-radius: 0;
+      border-bottom-left-radius: 0;
+      -webkit-border-top-left-radius: 0;
+      border-top-left-radius: 0;
+      background-clip: padding-box;
+      behavior: url(../javascript/PIE.htc); }
+  .button-group div button {
+    width: 100%;
+    margin: 0; }
+  .button-group.justified {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 1px; }
+    .button-group.justified > button, .button-group.justified > .button, .button-group.justified > div {
+      display: table-cell;
+      margin: 0;
+      float: none;
+      width: 1%;
+      text-align: center; }
+      .button-group.justified > button:before, .button-group.justified > .button:before, .button-group.justified > div:before {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box; }
+      .button-group.justified > button:after, .button-group.justified > .button:after, .button-group.justified > div:after {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box; }
+
+button.danger, .button.danger {
+  background: #B3000A;
+  color: #fff;
+  border-color: #B3000A; }
+  button.danger:hover, .button.danger:hover {
+    background: #cd000b; }
+
 #path {
   background: RGBA(255, 255, 255, 0.5);
   position: absolute;
@@ -6391,7 +6532,7 @@ output {
   top: 0;
   left: 0;
   padding: 5px 0;
-  font-size: 13px;
+  font-size: 13px !important;
   white-space: nowrap;
   text-align: center;
   z-index: 9;
@@ -6428,16 +6569,16 @@ output {
   transition: 200ms ease-out all;
   top: 0;
   right: 0;
-  width: 250px;
+  width: 300px;
   height: 100vh;
   z-index: 99;
   -webkit-box-shadow: 30px 0 30px 30px rgba(0, 0, 0, 0.2);
   box-shadow: 30px 0 30px 30px rgba(0, 0, 0, 0.2);
-  -webkit-transform: translateX(280px);
-  -moz-transform: translateX(280px);
-  -ms-transform: translateX(280px);
-  -o-transform: translateX(280px);
-  transform: translateX(280px);
+  -webkit-transform: translateX(330px);
+  -moz-transform: translateX(330px);
+  -ms-transform: translateX(330px);
+  -o-transform: translateX(330px);
+  transform: translateX(330px);
   -webkit-transition: translateX 200ms ease-out;
   -moz-transition: translateX 200ms ease-out;
   transition: translateX 200ms ease-out; }
@@ -6447,10 +6588,10 @@ output {
     -ms-transform: translateX(0);
     -o-transform: translateX(0);
     transform: translateX(0); }
-  #sidebar header {
+  #sidebar > header {
     max-height: 50px;
     background: white;
-    padding: 5px 10px; }
+    padding: 7px 10px; }
   #sidebar .searchbar {
     background: white;
     padding: 5px 10px 10px;
@@ -6460,33 +6601,13 @@ output {
       margin-left: 10px;
       margin-top: 1px;
       color: #ccc; }
+  #sidebar.visibleSettings footer {
+    border-color: #fff; }
   #sidebar .content {
     position: relative;
     z-index: 99;
     width: 100%;
     overflow: hidden; }
-    #sidebar .content #nodelist {
-      background: #fff; }
-      #sidebar .content #nodelist .listitem {
-        padding: 10px;
-        position: relative;
-        margin-bottom: 1px;
-        cursor: pointer;
-        font-size: 13px;
-        -webkit-transition: box-shadow 100ms ease-out;
-        -moz-transition: box-shadow 100ms ease-out;
-        transition: box-shadow 100ms ease-out; }
-        #sidebar .content #nodelist .listitem:hover {
-          background: #fff !important;
-          z-index: 9999; }
-        #sidebar .content #nodelist .listitem.active {
-          background: #BDDBFB !important; }
-        #sidebar .content #nodelist .listitem.hide {
-          display: none; }
-      #sidebar .content #nodelist.show {
-        display: block; }
-      #sidebar .content #nodelist.hide {
-        display: none; }
     #sidebar .content #settings {
       background: #f0f0f0;
       padding: 10px;
@@ -6535,26 +6656,36 @@ output {
       -o-backface-visibility: hidden;
       backface-visibility: hidden;
       z-index: 999; }
-      #sidebar .content #settings .option {
+      #sidebar .content #settings .optionbottom {
+        border-top: 1px solid #d7d7d7;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 0 10px;
+        background: #fff; }
+      #sidebar .content #settings .option[type="switch"], #sidebar .content #settings .option.range {
         display: block;
         height: 25px;
         position: relative;
         width: 100%; }
-        #sidebar .content #settings .option .range-field {
+        #sidebar .content #settings .option[type="switch"].range, #sidebar .content #settings .option.range.range {
+          margin-bottom: 45px !important; }
+        #sidebar .content #settings .option[type="switch"] .range-field, #sidebar .content #settings .option.range .range-field {
           position: relative;
           margin: 10px 0;
           height: 22px; }
-        #sidebar .content #settings .option input[type=range] {
-          width: 175px;
+        #sidebar .content #settings .option[type="switch"] input[type=range], #sidebar .content #settings .option.range input[type=range] {
+          width: 222px;
           display: inline-block; }
-        #sidebar .content #settings .option output {
+        #sidebar .content #settings .option[type="switch"] output, #sidebar .content #settings .option.range output {
           right: 0;
           top: 0;
           margin-top: 0.5px; }
 @-moz-document url-prefix() {
-  #sidebar .content #settings .option output {
+  #sidebar .content #settings .option[type="switch"] output, #sidebar .content #settings .option.range output {
     margin-top: -2.5px; } }
-          #sidebar .content #settings .option output:before {
+          #sidebar .content #settings .option[type="switch"] output:before, #sidebar .content #settings .option.range output:before {
             right: 52px; }
       #sidebar .content #settings .heading {
         padding: 10px 0;
@@ -6604,14 +6735,17 @@ output {
     padding: 5px 10px;
     z-index: 999;
     position: relative;
-    border-top: 1px solid #ccc; }
+    border-top: 1px solid #ccc;
+    -webkit-transition: border-color 300ms ease-out;
+    -moz-transition: border-color 300ms ease-out;
+    transition: border-color 300ms ease-out; }
     #sidebar footer .icon-share-alt {
       position: absolute;
       margin-left: 10px;
       margin-top: 1px;
       color: #ccc; }
     #sidebar footer input {
-      width: 85%; }
+      width: 245px; }
     #sidebar footer .icon-cog {
       width: 30px; }
     #sidebar footer #openSettings.active {
@@ -6655,132 +6789,260 @@ output {
         -o-backface-visibility: hidden;
         backface-visibility: hidden; }
 
-/* No files to import found in * */
-#upload {
-  position: relative;
-  height: 100%; }
-  #upload #dropzone {
-    background: #f0f0f0;
-    -webkit-transition: all 200ms ease-in-out;
-    -moz-transition: all 200ms ease-in-out;
-    transition: all 200ms ease-in-out;
-    border: 3px dashed #8dae28;
+.dropzone {
+  /**
+   * Template
+   */
+  /**
+   * The Dropzone itself
+   */
+  background: #f0f0f0;
+  -webkit-transition: all 200ms ease-in-out;
+  -moz-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
+  behavior: url(../javascript/PIE.htc);
+  position: absolute;
+  top: 50%;
+  margin-top: -250px;
+  left: 50%;
+  margin-left: -250px;
+  height: 500px;
+  width: 500px;
+  text-align: center;
+  border: 3px dashed #8dae28;
+  cursor: pointer;
+  /**
+   * States
+   */
+  /**
+   * Standard definitions
+   */ }
+  .dropzone #dropzone-template {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: none; }
+  .dropzone [type="file"] {
+    cursor: pointer;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; }
+  .dropzone.hover {
+    border-style: solid;
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1); }
+  .dropzone:hover {
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05); }
+  .dropzone.success {
+    -webkit-animation-name: bounceOut;
+    -moz-animation-name: bounceOut;
+    -ms-animation-name: bounceOut;
+    -o-animation-name: bounceOut;
+    animation-name: bounceOut;
+    -webkit-animation-iteration-count: 1s;
+    -moz-animation-iteration-count: 1s;
+    -ms-animation-iteration-count: 1s;
+    -o-animation-iteration-count: 1s;
+    animation-iteration-count: 1s;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -ms-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-delay: 0s;
+    -moz-animation-delay: 0s;
+    -ms-animation-delay: 0s;
+    -o-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-timing-function: ease;
+    -moz-animation-timing-function: ease;
+    -ms-animation-timing-function: ease;
+    -o-animation-timing-function: ease;
+    animation-timing-function: ease;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -ms-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden; }
+  .dropzone.error {
+    -webkit-animation-name: shake;
+    -moz-animation-name: shake;
+    -ms-animation-name: shake;
+    -o-animation-name: shake;
+    animation-name: shake;
+    -webkit-animation-iteration-count: 1s;
+    -moz-animation-iteration-count: 1s;
+    -ms-animation-iteration-count: 1s;
+    -o-animation-iteration-count: 1s;
+    animation-iteration-count: 1s;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -ms-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-delay: 0s;
+    -moz-animation-delay: 0s;
+    -ms-animation-delay: 0s;
+    -o-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-timing-function: ease;
+    -moz-animation-timing-function: ease;
+    -ms-animation-timing-function: ease;
+    -o-animation-timing-function: ease;
+    animation-timing-function: ease;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -ms-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background: #B3000A;
+    color: white !important;
+    border: none; }
+    .dropzone.error .dz-error-mark {
+      opacity: 1; }
+    .dropzone.error .dz-success-mark {
+      opacity: 0; }
+    .dropzone.error .dz-error-message {
+      display: block; }
+    .dropzone.error:hover .dz-error-message {
+      opacity: 1;
+      pointer-events: auto; }
+  .dropzone.dropped .dz-progress {
+    opacity: 1;
+    border: 0px solid;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    transition: all 0.2s linear; }
+  .dropzone.dz-complete .dz-progress {
+    opacity: 0;
+    -webkit-transition: opacity 0.4s ease-in;
+    -moz-transition: opacity 0.4s ease-in;
+    transition: opacity 0.4s ease-in; }
+  .dropzone:not(.dz-processing) .dz-progress {
+    -webkit-transition: pulse 6s ease infinite;
+    -moz-transition: pulse 6s ease infinite;
+    transition: pulse 6s ease infinite; }
+  .dropzone.dz-clickable {
+    cursor: pointer; }
+    .dropzone.dz-clickable * {
+      cursor: default; }
+    .dropzone.dz-clickable .dz-message, .dropzone.dz-clickable .dz-message * {
+      cursor: pointer; }
+  .dropzone.dz-started .dz-message {
+    display: none; }
+  .dropzone .dz-message {
+    text-align: center;
+    margin: 2em 0; }
+  .dropzone .dz-preview {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background-clip: padding-box;
+    /* stops bg color from leaking outside the border: */
+    behavior: url(../javascript/PIE.htc); }
+    .dropzone .dz-preview .dz-remove {
+      position: absolute;
+      top: 50%;
+      margin-top: -10px;
+      width: 100%;
+      cursor: pointer; }
+      .dropzone .dz-preview .dz-remove:hover {
+        text-decoration: underline; }
+    .dropzone .dz-preview:hover {
+      z-index: 1000; }
+      .dropzone .dz-preview:hover .dz-details {
+        opacity: 1; }
+    .dropzone .dz-preview .dz-details {
+      z-index: 20;
+      position: absolute;
+      width: 100%;
+      height: 100%; }
+  .dropzone .dz-progress {
+    position: relative;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 1000;
+    height: 100%;
+    width: 100%;
     -webkit-border-radius: 50%;
     border-radius: 50%;
     background-clip: padding-box;
     /* stops bg color from leaking outside the border: */
     behavior: url(../javascript/PIE.htc);
+    overflow: hidden;
+    text-align: center;
+    -webkit-transform: scale(1); }
+    .dropzone .dz-progress .dz-upload {
+      position: absolute;
+      background: #8dae28;
+      -webkit-transition: width 200ms ease-in-out;
+      -moz-transition: width 200ms ease-in-out;
+      transition: width 200ms ease-in-out;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 0; }
+  .dropzone .dz-success-mark, .dropzone .dz-error-mark {
+    pointer-events: none;
+    opacity: 0;
+    z-index: 500;
+    position: absolute;
+    bottom: 20%;
+    width: 100%;
+    font-size: 50px;
+    color: white;
+    opacity: .2; }
+    .dropzone .dz-success-mark svg, .dropzone .dz-error-mark svg {
+      display: block; }
+  .dropzone .dz-default {
     position: absolute;
     top: 50%;
-    margin-top: -250px;
-    left: 50%;
-    margin-left: -250px;
-    height: 500px;
-    width: 500px;
-    text-align: center; }
-    #upload #dropzone span {
-      position: absolute;
-      top: 50%;
-      display: block;
-      width: 100%;
-      margin-top: -10px;
-      margin-left: -20px; }
-    #upload #dropzone [type="file"] {
-      cursor: pointer;
-      position: absolute;
-      opacity: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0; }
-    #upload #dropzone.hover {
-      border-style: solid;
-      -webkit-transform: scale(1.1);
-      -moz-transform: scale(1.1);
-      -ms-transform: scale(1.1);
-      -o-transform: scale(1.1);
-      transform: scale(1.1); }
-    #upload #dropzone:hover {
-      -webkit-transform: scale(1.05);
-      -moz-transform: scale(1.05);
-      -ms-transform: scale(1.05);
-      -o-transform: scale(1.05);
-      transform: scale(1.05); }
-    #upload #dropzone.dropped  {
-      border: 0px solid; }
-    #upload #dropzone.success {
-      -webkit-animation-name: bounceOut;
-      -moz-animation-name: bounceOut;
-      -ms-animation-name: bounceOut;
-      -o-animation-name: bounceOut;
-      animation-name: bounceOut;
-      -webkit-animation-iteration-count: 1s;
-      -moz-animation-iteration-count: 1s;
-      -ms-animation-iteration-count: 1s;
-      -o-animation-iteration-count: 1s;
-      animation-iteration-count: 1s;
-      -webkit-animation-duration: 1s;
-      -moz-animation-duration: 1s;
-      -ms-animation-duration: 1s;
-      -o-animation-duration: 1s;
-      animation-duration: 1s;
-      -webkit-animation-delay: 0s;
-      -moz-animation-delay: 0s;
-      -ms-animation-delay: 0s;
-      -o-animation-delay: 0s;
-      animation-delay: 0s;
-      -webkit-animation-timing-function: ease;
-      -moz-animation-timing-function: ease;
-      -ms-animation-timing-function: ease;
-      -o-animation-timing-function: ease;
-      animation-timing-function: ease;
-      -webkit-animation-fill-mode: both;
-      -moz-animation-fill-mode: both;
-      -ms-animation-fill-mode: both;
-      -o-animation-fill-mode: both;
-      animation-fill-mode: both;
-      -webkit-backface-visibility: hidden;
-      -moz-backface-visibility: hidden;
-      -ms-backface-visibility: hidden;
-      -o-backface-visibility: hidden;
-      backface-visibility: hidden; }
-    #upload #dropzone.error {
-      -webkit-animation-name: shake;
-      -moz-animation-name: shake;
-      -ms-animation-name: shake;
-      -o-animation-name: shake;
-      animation-name: shake;
-      -webkit-animation-iteration-count: 1s;
-      -moz-animation-iteration-count: 1s;
-      -ms-animation-iteration-count: 1s;
-      -o-animation-iteration-count: 1s;
-      animation-iteration-count: 1s;
-      -webkit-animation-duration: 1s;
-      -moz-animation-duration: 1s;
-      -ms-animation-duration: 1s;
-      -o-animation-duration: 1s;
-      animation-duration: 1s;
-      -webkit-animation-delay: 0s;
-      -moz-animation-delay: 0s;
-      -ms-animation-delay: 0s;
-      -o-animation-delay: 0s;
-      animation-delay: 0s;
-      -webkit-animation-timing-function: ease;
-      -moz-animation-timing-function: ease;
-      -ms-animation-timing-function: ease;
-      -o-animation-timing-function: ease;
-      animation-timing-function: ease;
-      -webkit-animation-fill-mode: both;
-      -moz-animation-fill-mode: both;
-      -ms-animation-fill-mode: both;
-      -o-animation-fill-mode: both;
-      animation-fill-mode: both;
-      -webkit-backface-visibility: hidden;
-      -moz-backface-visibility: hidden;
-      -ms-backface-visibility: hidden;
-      -o-backface-visibility: hidden;
-      backface-visibility: hidden;
-      border-color: #B3000A; }
+    margin-top: -10px;
+    width: 100%; }
+  .dropzone .dz-details {
+    position: absolute;
+    top: 25%;
+    width: 100%; }
+  .dropzone .dz-error-message {
+    position: absolute;
+    display: block;
+    display: none;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0;
+    width: 100%;
+    height: 100%; }
+
+/* No files to import found in * */
+#upload {
+  position: relative;
+  height: 100%; }
 
 #mindmap {
   display: none;
@@ -6788,13 +7050,48 @@ output {
   width: 100%;
   overflow: hidden; }
   #mindmap #content {
+    -webkit-animation-name: zoomIn;
+    -moz-animation-name: zoomIn;
+    -ms-animation-name: zoomIn;
+    -o-animation-name: zoomIn;
+    animation-name: zoomIn;
+    -webkit-animation-iteration-count: 1s;
+    -moz-animation-iteration-count: 1s;
+    -ms-animation-iteration-count: 1s;
+    -o-animation-iteration-count: 1s;
+    animation-iteration-count: 1s;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -ms-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-delay: 0s;
+    -moz-animation-delay: 0s;
+    -ms-animation-delay: 0s;
+    -o-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-timing-function: ease;
+    -moz-animation-timing-function: ease;
+    -ms-animation-timing-function: ease;
+    -o-animation-timing-function: ease;
+    animation-timing-function: ease;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -ms-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
     width: 100%;
     height: 100%;
     position: relative;
     z-index: 1; }
   #mindmap #menubutton {
     position: absolute;
-    top: 4px;
+    top: 5px;
     right: 10px;
     z-index: 9999;
     -webkit-transform: translateZ(0);
@@ -6805,7 +7102,7 @@ output {
     text-transform: uppercase; }
   #mindmap #searchterm {
     position: absolute;
-    top: 38px;
+    top: 40px;
     right: 10px;
     z-index: 9;
     text-transform: uppercase;

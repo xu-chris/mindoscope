@@ -34,11 +34,10 @@
     stroke: #fff;
     stroke-width: 1.5px;
   }
-  
+
   /**
    * Node status subclasses
    */
-  
   &:hover, &.hover {
     stroke: #000;
     stroke-width: 1.5px;
@@ -47,7 +46,6 @@
   &.hide {
     opacity: .12;
   }
-  
 }
 
 .hide-visited .node.visited {

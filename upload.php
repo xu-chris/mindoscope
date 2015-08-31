@@ -1,20 +1,21 @@
-<?php 
+<?php
 
-$ds          = DIRECTORY_SEPARATOR;  //1
- 
-$storeFolder = 'upload';   //2
- 
+$ds          = DIRECTORY_SEPARATOR;
+
+$storeFolder = 'upload';
+
 if (!empty($_FILES)) {
-  $tempFile = $_FILES['file']['tmp_name'];          //3             
-  $targetPath = dirname( __FILE__ ) . $ds. $storeFolder . $ds;  //4
-  $targetFile =  $targetPath. $_FILES['file']['name'];  //5
-  move_uploaded_file($tempFile,$targetFile); //6 
-  rename ($targetFile, $targetPath.'file.mm');
+  $tempFile = $_FILES['file']['tmp_name'];
+  $targetPath = dirname( __FILE__ ) . $ds. $storeFolder . $ds;
+  $targetFile =  $targetPath. $_FILES['file']['name'];
+  $hash = hash_file('md5', $tempFile);
+  move_uploaded_file($tempFile,$targetFile);
+  rename ($targetFile, $targetPath.$hash.'.mm');
 }
 
 /*----------  OPTIONS  ----------*/
 
-$url         = $targetPath. 'file.mm';
+$url         = $targetPath.$hash.'.mm';
 $cachePath   = 'content/';
 $enableCache = true;
 
@@ -23,17 +24,16 @@ $enableCache = true;
 =========================================*/
 
 function getJSONHash($url) {
- 
+
   global $cachePath;
   global $enableCache;
+  global $hash;
 
   // If there's no file: return error
   $fileContents= file_get_contents($url);
   if (!file_exists($url)) return error_log('File not found');
 
   // If file exists already: return content from file
-  $hash = hash_file('md5', $url);
-  
   $cacheFilename = $cachePath.$hash.'.json';
 
   if ($enableCache && file_exists($cacheFilename)) {
@@ -46,7 +46,7 @@ function getJSONHash($url) {
   // read the file contents and convert JSON from Freemind XML structure
   $xml = simplexml_load_string($fileContents);
 
-  $array = recursiveXML($xml)[0]; 
+  $array = recursiveXML($xml)[0];
     // The calculated array is packed in an array, so we're taking it out of it.
   $json = json_encode($array);
 
@@ -64,16 +64,16 @@ function getJSONHash($url) {
 =            Freemind-XML to readable JSON            =
 =====================================================*/
 
-function recursiveXML($xml) 
+function recursiveXML($xml)
 {
-
+  global $id;
   // Kill the recursive loop if needed variables are null
   if ($xml == null) return false;
 
   /*----------  DYNAMIC VARIABLES  ----------*/
   $arr = null;
 
-  foreach($xml->node as $key => $node) 
+  foreach($xml->node as $key => $node)
   {
     // Save results to variables
     $name = ($node['TEXT'] == null ? (string)$node['text'] : (string)$node['TEXT']);
@@ -87,15 +87,14 @@ function recursiveXML($xml)
       );
     }
     else { // Has children
-      $children = recursiveXML($node);
       $arr[] = array(
         "name" => $name,
-        "children" => $children
+        "children" => recursiveXML($node)
       );
-    } 
+    }
   }
   return $arr;
-} 
+}
 
 /*============================================
 =            XML depth calculator            =
@@ -122,4 +121,7 @@ function getXMLDepth($xml) {
 /*----------  Returning area  ----------*/
 
 echo getJSONHash($url);
+
+// fclose($url);
+// unlink($url);
 die();

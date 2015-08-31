@@ -1,0 +1,71 @@
+#treelist {
+	background: #fff;
+	position: relative;
+	svg {
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 9;
+		opacity: 1;
+		overflow: hidden;
+
+		&.hide {
+			opacity: 0;
+		}
+
+		path.link {
+		  fill: none;
+		  stroke-width: 2.5px;
+		  stroke-linecap: round;
+		  stroke-linejoin: round;
+		}
+	}
+	.selected{
+    color: $green;
+  }
+  ul {
+  	margin: 0;
+  	padding: 0;
+  }
+  .item {
+    list-style: none;
+    cursor: default;
+    padding: $padding;
+    position: relative;
+    margin-bottom: 1px;
+    cursor: pointer;
+    font-size: 13px;
+    @include transition(box-shadow 100ms ease-out);
+
+    &:hover {
+	    background: #fff !important;
+	  }
+
+	  &.active {
+	    background: $green !important; //#BDDBFB !important;
+	    color: #fff;
+	  }
+
+	  &.hide {
+	  	display: none !important;
+	  }
+	  // &.leaf {
+	  // 	background: #FCFCFC !important;
+	  // }
+	  span.value {
+	    display: block;
+	    position: relative;
+	    z-index: 99;
+	    .point {
+	    	@extend .icon-circle;
+	    	position: absolute;
+	    	top: 0;
+	    	left: 0;
+
+	    }
+	  }
+	  &.root .point {
+	  	color: darken($grey, 5%) !important;
+	  }
+  }
+}

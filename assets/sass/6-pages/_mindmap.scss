@@ -6,7 +6,7 @@
   //position: fixed;
 
   #content {
-    //@include zoomIn();
+    @include zoomIn();
     width: 100%;
     height: 100%;
     position: relative;
@@ -15,7 +15,7 @@
 
   #menubutton {
     position: absolute;
-    top: 4px;
+    top: 5px;
     right: $padding;
     z-index: 9999;
     @include transform(translateZ(0)); // Hack that prevents disappearing browser button
@@ -24,7 +24,7 @@
 
   #searchterm {
     position: absolute;
-    top: 38px;
+    top: 40px;
     right: $padding;
     z-index: 9;
     text-transform: uppercase;

@@ -1,6 +1,6 @@
 @include keyframes(rotate) {
   0% {
-    @include transform(rotate(-200deg));
+    @include transform(rotate(-360deg));
     @include transform-origin(center center);
   }
   100% {

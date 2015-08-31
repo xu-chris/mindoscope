@@ -2,19 +2,16 @@
   pointer-events: none; // important to prevent default behavior
   font-size: $font-size-large;
   text-anchor: middle;
-  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
   opacity: 1;
-  @include transition(opacity 200ms ease-out);
-  
-  tspan {
-    text-anchor: middle;
+  text {
+    text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
   }
 
-  &.hide {
+  &.hide text {
     opacity: .2;
   }
 }
 
-.hide-labels .label {
+.hide-labels .label text {
   opacity: 0;
 }

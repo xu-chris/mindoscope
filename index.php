@@ -54,34 +54,49 @@
     <link rel='stylesheet' href='assets/css/base.css'>
     <script type="text/javascript" src="vendors/d3/d3.min.js"></script>
     <script src="vendors/d3-tip/index.js"></script>
-    <script type="text/javascript" src="assets/scripts/venn.min.js"></script>
+    <script type="text/javascript" src="assets/scripts/app.js"></script>
 
-    <link href="vendors/dropzone/dist/min/dropzone.min.css" type="text/css" rel="stylesheet" />
+    <!--link href="vendors/dropzone/dist/min/dropzone.min.css" type="text/css" rel="stylesheet" /-->
 
   </head>
   <body>
     <div id="upload">
       <form action="upload.php" class="dropzone" id="dropzone">
-        <span>
+        <div id="dropzone-template">
+          <div class="dz-preview dz-file-preview">
+            <div class="dz-details">
+              <div class="dz-filename"><span data-dz-name></span></div>
+            </div>
+            <div class="dz-progress"><div class="dz-upload" data-dz-uploadprogress></div></div>
+            <div class="dz-success-mark"><span>✔</span></div>
+            <div class="dz-error-mark"><span class="icon-times"></span></div>
+            <div class="dz-error-message"><span data-dz-errormessage></span></div>
+          </div>
+        </div>
         <div class="fallback">
-          <input type="file" accept="application/mm" name="file" /></span>
+          <input type="file" accept="application/mm" name="file" />
         </div>
       </form>
       <script type="text/javascript" src="vendors/dropzone/dist/min/dropzone.min.js"></script>
       <script>
         dropzoneElement = d3.select('#dropzone');
         Dropzone.options.dropzone = {
+          previewTemplate: document.querySelector('#dropzone-template').innerHTML,
           maxFilesize: 2, // MB
           dictDefaultMessage: "<strong>Drag and drop your Mind Map here</strong><br>(or click to choose)",
-          dictInvalidFileType: "Was it a freemind file? Retry please.",
-          dictFileTooBig: "Uuh that's too big. Sorry",
+          clickable: true,
           success: function(file, response) {
             dropzoneElement
               .classed('hover', false)
               .classed('error', false)
               .classed('dropped', false)
               .classed('success', true);
-            setTimeout(buildMindmap(response), 300);
+            _this = this;
+            setTimeout(function() {
+              buildMindmap(response, <?php echo $zoom ?>);
+              _this.removeAllFiles();
+              _this.enable();
+            }, 1000);
           },
           dragover: function() {
             dropzoneElement
@@ -104,7 +119,7 @@
               .classed('dropped', true)
               .classed('success', false);
           },
-          error: function() {
+          error: function(file, response) {
             dropzoneElement
               .classed('hover', false)
               .classed('error', true)
@@ -144,16 +159,24 @@
               Disable tooltips
             </label>
             <div class="heading">Animation</div>
-            <form  class="option" onsubmit="return false" oninput="level.value = zoomDurationLevel.valueAsNumber + ' ms'">
+            <form  class="option range" onsubmit="return false" oninput="level.value = zoomDurationLevel.valueAsNumber + ' ms'">
               <div>Zoom duration time:</div>
               <div class="range-field">
                 <input type="range" id="zoomDuration" name="zoomDurationLevel" min="0" max="1500" value="<?php echo $zoom ?>" />
                 <output for="zoomDuration" name="level" id="zoomDurationOutput"><?php echo $zoom ?> ms</output>
               </div>
             </form>
-           </div>
+            <div class="optionbottom">
+              <div class="heading">Mind Map</div>
+              <div class="option button-group justified" role="group">
+                <a id="download" class="button">Download</a>
+                <a id="new" class="button">New</a>
+                <a id="delete" class="button danger">Delete</a>
+              </div>
+            </div>
+            </div>
             <div class="scrollmask">
-              <div id="nodelist" class="show"></div>
+              <div id="treelist" class="show"></div>
             </div>
           </div>
           <footer>
