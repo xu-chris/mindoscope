@@ -1,15 +1,15 @@
-[submodule "vendors/d3-tip"]
-	path = vendors/d3-tip
-	url = https://github.com/Caged/d3-tip
-[submodule "vendors/animate"]
-	path = vendors/animate
-	url = https://github.com/geoffgraham/animate.scss
-[submodule "vendors/dropzone"]
-	path = vendors/dropzone
-	url = https://github.com/enyo/dropzone
 [submodule "vendors/mobile-detect"]
 	path = vendors/mobile-detect
 	url = https://github.com/serbanghita/Mobile-Detect
 [submodule "assets/scripts/libs/d3"]
 	path = assets/scripts/libs/d3
 	url = https://github.com/mbostock/d3
+[submodule "assets/scripts/libs/dropzone"]
+	path = assets/scripts/libs/dropzone
+	url = https://github.com/enyo/dropzone
+[submodule "assets/scripts/plugins/d3/d3-tip"]
+	path = assets/scripts/plugins/d3/d3-tip
+	url = https://github.com/Caged/d3-tip
+[submodule "assets/sass/0-protons/animations/animate"]
+	path = assets/sass/0-protons/animations/animate
+	url = https://github.com/geoffgraham/animate.scss

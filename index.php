@@ -52,12 +52,10 @@
     <link rel="apple-touch-icon-precomposed" sizes="152x152" href="assets/img/app-icons/AppIcon76x76@2x.png">
 
     <link rel='stylesheet' href='assets/css/base.css'>
-    <script type="text/javascript" src="vendors/d3/d3.min.js"></script>
-    <script src="vendors/d3-tip/index.js"></script>
-    <!--script data-main="assets/scripts/main" src="vendors/requirejs/require.js"></script-->
+    <script type="text/javascript" src="assets/scripts/libs/d3/d3.min.js"></script>
+    <script src="assets/scripts/plugins/d3/d3-tip/index.js"></script>
+    <!--script data-main="assets/scripts/main" src="assets/scripts/libs/requirejs/require.js"></script-->
     <script type="text/javascript" src="assets/scripts/app.js"></script>
-
-    <!--link href="vendors/dropzone/dist/min/dropzone.min.css" type="text/css" rel="stylesheet" /-->
 
   </head>
   <body>
@@ -78,7 +76,7 @@
           <input type="file" accept="application/mm" name="file" />
         </div>
       </form>
-      <script type="text/javascript" src="vendors/dropzone/dist/min/dropzone.min.js"></script>
+      <script type="text/javascript" src="assets/scripts/libs/dropzone/dist/min/dropzone.min.js"></script>
       <script>
         dropzoneElement = d3.select('#dropzone');
         Dropzone.options.dropzone = {
