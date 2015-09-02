@@ -6303,12 +6303,12 @@ output {
 .label {
   pointer-events: none;
   font-size: 14px;
-  text-anchor: middle;
-  opacity: 1; }
-  .label text {
-    text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff; }
+  opacity: 1;
+  text-anchor: middle; }
   .label.hide text {
     opacity: .2; }
+  .label rect {
+    opacity: .7; }
 
 .hide-labels .label text {
   opacity: 0; }
@@ -6432,7 +6432,6 @@ output {
   #treelist .item {
     list-style: none;
     cursor: default;
-    padding: 10px;
     position: relative;
     margin-bottom: 1px;
     cursor: pointer;
@@ -6448,13 +6447,18 @@ output {
     #treelist .item.hide {
       display: none !important; }
     #treelist .item span.value {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-right: 10px;
       display: block;
       position: relative;
       z-index: 99; }
       #treelist .item span.value .point {
         position: absolute;
+        padding-top: 10px;
         top: 0;
-        left: 0; }
+        left: 0;
+        margin-left: 10px; }
     #treelist .item.root .point {
       color: #e3e3e3 !important; }
 
@@ -7116,5 +7120,5 @@ button.danger, .button.danger {
     position: absolute;
     bottom: 5px;
     right: 10px;
-    z-index: 9;
+    z-index: 2;
     text-transform: uppercase; }

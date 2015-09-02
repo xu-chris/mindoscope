@@ -1,15 +1,15 @@
 .label {
   pointer-events: none; // important to prevent default behavior
   font-size: $font-size-large;
-  text-anchor: middle;
   opacity: 1;
-  text {
-    text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
-  }
 
   &.hide text {
     opacity: .2;
   }
+  rect {
+    opacity: .7;
+  }
+  text-anchor: middle;
 }
 
 .hide-labels .label text {

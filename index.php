@@ -54,6 +54,7 @@
     <link rel='stylesheet' href='assets/css/base.css'>
     <script type="text/javascript" src="vendors/d3/d3.min.js"></script>
     <script src="vendors/d3-tip/index.js"></script>
+    <!--script data-main="assets/scripts/main" src="vendors/requirejs/require.js"></script-->
     <script type="text/javascript" src="assets/scripts/app.js"></script>
 
     <!--link href="vendors/dropzone/dist/min/dropzone.min.css" type="text/css" rel="stylesheet" /-->
@@ -125,6 +126,7 @@
               .classed('error', true)
               .classed('dropped', false)
               .classed('success', false);
+            _this.enable();
           }
         }
       </script>
@@ -159,11 +161,11 @@
               Disable tooltips
             </label>
             <div class="heading">Animation</div>
-            <form  class="option range" onsubmit="return false" oninput="level.value = zoomDurationLevel.valueAsNumber + ' ms'">
+            <form  class="option range" onsubmit="return false" oninput="level.value = zoomDurationLevel.valueAsNumber">
               <div>Zoom duration time:</div>
               <div class="range-field">
                 <input type="range" id="zoomDuration" name="zoomDurationLevel" min="0" max="1500" value="<?php echo $zoom ?>" />
-                <output for="zoomDuration" name="level" id="zoomDurationOutput"><?php echo $zoom ?> ms</output>
+                <output for="zoomDuration" name="level" id="zoomDurationOutput"><?php echo $zoom ?></output>
               </div>
             </form>
             <div class="optionbottom">

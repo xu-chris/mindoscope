@@ -30,7 +30,6 @@
   .item {
     list-style: none;
     cursor: default;
-    padding: $padding;
     position: relative;
     margin-bottom: 1px;
     cursor: pointer;
@@ -53,14 +52,19 @@
 	  // 	background: #FCFCFC !important;
 	  // }
 	  span.value {
+	  	padding-top: $padding;
+	  	padding-bottom: $padding;
+	  	padding-right: $padding;
 	    display: block;
 	    position: relative;
 	    z-index: 99;
 	    .point {
 	    	@extend .icon-circle;
 	    	position: absolute;
+	    	padding-top: $padding;
 	    	top: 0;
 	    	left: 0;
+	    	margin-left: 10px;
 
 	    }
 	  }
