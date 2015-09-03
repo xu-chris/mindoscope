@@ -1,4 +1,6 @@
-/*global d3:false*/
+/* global d3:false*/
+/*jslint todo: true */
+
 
 /**
  * A zoomable Circle packing layout for mindmap presentation with breadcrumb path and
@@ -12,8 +14,6 @@
 function buildMindmap(hash, zoomDuration) {
   'use strict';
 
-  d3.select('#upload').style('display', 'none');
-  d3.select('#mindmap').style('display', 'block');
   /*----------  Options to set (or to calculate)  ----------*/
 
       /* Values and sizes */
@@ -55,7 +55,10 @@ function buildMindmap(hash, zoomDuration) {
   ;
 
   /*----------  UI Elements and areas  ----------*/
-  var $dropzone       = d3.select('.dropzone'),
+  var $upload         = d3.select('#upload'),
+      $dropzone       = d3.select('.dropzone'),
+
+      $mindmap        = d3.select('#mindmap'),
       $container      = d3.select("#"+container),
       $menubutton     = d3.select(menubutton), // The menubutton to show the sidebar
       $overviewButton = d3.select(overviewButton), // The button to show the overview
@@ -75,7 +78,7 @@ function buildMindmap(hash, zoomDuration) {
 
       /* Settings elements */
       $hideVisited     = d3.select("#hideVisited"),
-      $hideLabels  	   = d3.select("#hideLabels"),
+      $hideLabels      = d3.select("#hideLabels"),
       $disableTooltips = d3.select("#disableTooltip"),
       $zoomDuration    = d3.select('#zoomDuration'),
 
@@ -86,8 +89,8 @@ function buildMindmap(hash, zoomDuration) {
 
 
   /*----------  Dynamically declared variables  ----------*/
-  var width,
-      height,
+  var width = window.innerWidth,
+      height = window.innerHeight,
       fileURL = contentPath+hash+'.json',
       diameter = getDiameter()
         // The diameter is the minimum available screen size for the graphics.
@@ -299,10 +302,6 @@ function buildMindmap(hash, zoomDuration) {
   /*=========================================
   =            DRAWING FUNCTIONS            =
   =========================================*/
-  /**
-   * TODO: Is it better to group circle and text via g-element?
-   */
-
 
   /**
    * Draws circles and attach every class on it
@@ -345,17 +344,17 @@ function buildMindmap(hash, zoomDuration) {
 
 
   /**
-   * Draws the labels that are belonging to the circles
+   * Draws the labels that are belonging to the circles.
    * @param  {Object} nodes The data container
    * @return {Object}       Selection of every built text element
    */
   function drawLabels(nodes,root) {
     /**
-     * Draws a rectangle behind the text to make it more readable
-     * TODO Optimizing the script to be much more faster
+     * Draws a rectangle behind the text to make it more readable.
      * NOTE This script slows the calculation of the layout dramatically!
      * @param  {Selection} text The selection of every text element
      */
+    // TODO: Optimizing the script to be much more faster
     function drawTextBackground(text) {
       text.each(function() {
         var text = d3.select(this),
@@ -376,11 +375,11 @@ function buildMindmap(hash, zoomDuration) {
     /**
      * Wrapping long labels function
      * Adapted from: https://gist.github.com/mbostock/7555321
-     * TODO Optimizing the script to be much more faster
      * NOTE This script slows the calculation of the layout dramatically!
      * @param  {Selection} text  The selection of all text elements
      * @param  {integer} width The maximum width value
      */
+    // TODO: Optimizing the script to be much more faster
     function wrap(text, width) {
       text.each(function() {
         var text = d3.select(this),
@@ -392,14 +391,14 @@ function buildMindmap(hash, zoomDuration) {
             y = text.attr("y"),
             tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", 0 + "em");
         while (word = words.pop()) {
-          line.push(word);
-          if (word != "") tspan.text(line.join(" "));
-          if (tspan.node().getComputedTextLength() > width && words.length != 0) {
+          if (word != null) line.push(word);
+          if (line[0] !== undefined) tspan.text(line.join(" "));
+          if (tspan.node().getComputedTextLength() > width) {
             line.pop();
             tspan.text(line.join(" "));
             line = [word];
             lineNumber++;
-            if (word != "") tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy",  lineHeight + "em").text(word);
+            tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy",  lineHeight + "em").text(word);
           }
         }
         text.attr("y", 0-(lineNumber * 9));
@@ -502,8 +501,6 @@ function buildMindmap(hash, zoomDuration) {
       // tree link nodes
       var width = $sidebarTreelist.node().getBoundingClientRect().width,
           height = $sidebarTreelist.node().getBoundingClientRect().height,
-          i = 0,
-          id = 0,
           margin = {top: 20, right: 10, bottom: 10, left: 15};
 
       // Interpolation function
@@ -555,7 +552,6 @@ function buildMindmap(hash, zoomDuration) {
 
   /*----------  Variables  ----------*/
   var isSidebarOpen = false;
-  var isSettingsOpen = false;
 
   /**
    * Translates the zoom from current focused node to node d
@@ -730,22 +726,22 @@ function buildMindmap(hash, zoomDuration) {
   }
 
   function optionSetZoomDuration(duration) {
-    setGetParameter("zoom",duration)
+    setGetParameter("zoom",duration);
     zoomDuration = duration;
   }
 
   function optionHideVisited(hide) {
-    setGetParameter("visited",(hide ? "y" : ""))
+    setGetParameter("visited",(hide ? "y" : ""));
     d3.select('body').classed('hide-visited',hide);
   }
 
   function optionHideLabels(hide) {
-    setGetParameter("labels",(hide ? "y" : ""))
+    setGetParameter("labels",(hide ? "y" : ""));
     d3.select('body').classed('hide-labels',hide);
   }
 
   function optionHideTooltips(hide) {
-    setGetParameter("tooltips",(hide ? "y" : ""))
+    setGetParameter("tooltips",(hide ? "y" : ""));
     d3.select('body').classed('hide-tooltip',hide);
   }
 
@@ -771,8 +767,8 @@ function buildMindmap(hash, zoomDuration) {
       .classed('dz-processing', false)
       .classed('dz-complete', false);
     d3.select('body').style('position', 'relative');
-    d3.select('#upload').style('display', 'block');
-    d3.select('#mindmap').style('display', 'none');
+    $upload.style('display', 'block');
+    $mindmap.style('display', 'none');
     $container.select('svg').remove();
     $sidebarTreelist.select('ul').remove();
     $sidebarTreelist.select('svg').remove();
@@ -914,7 +910,7 @@ function buildMindmap(hash, zoomDuration) {
       })
       .on("change", function() {
         optionSetZoomDuration(this.value);
-      })
+      });
 
     $download
       .on("click", function() {
@@ -1144,6 +1140,9 @@ function buildMindmap(hash, zoomDuration) {
   }
 
   /*=====  End of READ DATA AND BUILD VISUALIZATION  ======*/
+
+  $upload.style('display', 'none');
+  $mindmap.style('display', 'block');
 
   init(fileURL);
 
