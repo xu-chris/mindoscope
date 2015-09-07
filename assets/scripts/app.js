@@ -349,61 +349,6 @@ function buildMindmap(hash, zoomDuration) {
    * @return {Object}       Selection of every built text element
    */
   function drawLabels(nodes,root) {
-    /**
-     * Draws a rectangle behind the text to make it more readable.
-     * NOTE This script slows the calculation of the layout dramatically!
-     * @param  {Selection} text The selection of every text element
-     */
-    // TODO: Optimizing the script to be much more faster
-    function drawTextBackground(text) {
-      text.each(function() {
-        var text = d3.select(this),
-            width = text.select("text").node().getBoundingClientRect().width,
-            height = text.select("text").node().getBoundingClientRect().height;
-
-        text.insert('rect', ':first-child')
-          .attr("width", width * 4)
-          .attr("height", height * 4)
-          .attr("y", -height * 2 - 5)
-          .attr("x", -width * 2)
-          .attr("rx", "5")
-          .attr("ry", "5")
-          .style("fill", "white");
-      });
-    }
-
-    /**
-     * Wrapping long labels function
-     * Adapted from: https://gist.github.com/mbostock/7555321
-     * NOTE This script slows the calculation of the layout dramatically!
-     * @param  {Selection} text  The selection of all text elements
-     * @param  {integer} width The maximum width value
-     */
-    // TODO: Optimizing the script to be much more faster
-    function wrap(text, width) {
-      text.each(function() {
-        var text = d3.select(this),
-            words = text.text().split(/\s+/).reverse(),
-            word,
-            line = [],
-            lineNumber = 0,
-            lineHeight = 1.2, // ems
-            y = text.attr("y"),
-            tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", 0 + "em");
-        while (word = words.pop()) {
-          if (word != null) line.push(word);
-          if (line[0] !== undefined) tspan.text(line.join(" "));
-          if (tspan.node().getComputedTextLength() > width) {
-            line.pop();
-            tspan.text(line.join(" "));
-            line = [word];
-            lineNumber++;
-            tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy",  lineHeight + "em").text(word);
-          }
-        }
-        text.attr("y", 0-(lineNumber * 9));
-      });
-    }
 
     var text = svg.selectAll("g.label")
       .data(nodes)
@@ -412,14 +357,19 @@ function buildMindmap(hash, zoomDuration) {
             .attr("class", "label")
             .attr("transform", "translate(0," + height + ")");
 
+
     text
       .style("opacity", function(d) { return d.parent === root ? 1 : 0; })
       .style("display", function(d) { return d.parent === root ? "inline" : 'none'; })
-      .append("text")
-        .text(function(d){ return d.name; })
-        .call(wrap, 100);
-
-    text.call(drawTextBackground);
+      .append("foreignObject")
+        // Using the SVG foreignObject to use the wrapping functionality of HTML elements
+        .attr("width", 120)
+        .attr("x", -120/2)
+        .attr("height", 200)
+        .attr("y", -200/2)
+        .append("xhtml:div")
+          .classed('labelContainer', true)
+          .html(function(d){return '<div><span>'+d.name+'</span></div>';});
 
     return text;
   }
@@ -467,7 +417,7 @@ function buildMindmap(hash, zoomDuration) {
               .html(function (d) { return d.name; });
 
       // Calculating the node tree layout
-      var rootTop = d3.selectAll("li."+treelistItemClass)
+      var rootTop = ul.selectAll("li."+treelistItemClass)
         .filter(function(d,i) {
           return i == 0;
         })
@@ -476,19 +426,19 @@ function buildMindmap(hash, zoomDuration) {
             .top;
 
       // Calculating variables
-      nodes.forEach(function(n, i) {
+      nodes.forEach(function(d, i) {
         // Get position of li element
-        var top = d3.selectAll("li."+treelistItemClass)
+        var top = ul.selectAll("li."+treelistItemClass)
           .filter(function(d2,i2) {
             return i2 == i;
           })
           .node()
             .getBoundingClientRect()
               .top;
-        n.x = top - rootTop;//i * 38;
-        n.y = n.depth * indent;
-        if (n.depth == 1) nodeTree++;
-        n.value = nodeTree;
+        d.x = top - rootTop;//i * 38;
+        d.y = d.depth * indent;
+        if (d.depth == 1) nodeTree++;
+        d.value = nodeTree;
       });
 
       listEnter
@@ -817,6 +767,9 @@ function buildMindmap(hash, zoomDuration) {
           closeSidebar();
           zoom(d), d3.event.stopPropagation();
         }
+        else if (d.parent != null) {
+          zoom(d.parent), d3.event.stopPropagation();
+        }
       })
       .on('mouseover', function(d) {
         tip.attr('class', 'd3-tip animate').show(d);
@@ -1072,16 +1025,11 @@ function buildMindmap(hash, zoomDuration) {
       if (error) throw error;
 
       // Set sizes of the UI
+      setPath(root);
       setSize();
       setSidebarContentHeight();
 
       nodelist = drawNodeList(root);
-
-      // Set the maximum color domain dimension by recursively calculate it
-      // This is needed to set the maximum level of interpolations
-      console.log("Depth of the Mind Map: "+getDepth(root));
-      colorgrey.domain([0, getDepth(root)]);
-
 
       /*----------  Initialize the data  ----------*/
 
@@ -1092,6 +1040,11 @@ function buildMindmap(hash, zoomDuration) {
       // dynamic variables to calculate the visualization
       focus   = root; // The middle of everything
       nodes   = pack.nodes(root); // Packing every node into a circle packing layout
+
+      // Set the maximum color domain dimension by recursively calculate it
+      // This is needed to set the maximum level of interpolations
+      console.log("Depth of the Mind Map: "+getDepth(root));
+      colorgrey.domain([0, getDepth(root)]);
 
       // Removing the placeholders
       removePlaceholders(nodes);
@@ -1117,8 +1070,6 @@ function buildMindmap(hash, zoomDuration) {
 
 
       /*----------  Arrangement and initialization  ----------*/
-
-      setPath(root);
 
       // Register the nodes
       node = svg.selectAll("circle,g.label");

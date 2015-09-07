@@ -6303,14 +6303,30 @@ output {
 .label {
   pointer-events: none;
   font-size: 14px;
-  opacity: 1;
-  text-anchor: middle; }
-  .label.hide text {
+  opacity: 1; }
+  .label.hide .labelContainer {
     opacity: .2; }
-  .label rect {
-    opacity: .7; }
+  .label .labelContainer {
+    display: table;
+    height: 200px;
+    width: 100%;
+    text-align: center; }
+    .label .labelContainer > div {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center; }
+      .label .labelContainer > div > span {
+        background: rgba(255, 255, 255, 0.6);
+        padding: 0 5px;
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+        hyphenate-limit-chars: auto 5;
+        hyphenate-limit-lines: 2;
+        text-align: center; }
 
-.hide-labels .label text {
+.hide-labels g.label .labelContainer {
   opacity: 0; }
 
 .tgl {
