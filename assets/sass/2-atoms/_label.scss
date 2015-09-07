@@ -3,8 +3,8 @@
   font-size: $font-size-large;
   opacity: 1;
 
-  &.hide .labelContainer {
-    opacity: .2;
+  &.hide .labelContainer span {
+    opacity: .5;
   }
 
   .labelContainer {
@@ -13,6 +13,7 @@
     height: 200px;
     width: 100%;
     text-align: center;
+    opacity: 1;
 
     > div {
       display: table-cell;
@@ -26,11 +27,12 @@
         hyphenate-limit-chars: auto 5;
         hyphenate-limit-lines: 2;
         text-align: center;
+        opacity: 1;
       }
     }
   }
 }
 
-.hide-labels g.label .labelContainer {
+.hide-labels g.label .labelContainer span {
   opacity: 0;
 }
