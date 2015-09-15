@@ -15,7 +15,7 @@
    * The Dropzone itself
    */
 
-  background: #f0f0f0;
+  background: white;
   @include transition(all 200ms ease-in-out);
   @include border-radius(50%);
   position: absolute;

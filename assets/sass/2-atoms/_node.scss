@@ -10,7 +10,7 @@
   // This is the Mother of all Nodes.
   &.root {
     //pointer-events: none; // important to prevent default behavior
-    fill: $grey !important;
+    fill: white !important;
     &.hide {
       opacity: .4;
     }

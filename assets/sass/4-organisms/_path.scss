@@ -9,7 +9,7 @@
   white-space: nowrap;
   text-align: center;
   z-index: 9;
-  min-height: 23px;
+  min-height: 35px;
   .content {
     overflow: auto;
     padding-right: $padding;
@@ -17,6 +17,7 @@
   }
   .active {
     font-weight: bold;
+    line-height: 1.5rem;
   }
   button {
     background: rgba(0, 0, 0, .09);

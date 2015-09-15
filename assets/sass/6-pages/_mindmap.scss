@@ -22,6 +22,15 @@
     text-transform: uppercase;
   }
 
+  #tourbutton {
+    position: absolute;
+    top: 5px;
+    right: 65px;
+    z-index: 9999;
+    @include transform(translateZ(0)); // Hack that prevents disappearing browser button
+    text-transform: uppercase;
+  }
+
   #searchterm {
     position: absolute;
     top: 40px;
