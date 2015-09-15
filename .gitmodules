@@ -13,3 +13,6 @@
 [submodule "assets/sass/0-protons/animations/animate"]
 	path = assets/sass/0-protons/animations/animate
 	url = https://github.com/geoffgraham/animate.scss
+[submodule "assets/scripts/libs/introjs"]
+	path = assets/scripts/libs/introjs
+	url = https://github.com/usablica/intro.js

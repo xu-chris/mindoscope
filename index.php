@@ -24,7 +24,7 @@
     <title>Mind-o-scope</title>
 
     <!--iOS -->
-    <meta name="apple-mobile-web-app-title" content="Mindoscope">
+    <meta name="apple-mobile-web-app-title" content="Mind-o-scope">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -51,10 +51,13 @@
     <link rel="apple-touch-icon-precomposed" sizes="76x76" href="assets/img/app-icons/AppIcon76x76.png">
     <link rel="apple-touch-icon-precomposed" sizes="152x152" href="assets/img/app-icons/AppIcon76x76@2x.png">
 
-    <link rel='stylesheet' href='assets/css/base.css'>
+    <link rel="stylesheet" href="assets/css/base.css">
+
+    <link rel="stylesheet" href="assets/scripts/libs/introjs/introjs.css">
+
     <script type="text/javascript" src="assets/scripts/libs/d3/d3.min.js"></script>
-    <script src="assets/scripts/plugins/d3/d3-tip/index.js"></script>
-    <!--script data-main="assets/scripts/main" src="assets/scripts/libs/requirejs/require.js"></script-->
+    <script type="text/javascript" src="assets/scripts/plugins/d3/d3-tip/index.js"></script>
+
     <script type="text/javascript" src="assets/scripts/app.js"></script>
 
   </head>
@@ -135,7 +138,7 @@
           Content
         </header>
         <div class="searchbar">
-          <span class="icon-search"></span>
+          <label for="search" class="icon-search"></label>
           <input type="text" id="search" size="21" maxlength="120" placeholder="Search">
         </div>
         <div class="content">
@@ -180,17 +183,87 @@
             </div>
           </div>
           <footer>
-            <span class="icon-share-alt"></span>
+            <label for="shareURL" class="icon-share-alt"></label>
             <input type="text" id="shareURL" size="21" maxlength="120" onClick="this.setSelectionRange(0, this.value.length)">
             <button class="icon-cog button" id="openSettings"></button>
           </footer>
         </div>
         <button id="menubutton" class="button">Menu</button>
+        <button id="tourbutton" href="javascript:void(0);" onclick="startIntro();" class="button">Start help tour</button>
         <button id="searchterm" class="button"></button>
         <button id="toRoot" class="button" disabled="true">Overview</button>
         <div id="path"><div class="content"></div></div>
         <div id="content"></div>
       </div>
+    
+    <script type="text/javascript" src="assets/scripts/libs/introjs/intro.js"></script>
+    <script type="text/javascript">
+      function startIntro(){
+        var intro = introJs();
+          intro.setOptions({
+            tooltipPosition: 'auto',
+            positionPrecedence: ['left', 'right', 'bottom', 'top'],
+            steps: [
+              {
+                intro: "Thanks for using Mind-o-scope. Here are a few steps to help you exploring the Mind Map."
+              },
+              {
+                element: '#content',
+                intro: "This is your Mind Map, visualized as a Venn-diagram."
+              },
+              {
+                element: '#content',
+                intro: "You can zoom into it by selecting the circle you want to explore."
+              },
+              {
+                element: '#content',
+                intro: "You can zoom out by selecting the same circle you're exploring or neighbour circles."
+              },
+              {
+                element: '#toRoot',
+                intro: "Just click this button to get back to the root node."
+              },
+              {
+                element: '#path',
+                intro: "This is the current path of your exploration. It goes from the root to the current node you've selected.<br /><br />You're now in the root node, so there's no other node to display here."
+              },
+              {
+                element: '#sidebar .content',
+                intro: "This is the hiearchical tree view. You can also select the node you want to zoom to."
+              },
+              {
+                element: '.searchbar',
+                intro: "You can search words or even some chars to find the right node - or find some similarities."
+              },
+              {
+                element: '#shareURL',
+                intro: "This is the URL to share the Mind Map with others.",
+                position: 'top'
+              },
+              {
+                element: '#openSettings',
+                intro: "If you're not happy with the zoom speed or anything else, here's where you can find some options."
+              },
+              {
+                element: '#openSettings',
+                intro: "You will also find some actions to delete or download your Mind Map or upload a new one."
+              },
+              {
+                element: '#menubutton',
+                intro: "You can find the sidebar behind this little button."
+              },
+              {
+                element: '#tourbutton',
+                intro: "Allright. Have fun. And if you're lost in hyperspace, here's where you can restart the help tour <span class='icon-smile-o'></span>."
+              }
+            ]
+          });
+
+          intro.start();
+      }
+
+    </script>
+
     <?php
 
       $cachePath   = 'content/';
@@ -203,8 +276,9 @@
       $fileURL = $cachePath.$hash.'.json';
 
       if ($hash != "" && file_exists($fileURL) && $enableCache) {
-        echo '<script>
+        echo '<script type="text/javascript">
             buildMindmap("'.$hash.'", '.$zoom.');
+            startIntro();
           </script>';
       }
 
