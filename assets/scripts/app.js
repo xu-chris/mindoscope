@@ -276,7 +276,7 @@ function buildMindmap(hash, zoomDuration) {
   function updateURL(url) {
     history.pushState('', title, url);
 
-    document.getElementById("shareURL").value = url;
+    document.getElementById("shareURL").value = url.split('?')[0];
     // set the title of the document (for browser history)
     document.title = title;
   }
