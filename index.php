@@ -85,7 +85,7 @@
         Dropzone.options.dropzone = {
           previewTemplate: document.querySelector('#dropzone-template').innerHTML,
           maxFilesize: 2, // MB
-          dictDefaultMessage: "<strong>Drag and drop your Mind Map here</strong><br>(or click to choose)",
+          dictDefaultMessage: "<strong>Drag and drop your .mm file here</strong><br>(or click to choose)",
           clickable: true,
           success: function(file, response) {
             dropzoneElement
