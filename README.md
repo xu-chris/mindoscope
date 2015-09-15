@@ -11,6 +11,9 @@ Simply select the node in which you want to zoom in. Alternatively you can also 
 # The implementation
 It's mainly based on the awesome [d3.js](http://d3js.org) framework. This helps me a lot to visualize the Mind Map. The upload drag-and-drop area is based on [dropzone.js](http://www.dropzonejs.com). The introductions is made with [intro.js](http://usablica.github.io/intro.js/).
 
+# Demo
+Look to this demo Mind Map (it's based on the German cat Wikipedia article): [Katzen Mind Map](http://app.mind-o-scope.com/demo).
+
 # The story behind
 I made and used monster-sized, careful crafted and structured Mind Maps for my Bachelor study and liked the way how it helps me to visually structure everything I know (and I have to know). It helps me a lot to remember very special term by deriving its association to more meta-like topics and terms.
 
