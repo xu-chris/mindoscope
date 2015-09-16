@@ -1,6 +1,8 @@
 html, body {
   height: 100%;
   font-family: $font-family;
+  @include font-feature-settings('liga' 1, 'onum' 1, 'kern' 1, 'smcp' 1);
+  font-weight: 350;
 }
 
 body {

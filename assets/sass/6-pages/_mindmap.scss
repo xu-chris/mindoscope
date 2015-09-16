@@ -13,22 +13,20 @@
     z-index: 1;
   }
 
-  #menubutton {
-    position: absolute;
+  .topUI {
     top: 5px;
     right: $padding;
     z-index: 9999;
-    @include transform(translateZ(0)); // Hack that prevents disappearing browser button
-    text-transform: uppercase;
-  }
-
-  #tourbutton {
     position: absolute;
-    top: 5px;
-    right: 65px;
-    z-index: 9999;
     @include transform(translateZ(0)); // Hack that prevents disappearing browser button
-    text-transform: uppercase;
+
+    #menubutton {
+      text-transform: uppercase;
+    }
+
+    #tourbutton {
+      text-transform: uppercase;
+    }
   }
 
   #searchterm {

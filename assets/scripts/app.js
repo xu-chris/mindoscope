@@ -330,7 +330,7 @@ function buildMindmap(hash, zoomDuration) {
               if (d.depth === 1) nodeTree++;
 
               if (d.children) {
-                if ((d.depth % 2) !== 0) return color(nodeTree);
+                if ((d.depth % 2) == 0) return color(nodeTree);
                 else {
                   var tempColor = d3.hsl(color(nodeTree));
                   var newColor = d3.hsl('hsl('+tempColor.h+","+(tempColor.s * 100 * 1.09)+"%,"+(tempColor.l * 100 * 1.2)+'%)');
@@ -451,7 +451,7 @@ function buildMindmap(hash, zoomDuration) {
       // tree link nodes
       var width = $sidebarTreelist.node().getBoundingClientRect().width,
           height = $sidebarTreelist.node().getBoundingClientRect().height,
-          margin = {top: 20, right: 10, bottom: 10, left: 15};
+          margin = {top: 17, right: 10, bottom: 10, left: 15};
 
       // Interpolation function
       var diagonal = d3.svg.line()

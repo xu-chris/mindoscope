@@ -188,8 +188,10 @@
             <button class="icon-cog button" id="openSettings"></button>
           </footer>
         </div>
-        <button id="menubutton" class="button">Menu</button>
-        <button id="tourbutton" href="javascript:void(0);" onclick="startIntro();" class="button">Start help tour</button>
+        <div class="topUI">
+          <button id="tourbutton" href="javascript:void(0);" onclick="startIntro();" class="button">Start help tour</button>
+          <button id="menubutton" class="button">Menu</button>
+        </div>
         <button id="searchterm" class="button"></button>
         <button id="toRoot" class="button" disabled="true">Overview</button>
         <div id="path"><div class="content"></div></div>
@@ -276,9 +278,10 @@
       $fileURL = $cachePath.$hash.'.json';
 
       if ($hash != "" && file_exists($fileURL) && $enableCache) {
-        echo '<script type="text/javascript">
-            buildMindmap("'.$hash.'", '.$zoom.');
-            startIntro();
+        echo '
+          <script type="text/javascript">
+              buildMindmap("'.$hash.'", '.$zoom.');
+              startIntro();
           </script>';
       }
 

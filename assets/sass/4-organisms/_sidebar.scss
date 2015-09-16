@@ -143,11 +143,13 @@
 
     }
     #openSettings {
+      text-align: center;
       &.active {
         background: $green;
         border-color: $green;
         color: white;
         &:before {
+          text-align: center;
           @include rotate($duration: 500ms);
         }
       }
