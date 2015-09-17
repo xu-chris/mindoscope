@@ -329,7 +329,7 @@ function buildMindmap(hash, zoomDuration) {
               // Setting the color based on the hierarchy
               if (d.depth === 1) nodeTree++;
 
-              if (d.children) {
+              if (d.children || d.depth == 1) {
                 if ((d.depth % 2) == 0) return color(nodeTree);
                 else {
                   var tempColor = d3.hsl(color(nodeTree));
@@ -446,7 +446,11 @@ function buildMindmap(hash, zoomDuration) {
           .style("padding-left", function (d) {
                   return  d.depth * indent + "px";
                 })
-          .style("color", function(d) {return color(d.value);});
+          .style("color", function(d) {
+            var tempColor = d3.hsl(color(d.value));
+            var newColor = d3.hsl('hsl('+tempColor.h+","+(tempColor.s * 100 * 1.09)+"%,"+(tempColor.l * 100 * 1.2)+'%)');
+            return newColor;
+          });
 
       // tree link nodes
       var width = $sidebarTreelist.node().getBoundingClientRect().width,
@@ -472,9 +476,9 @@ function buildMindmap(hash, zoomDuration) {
             .insert("path", ":first-child")
             .attr("class", "link")
             .attr("stroke", function(d) {
-
-              // Setting the color based on the hierarchy
-              return color(d.target.value);
+              var tempColor = d3.hsl(color(d.target.value));
+              var newColor = d3.hsl('hsl('+tempColor.h+","+(tempColor.s * 100 * 1.09)+"%,"+(tempColor.l * 100 * 1.2)+'%)');
+              return newColor;
             })
             .attr("d", function(d) {
               return diagonal([{
