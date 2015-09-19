@@ -764,6 +764,7 @@ function buildMindmap(hash, zoomDuration) {
       });
 
     // Mouse Events on circles
+    var tipShow;
     circle
       .on("click", function(d) {
         d3.select(this).classed(visitedClass,true);
@@ -776,11 +777,15 @@ function buildMindmap(hash, zoomDuration) {
         }
       })
       .on('mouseover', function(d) {
-        tip.attr('class', 'd3-tip animate').show(d);
+        tip.show(d);
+        tipShow = setTimeout(function(d2){
+          tip.attr('class','d3-tip show');
+        }, 300);
       })
       .on('mouseout', function(d) {
-        tip.attr('class', 'd3-tip').show(d);
-        tip.hide();
+        clearTimeout(tipShow);
+        tip.attr('class','d3-tip');
+        tip.hide(d);
       });
 
 
@@ -966,7 +971,7 @@ function buildMindmap(hash, zoomDuration) {
         .attr('class','divider');
 
       var title = ((d.depth + 2) > focus.depth || d.depth < 2) ? d.name : '···';
-
+      var tipShow;
       container.insert('button', ':first-child')
         .text(title)
         .on('click', function() {
@@ -974,6 +979,9 @@ function buildMindmap(hash, zoomDuration) {
           zoom(d);
         })
         .on('mouseover', function() {
+          if (title == '···') {
+            d3.select(this).classed('show-tip', true);
+          }
           circle
             .filter(function(d2) {
               return d == d2;
@@ -981,12 +989,22 @@ function buildMindmap(hash, zoomDuration) {
             .classed(hoverClass, true);
         })
         .on('mouseout', function() {
+          if (title == '···') {
+            d3.select(this).classed('show-tip', false);
+          }
           circle
             .filter(function(d2) {
               return d == d2;
             })
             .classed(hoverClass, false);
-        });
+        })
+        .append('span')
+          .text(d.name)
+          .classed('path-tip', true)
+          .attr('style', function() {
+            return 'margin-left: -' + d3.select(this).node().getBoundingClientRect().width / 2 + 'px';
+          })
+      ;
 
       getParentPath(d, container);
     }

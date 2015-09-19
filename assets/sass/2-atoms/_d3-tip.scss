@@ -4,9 +4,10 @@
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
   font-size: $font-size-small;
-  border-radius: 2px;
+  border-radius: 3px;
   position: relative;
   z-index: 10;
+  opacity: 0 !important;
 
   &:after {
     box-sizing: border-box;
@@ -17,17 +18,20 @@
     color: rgba(0, 0, 0, 0.8);
     content: "\25BC";
     position: absolute;
+    left: 0;
+    margin-left: -25%;
+    top: 100%;
+    margin: -1px 0 0 0;
     text-align: center;
   }
-  &.n:after {
-    margin: -1px 0 0 0;
-    top: 100%;
-    left: 0;
+
+  &.show {
+    @include transition(opacity 200ms ease-out);
+    opacity: 1 !important;
   }
 
-  &.animate {
-    //animation: fadeInUp 0.2s ease-out;
-    //-webkit-animation: fadeInUp 0.2s ease-out;
+  &.no-delay {
+    opacity: 1 !important;
   }
 }
 

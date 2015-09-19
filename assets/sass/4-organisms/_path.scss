@@ -11,8 +11,8 @@
   z-index: 9;
   min-height: 35px;
   .content {
-    overflow: auto;
-    padding-right: $padding;
+    position: relative;
+    padding-right: $padding + 80px;
     padding-left: $padding;
   }
   .active {
@@ -22,6 +22,7 @@
   button {
     background: rgba(0, 0, 0, .09);
     border: none;
+    position: relative;
     @include border-radius(5px);
 
     &:hover {
@@ -30,6 +31,42 @@
 
     &:focus {
       outline: 0;
+    }
+    .path-tip {
+      line-height: 1;
+      padding: 12px;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      font-size: $font-size-small;
+      border-radius: 3px;
+      position: absolute;
+      z-index: 999;
+      left: 50%;
+      top: 100%;
+      margin-top: 10px;
+      visibility: hidden;
+      opacity: 0;
+      @include transition(opacity 200ms ease-out);
+
+      &:after {
+        box-sizing: border-box;
+        display: inline;
+        font-size: 10px;
+        width: 100%;
+        line-height: 1;
+        color: rgba(0, 0, 0, 0.8);
+        content: "\25B2";
+        position: absolute;
+        left: 0;
+        margin-left: -25%;
+        top: -8px;
+        margin: -1px 0 0 0;
+        text-align: center;
+      }
+    }
+    &.show-tip .path-tip {
+      visibility: visible;
+      opacity: 1;
     }
   }
   .divider {
