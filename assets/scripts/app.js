@@ -14,95 +14,113 @@
 function buildMindmap(hash, zoomDuration) {
   'use strict';
 
-  /*----------  Options to set (or to calculate)  ----------*/
+  /**
+   * Options to set (or to calculate)
+   */
 
-      /* Values and sizes */
-  var margin        = 35,
-      circlePadding = 1,
-      maxNodeSize   = 1000, // The standard size of a node. Will be used to calc the node size
+  /* Values and sizes */
+  var margin        = 35;
+  var circlePadding = 1;
+  var maxNodeSize   = 1000;
+    // The standard size of a node. Will be used to calc the node size
 
-      /* IDs and classes */
-      container       = 'content', // The container ID name which holds the graphics
-      sidebar         = '#sidebar',
-      meubutton       = '#menubutton',
-      overviewButton  = '#toRoot',
+  /* IDs and classes */
+  var container       = 'content';
+    // The container ID name which holds the graphics
+  var sidebar         = '#sidebar';
+  var menubutton      = '#menubutton';
+  var overviewButton  = '#toRoot';
 
-      treelist        = '#treelist',
+  var treelist        = '#treelist';
 
-      settingsElement = '#settings',
-      settingsButton  = "#openSettings",
+  var settingsElement = '#settings';
+  var settingsButton  = "#openSettings";
 
-      hoverClass    = 'hover',
-      activeClass   = 'active',
-      selectedClass = 'selected',
-      visitedClass  = 'visited',
+  var hoverClass    = 'hover';
+  var activeClass   = 'active';
+  var visitedClass  = 'visited';
 
-      showClass     = 'show',
-      hideClass     = 'hide',
+  var showClass     = 'show';
+  var hideClass     = 'hide';
 
-      evenClass     = 'even',
-      oddClass      = 'odd',
+  var evenClass     = 'even';
+  var oddClass      = 'odd';
 
-      nodeClass     = 'node',
-      leafClass     = 'leaf',
-      rootClass     = 'root',
+  var nodeClass     = 'node';
+  var leafClass     = 'leaf';
+  var rootClass     = 'root';
 
-      treelistItemClass = 'item',
+  var treelistItemClass = 'item';
 
-      /* Some other options */
-      title       = "Mind-o-scope",
-      contentPath = "content/"
-  ;
-
-  /*----------  UI Elements and areas  ----------*/
-  var $upload         = d3.select('#upload'),
-      $dropzone       = d3.select('.dropzone'),
-
-      $mindmap        = d3.select('#mindmap'),
-      $container      = d3.select("#"+container),
-      $menubutton     = d3.select(menubutton), // The menubutton to show the sidebar
-      $overviewButton = d3.select(overviewButton), // The button to show the overview
-      $searchterm     = d3.select('#searchterm'),
-
-      /* Sidebar */
-      $sidebar            = d3.select(sidebar),    // The sidebar for additional content or interactions
-      $settingsElement    = $sidebar.select(settingsElement),
-      $settingsButton     = $sidebar.select(settingsButton),
-      $sidebarContent     = $sidebar.select('.content'),
-      $sidebarScrollmask  = $sidebar.select('.scrollmask'),
-      $sidebarSearchmask  = $sidebar.select('.searchbar'),
-      $sidebarSearchfield = $sidebar.select('#search'),
-      $sidebarHeader      = $sidebar.select('header'),
-      $sidebarFooter      = $sidebar.select('footer'),
-      $sidebarTreelist    = $sidebar.select(treelist),
-
-      /* Settings elements */
-      $hideVisited     = d3.select("#hideVisited"),
-      $hideLabels      = d3.select("#hideLabels"),
-      $disableTooltips = d3.select("#disableTooltip"),
-      $zoomDuration    = d3.select('#zoomDuration'),
-
-      $download        = d3.select("#download"),
-      $new             = d3.select("#new"),
-      $delete          = d3.select("#delete")
-  ;
+  /* Some other options */
+  var title       = "Mind-o-scope";
+  var contentPath = "content/";
 
 
-  /*----------  Dynamically declared variables  ----------*/
-  var width = window.innerWidth,
-      height = window.innerHeight,
-      fileURL = contentPath+hash+'.json',
-      diameter = getDiameter()
-        // The diameter is the minimum available screen size for the graphics.
-  ;
 
 
-  /*----------  Colors  ----------*/
 
-  // Color palette by http://tools.medialab.sciences-po.fr/iwanthue/
-  // H: 0 - 291
-  // C: 1.380 - 2.33
-  // L: 0.81 - 1.22
+  /**
+   * UI Elements and areas
+   */
+
+  var $upload         = d3.select('#upload');
+  var $dropzone       = d3.select('.dropzone');
+
+  var $mindmap        = d3.select('#mindmap');
+  var $container      = d3.select("#"+container);
+  var $menubutton     = d3.select(menubutton);
+    // The menubutton to show the sidebar
+  var $overviewButton = d3.select(overviewButton);
+    // The button to show the overview
+  var $searchterm     = d3.select('#searchterm');
+
+  /* Sidebar */
+  var $sb            = d3.select(sidebar);
+    // The sidebar for additional content or interactions
+  var $settingsElement = $sb.select(settingsElement);
+  var $settingsButton  = $sb.select(settingsButton);
+  var $sbSearchfield = $sb.select('#search');
+  var $sbTreelist    = $sb.select(treelist);
+
+  /* Settings elements */
+  var $hideVisited     = d3.select("#hideVisited");
+  var $hideLabels      = d3.select("#hideLabels");
+  var $disableTooltips = d3.select("#disableTooltip");
+  var $zoomDuration    = d3.select('#zoomDuration');
+
+  var $downloadButton  = d3.select("#download");
+  var $newButton       = d3.select("#new");
+  var $deleteButton    = d3.select("#delete");
+
+
+
+
+
+  /**
+   * Dynamically declared variables
+   */
+
+  var width = window.innerWidth;
+  var height = window.innerHeight;
+  var fileURL = contentPath+hash+'.json';
+  var diameter = getDiameter();
+    // The diameter is the minimum available screen size for the graphics.
+
+
+
+
+
+  /**
+   * Colors
+   */
+
+  /**
+   * Color palette by http://tools.medialab.sciences-po.fr/iwanthue/
+   * H: 0 - 291
+   * C: 1.380 - 2.33
+   * L: 0.81 - 1.22
+   */
   var color = d3.scale.ordinal()
     .range(
       ["#EF721F",
@@ -125,7 +143,6 @@ function buildMindmap(hash, zoomDuration) {
        "#33B22E",
        "#61D350",
        "#E58222"]);
-  //var color = d3.scale.category20();
 
   // Grey colors for the sidebar
   var colorgrey = d3.scale.linear()
@@ -134,7 +151,12 @@ function buildMindmap(hash, zoomDuration) {
     .interpolate(d3.interpolateRgb);
 
 
-  /*----------  Specifying the packing algorithm  ----------*/
+
+
+
+  /**
+   * Specifying the packing algorithm
+   */
 
   var pack = d3.layout.pack()
     .padding(circlePadding) // set the node padding
@@ -145,7 +167,12 @@ function buildMindmap(hash, zoomDuration) {
     });
 
 
-  /*----------  Building the Environment  ----------*/
+
+
+
+  /**
+   * Building the Environment
+   */
 
   var svg = $container.append("svg")
     .append("g");
@@ -162,118 +189,182 @@ function buildMindmap(hash, zoomDuration) {
   // Invoke the tip in the context of the visualization
   svg.call(tip);
 
-  /*=============================================
-  =            CALCULATION FUNCTIONS            =
-  =============================================*/
 
-  /*----------  Calculates the diameter  ----------*/
 
+
+
+  /**
+   * CALCULATION FUNCTIONS
+   */
+
+  /**
+   * Calculates the diameter
+   * @return {int} the diameter
+   */
   function getDiameter() {
+
     return (window.innerWidth > window.innerHeight ? (window.innerHeight - 50) : window.innerWidth);
   }
 
+  /**
+   * Calculates the depth recursively
+   * @param  {root} obj The current object (it's recursive!)
+   * @return {int}      The depth
+   */
   function getDepth(obj) {
+
     var depth = 0;
+
     if (obj.children) {
-        obj.children.forEach(function (d) {
-            var tmpDepth = getDepth(d);
-            if (tmpDepth > depth) {
-                depth = tmpDepth;
-            }
-        });
+      obj.children.forEach(function (d) {
+        var tmpDepth = getDepth(d);
+        if (tmpDepth > depth) {
+          depth = tmpDepth;
+        }
+      });
     }
+
     return 1 + depth;
   }
 
-  /*-----------------------------  One child node handler functions  ----------------------------------*/
-  /* Found on:                                                                                         */
-  /* http://stackoverflow.com/questions/22307486/d3-js-packed-circle-layout-how-to-adjust-child-radius */
+  /**
+   * One child node handler functions
+   * Found on:
+   * http://stackoverflow.com/questions/22307486/d3-js-packed-circle-layout-how-to-adjust-child-radius
+   */
 
-  function addPlaceholders( node ) {
+  /**
+   * Adds the placeholder to a node
+   * @param {Object} node The selected data node
+   */
+  function addPlaceholders(node) {
+
     if (node.children) {
-      for ( var i = 0; i < node.children.length; i++ ) {
+      for (var i = 0; i < node.children.length; i++) {
+
         var child = node.children[i];
+
         addPlaceholders( child );
       }
 
-      if(node.children.length === 1) {
-        node.children.push({ name:'placeholder', children: [ { name:'placeholder', children:[] }] });
+      if (node.children.length === 1) {
+        node.children.push({
+          name:'===placeholder===',
+          children: [ {
+            name:'===placeholder===',
+            children:[]
+          }]
+        });
       }
     }
   }
 
-  function removePlaceholders( nodes ) {
-    for ( var i = nodes.length - 1; i >= 0; i-- ) {
+  /**
+   * Removes the placeholders
+   * @param {Object} nodes The selected data node
+   */
+  function removePlaceholders(nodes) {
+
+    for (var i = nodes.length - 1; i >= 0; i--) {
+
       var node = nodes[i];
-      if ( node.name === 'placeholder' ) nodes.splice(i,1);
-      else if ( node.children ) removePlaceholders( node.children );
+
+      if (node.name === '===placeholder===') {
+        nodes.splice(i,1);
+      } else if (node.children) {
+        removePlaceholders(node.children);
+      }
     }
   }
 
-  function centerNodes( nodes ) {
-    for ( var i = 0; i < nodes.length; i ++ ) {
+  /**
+   * Centers every single children node by repositioning them
+   * @param  {Object} nodes The selected data node
+   */
+  function centerNodes(nodes) {
+
+    for (var i = 0; i < nodes.length; i ++) {
+
       var node = nodes[i];
-      if ( node.children ) {
-        if ( node.children.length === 1) {
+
+      if (node.children) {
+        if (node.children.length === 1) {
           var offset = node.x - node.children[0].x;
           node.children[0].x += offset;
           reposition(node.children[0],offset);
         }
       }
     }
+  }
 
-    function reposition( node, offset ) {
-      if (node.children) {
-        for ( var i = 0; i < node.children.length; i++ ) {
-          node.children[i].x += offset;
-          reposition( node.children[i], offset );
-        }
+  /**
+   * Repositions a node by a giving offset
+   * @param  {Object} node   The selected data node
+   * @param  {Array}  offset The offset, set by x and y coordinates as array
+   */
+  function reposition(node, offset) {
+
+    if (node.children) {
+      for (var i = 0; i < node.children.length; i++) {
+        node.children[i].x += offset;
+        reposition(node.children[i], offset);
       }
     }
   }
 
-  function makePositionsRelativeToZero( nodes ) {
+  /**
+   * Repositions every node from the center of the screen.
+   * @param  {Object} nodes Every single data node (namely root)
+   */
+  function repositionNodesRelativeToZero(nodes) {
 
-    //use this to have vis centered at 0,0,0 (easier for positioning)
+    //use this to center vis at 0,0,0 (easier for positioning)
     var offsetX = nodes[0].x;
     var offsetY = nodes[0].y;
 
-    for ( var i = 0; i < nodes.length; i ++ ) {
+    for (var i = 0; i < nodes.length; i ++) {
       var node = nodes[i];
       node.x -= offsetX;
       node.y -= offsetY;
     }
   }
 
-  String.prototype.trunc =
-    function(n,useWordBoundary){
-       var toLong = this.length>n,
-           s_ = toLong ? this.substr(0,n-1) : this;
-       s_ = useWordBoundary && toLong ? s_.substr(0,s_.lastIndexOf(' ')) : s_;
-       return  toLong ? s_ + '…' : s_;
-    };
-
   /**
-   * http://stackoverflow.com/a/13064060
+   * Sets parameter values
+   * Source: http://stackoverflow.com/a/13064060
+   *
+   * @param {String} paramName  The parameter name
+   * @param {String} paramValue The new value
    */
-  function setGetParameter(paramName, paramValue)
-  {
+  // TODO: rearrange those with Cookies. Parameter poisoned URLS are bullshit.
+  function setGetParameter(paramName, paramValue) {
+
     var url = window.location.href;
+
     if (url.indexOf(paramName + "=") >= 0) {
       var prefix = url.substring(0, url.indexOf(paramName));
       var suffix = url.substring(url.indexOf(paramName));
       suffix = suffix.substring(suffix.indexOf("=") + 1);
       suffix = (suffix.indexOf("&") >= 0) ? suffix.substring(suffix.indexOf("&")) : "";
       url = prefix + paramName + "=" + paramValue + suffix;
+    } else {
+      if (url.indexOf("?") < 0) {
+        url += "?" + paramName + "=" + paramValue;
+      } else {
+        url += "&" + paramName + "=" + paramValue;
+      }
     }
-    else {
-      if (url.indexOf("?") < 0) url += "?" + paramName + "=" + paramValue;
-      else url += "&" + paramName + "=" + paramValue;
-    }
+
     updateURL(url);
   }
 
+  /**
+   * Updates the window history with a new URL and also the URL sharing input field.
+   * Additionally: sets the document title to the Mind Map title.
+   * @param  {String} url The new URL
+   */
   function updateURL(url) {
+
     history.pushState('', title, url);
 
     document.getElementById("shareURL").value = url.split('?')[0];
@@ -281,7 +372,12 @@ function buildMindmap(hash, zoomDuration) {
     document.title = title;
   }
 
+  /**
+   * Makes an ajax request, used to delete the Mind Map without reloading the page.
+   * @param  {String} url The URL to the post script
+   */
   function ajax(url) {
+
     var xmlhttp = new XMLHttpRequest(); // code for IE7+, Firefox, Chrome, Opera, Safari
 
     xmlhttp.onreadystatechange = function() {
@@ -296,12 +392,17 @@ function buildMindmap(hash, zoomDuration) {
     xmlhttp.send();
   }
 
-  /*=====  End of CALCULATION FUNCTIONS  ======*/
+  /**
+   * End of CALCULATION FUNCTIONS
+   */
 
 
-  /*=========================================
-  =            DRAWING FUNCTIONS            =
-  =========================================*/
+
+
+
+  /**
+   * DRAWING FUNCTIONS
+   */
 
   /**
    * Draws circles and attach every class on it
@@ -309,12 +410,16 @@ function buildMindmap(hash, zoomDuration) {
    * @return {Object}       Selection of every circle
    */
   function drawCircle(nodes) {
+
     var nodeTree = 0;
+
+    // Returns directly the circle. This isn't really elegant for code quality but it saves memory.
     return svg.selectAll("circle")
       .data(nodes) // getting the data for every node
         .enter() // this is the D3 foreach loop
           .append("circle") // building the circle for each data node
-            .attr("class", function(d) {
+            .attr("class", function (d) {
+
               // set class to node and to leaf (for endpoints) or to root (for stem)
               var output = nodeClass+(d.parent ? d.children ? '' : ' '+leafClass : ' '+rootClass);
 
@@ -323,25 +428,31 @@ function buildMindmap(hash, zoomDuration) {
 
               return output;
             })
-            .attr("r", function(d) { return d.r+ 7; })
-            .style("fill", function(d) {
+            .attr("r", function (d) {
+
+              return d.r+ 7;
+            })
+            .style("fill", function (d) {
 
               // Setting the color based on the hierarchy
-              if (d.depth === 1) nodeTree++;
+              if (d.depth === 1) {
+                nodeTree++;
+              }
 
-              if (d.children || d.depth == 1) {
-                if ((d.depth % 2) == 0) return color(nodeTree);
-                else {
+              if (d.children || d.depth === 1) {
+                if ((d.depth % 2) === 0) {
+                  return color(nodeTree);
+                } else {
                   var tempColor = d3.hsl(color(nodeTree));
                   var newColor = d3.hsl('hsl('+tempColor.h+","+(tempColor.s * 100 * 1.09)+"%,"+(tempColor.l * 100 * 1.2)+'%)');
 
                   return newColor;
                 }
+              } else {
+                return null;
               }
-              else return null;
             });
   }
-
 
   /**
    * Draws the labels that are belonging to the circles.
@@ -350,161 +461,192 @@ function buildMindmap(hash, zoomDuration) {
    */
   function drawLabels(nodes,root) {
 
-    var text = svg.selectAll("g.label")
+    // Returning directly the Label
+    return svg.selectAll("g.label")
       .data(nodes)
         .enter() // this is the D3 foreach loop
           .append("g")
             .attr("class", "label")
-            .attr("transform", "translate(0," + height + ")");
+            .style("opacity", function (d) {
 
+              return d.parent === root ? 1 : 0;
+            })
+            .style("display", function (d) {
 
-    text
-      .style("opacity", function(d) { return d.parent === root ? 1 : 0; })
-      .style("display", function(d) { return d.parent === root ? "inline" : 'none'; })
-      .append("foreignObject")
-        // Using the SVG foreignObject to use the wrapping functionality of HTML elements
-        .attr("width", 120)
-        .attr("x", -120/2)
-        .attr("height", 200)
-        .attr("y", -200/2)
-        .append("xhtml:div")
-          .classed('labelContainer', true)
-          .html(function(d){return '<div><span>'+d.name+'</span></div>';});
+              return d.parent === root ? "inline" : 'none';
+            })
+            .attr("transform", "translate(0," + height + ")")
+            .append("foreignObject")
+              // Using the SVG foreignObject to use the wrapping functionality of HTML elements
+              .attr("width", 120)
+              .attr("x", -120/2)
+              .attr("height", 200)
+              .attr("y", -200/2)
+              .append("xhtml:div")
+                .classed('labelContainer', true)
+                .html(function (d) {
 
-    return text;
+                  return '<div><span>'+d.name+'</span></div>';
+                });
   }
-
 
   /**
    * Draws the node elements
    * Treelist logic based on http://bl.ocks.org/thehogfather/0e48ec486abbd5be17d7
    * @param  {Object} root The data
-   * @return {Object}       Selection of every built item element
+   * @return {Object}      Selection of every built item element
    */
   function drawNodeList(root) {
 
-    function renderTreelist(data) {
-      // Options
-      var indent = 15,
-          nodeTree = 0;
+        // Options
+    var indent = 15;
+    var nodeTree = 0;
 
-      // Dynamic variables
-      var tree = d3.layout.tree(),
-          ul = $sidebarTreelist.append("ul"),
-          nodes = tree.nodes(data),
-          nodeEls = ul.selectAll("li."+treelistItemClass).data(nodes);
-      //list nodes
-      var listEnter = nodeEls
-        .enter()
-          .append("li")
-            .attr("class", function(d) {
-              // set class to node and to leaf (for endpoints) or to root (for stem)
-              var output = treelistItemClass+(d.parent ? d.children ? '' : ' '+leafClass : ' '+rootClass);
+    // Dynamic variables
+    var tree    = d3.layout.tree();
+    var ul      = $sbTreelist.append("ul");
+    var nodes   = tree.nodes(root);
+    var nodeEls = ul.selectAll("li."+treelistItemClass).data(nodes);
 
-              // set class to even or to odd, based on its level;
-              output += ((d.depth % 2) === 0 ? ' '+evenClass : ' '+oddClass);
+    //list nodes
+    var listEnter = nodeEls
+      .enter()
+        .append("li")
+          .attr("class", function (d) {
 
-              return output;
+            // set class to node and to leaf (for endpoints) or to root (for stem)
+            var output = treelistItemClass+(d.parent ? d.children ? '' : ' '+leafClass : ' '+rootClass);
+
+            // set class to even or to odd, based on its level;
+            output += ((d.depth % 2) === 0 ? ' '+evenClass : ' '+oddClass);
+
+            return output;
+          })
+          .style("opacity", 1)
+          .style("background-color", function (d) {
+
+            return colorgrey(d.depth);
+          })
+          .append("span").attr("class", "value")
+            .style("padding-left", function (d) {
+
+              return 30 + d.depth * indent + "px";
             })
-            .style("opacity", 1)
-            .style("background-color", function(d) {
-              return colorgrey(d.depth);
-            })
-            .append("span").attr("class", "value")
-              .style("padding-left", function (d) {
-                return 30 + d.depth * indent + "px";
-              })
-              .html(function (d) { return d.name; });
+            .html(function (d) {
 
-      // Calculating the node tree layout
-      var rootTop = ul.selectAll("li."+treelistItemClass)
-        .filter(function(d,i) {
-          return i == 0;
+              return d.name;
+            });
+
+    // Calculating the node tree layout
+    var rootTop = ul.selectAll("li."+treelistItemClass)
+      .filter(function (d,i) {
+
+        return i === 0;
+      })
+      .node()
+        .getBoundingClientRect()
+          .top;
+
+    // Calculating variables
+    nodes.forEach(function (d, i) {
+
+      // Get position of li element
+      var top = ul.selectAll("li."+treelistItemClass)
+        .filter(function (d2,i2) {
+
+          return i2 === i;
         })
         .node()
           .getBoundingClientRect()
             .top;
 
-      // Calculating variables
-      nodes.forEach(function(d, i) {
-        // Get position of li element
-        var top = ul.selectAll("li."+treelistItemClass)
-          .filter(function(d2,i2) {
-            return i2 == i;
-          })
-          .node()
-            .getBoundingClientRect()
-              .top;
-        d.x = top - rootTop;//i * 38;
-        d.y = d.depth * indent;
-        if (d.depth == 1) nodeTree++;
-        d.value = nodeTree;
-      });
+      d.x = top - rootTop;//i * 38;
+      d.y = d.depth * indent;
 
-      listEnter
-        .append("span").attr("class","point")
-          .style("padding-left", function (d) {
-                  return  d.depth * indent + "px";
+      if (d.depth === 1) {
+        nodeTree++;
+      }
+
+      d.value = nodeTree;
+    });
+
+    listEnter
+      .append("span").attr("class","point")
+        .style("padding-left", function (d) {
+
+          return d.depth * indent + "px";
+        })
+        .style("color", function (d) {
+
+          var tempColor = d3.hsl(color(d.value));
+          var newColor = d3.hsl('hsl('+tempColor.h+","+(tempColor.s * 100 * 1.09)+"%,"+(tempColor.l * 100 * 1.2)+'%)');
+
+          return newColor;
+        });
+
+    // tree link nodes
+    var width  = $sbTreelist.node().getBoundingClientRect().width;
+    var height = $sbTreelist.node().getBoundingClientRect().height;
+    var margin = {top: 17, right: 10, bottom: 10, left: 15};
+
+    // Interpolation function
+    var diagonal = d3.svg.line()
+      .x(function (d) {
+
+        return d.x;
+      })
+      .y(function (d) {
+
+        return d.y;
+      })
+      .interpolate("step");
+
+    $sbTreelist
+      .append("svg")
+        .attr("width", width - margin.left - margin.right+"px")
+        .attr("height", height+"px")
+        .append("g")
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+          .selectAll("path.link")
+            .data(tree.links(nodes))
+              .enter()
+                .insert("path", ":first-child")
+                .attr("class", "link")
+                .attr("stroke", function (d) {
+
+                  var tempColor = d3.hsl(color(d.target.value));
+                  var newColor = d3.hsl('hsl('+tempColor.h+","+(tempColor.s * 100 * 1.09)+"%,"+(tempColor.l * 100 * 1.2)+'%)');
+
+                  return newColor;
                 })
-          .style("color", function(d) {
-            var tempColor = d3.hsl(color(d.value));
-            var newColor = d3.hsl('hsl('+tempColor.h+","+(tempColor.s * 100 * 1.09)+"%,"+(tempColor.l * 100 * 1.2)+'%)');
-            return newColor;
-          });
+                .attr("d", function (d) {
 
-      // tree link nodes
-      var width = $sidebarTreelist.node().getBoundingClientRect().width,
-          height = $sidebarTreelist.node().getBoundingClientRect().height,
-          margin = {top: 17, right: 10, bottom: 10, left: 15};
+                  return diagonal([{
+                      y: d.source.x,
+                      x: d.source.y
+                    }, {
+                      y: d.target.x,
+                      x: d.target.y
+                    }]);
+                });
 
-      // Interpolation function
-      var diagonal = d3.svg.line()
-        .x(function (d) { return d.x; })
-        .y(function (d) { return d.y; })
-        .interpolate("step");
-
-      var svgContainer = $sidebarTreelist
-        .append("svg")
-          .attr("width", width - margin.left - margin.right+"px")
-          .attr("height", height+"px")
-          .append("g")
-          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-      var link = svgContainer.selectAll("path.link")
-        .data(tree.links(nodes))
-          .enter()
-            .insert("path", ":first-child")
-            .attr("class", "link")
-            .attr("stroke", function(d) {
-              var tempColor = d3.hsl(color(d.target.value));
-              var newColor = d3.hsl('hsl('+tempColor.h+","+(tempColor.s * 100 * 1.09)+"%,"+(tempColor.l * 100 * 1.2)+'%)');
-              return newColor;
-            })
-            .attr("d", function(d) {
-              return diagonal([{
-                    y: d.source.x,
-                    x: d.source.y
-                }, {
-                    y: d.target.x,
-                    x: d.target.y
-                }]);
-            });
-
-      return nodeEls;
-    }
-
-    return renderTreelist(root);
+    return nodeEls;
 
   }
 
-  /*=====  End of DRAWING FUNCTIONS  ======*/
+  /**
+   * End of DRAWING FUNCTIONS
+   */
 
 
-  /*====================================================
-  =            INTERACTION ACTION FUNCTIONS            =
-  ====================================================*/
 
-  /*----------  Variables  ----------*/
+
+
+  /**
+   * INTERACTION ACTION FUNCTIONS
+   */
+
+  /* Dynamic Variables */
   var isSidebarOpen = false;
 
   /**
@@ -512,44 +654,59 @@ function buildMindmap(hash, zoomDuration) {
    * @param  {Object} d The target node
    */
   function zoom(d) {
-    var focus0 = focus; focus = d;
+
+    var focus0 = focus;
+    focus = d;
 
     setPath(d);
 
-    if (focus === focus0) return;
+    // Do nothing when the old is the new focus
+    if (focus === focus0) {
+      return;
+    }
 
-    if (d.parent == null) $overviewButton.attr('disabled', 'true');
-    else $overviewButton.attr('disabled', null);
-
+    if (d.parent == null) {
+      $overviewButton.attr('disabled', 'true');
+    } else {
+      $overviewButton.attr('disabled', null);
+    }
 
     // interpolates the Zoom from current focused node to target node d
     var transition = d3.transition()
       .duration(d3.event.altKey ? zoomDuration * 10 : zoomDuration)
-      .tween("zoom", function() {
+      .tween("zoom", function () {
+
         var i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2]);
-        return function(t) { zoomTo(i(t)); };
+
+        return function (t) {
+
+          zoomTo(i(t));
+        };
       });
 
     // Arranges which labels are shown
     transition.selectAll("g.label")
-      .filter(function(d) {
+      .filter(function (d) {
+
         return d.parent === focus || this.style.display === "inline";
       })
-      .style("opacity", function(d) {
+      .style("opacity", function (d) {
+
         return d.parent === focus ? 1 : 0;
       })
-      .each("start", function(d) {
+      .each("start", function (d) {
+
         if (d.parent === focus) {
           this.style.display = "inline";
         }
       })
-      .each("end", function(d) {
+      .each("end", function (d) {
+
         if (d.parent !== focus) {
           this.style.display = "none";
         }
       });
   }
-
 
   /**
    * Calculates the transformation and the size for each single node
@@ -557,89 +714,102 @@ function buildMindmap(hash, zoomDuration) {
    */
   function zoomTo(v) {
 
+    var k = diameter / v[2]; view = v;
+
     // Set the active node element in the list by attaching the class 'active'
     nodelist
       .classed(activeClass, false)
-      .filter(function(d) {
-        return focus == d;
+      .filter(function (d) {
+
+        return focus === d;
       })
       .classed(activeClass, true);
 
     // Set the active node by attaching the class 'active'
     node
       .classed(activeClass, false)
-      .filter(function(d) {
-        return focus == d;
+      .filter(function (d) {
+
+        return focus === d;
       })
       .classed(activeClass, true);
 
-    var k = diameter / v[2]; view = v;
-    node.attr("transform", function(d) { return "translate(" + (d.x - v[0]) * k + "," + (d.y - v[1]) * k + ")"; });
-    circle.attr("r", function(d) { return d.r * k; });
-  }
+    node.attr("transform", function (d) {
 
+      return "translate(" + (d.x - v[0]) * k + "," + (d.y - v[1]) * k + ")";
+    });
+
+    circle.attr("r", function (d) {
+
+      return d.r * k;
+    });
+  }
 
   /**
    * Shows and hides the sidebar and handles the focus on the #search input field
    */
   function toggleSidebar() {
-    $sidebar.classed(showClass, !$sidebar.classed(showClass));
-    if (isSidebarOpen == false) {
+
+    $sb.classed(showClass, !$sb.classed(showClass));
+    if (isSidebarOpen === false) {
       setSidebarContentHeight();
       isSidebarOpen = true;
-      setTimeout(function(){
-        $sidebarSearchfield.node().focus();
+      setTimeout(function () {
+
+        $sbSearchfield.node().focus();
       }, 300);
-    }
-    else {
+    } else {
       isSidebarOpen = false;
       closeSettings();
-      $sidebarSearchfield.node().blur();
+      $sbSearchfield.node().blur();
     }
   }
-
 
   /**
    * Closes immediately the sidebar
    */
   function closeSidebar() {
-    $sidebar.classed(showClass, false);
+
+    $sb.classed(showClass, false);
     isSidebarOpen = false;
-    $sidebarSearchfield.node().blur();
+    $sbSearchfield.node().blur();
     closeSettings();
   }
-
 
   /**
    * Shows and hides the settings pane
    */
   function toggleSettings() {
+
     $settingsElement.classed(showClass, !$settingsElement.classed(showClass));
     $settingsButton.classed(activeClass, !$settingsButton.classed(activeClass));
-    $sidebar.classed("visibleSettings", !$sidebar.classed("visibleSettings"));
+    $sb.classed("visibleSettings", !$sb.classed("visibleSettings"));
   }
 
   /**
    * Closes the settings pane
    */
   function closeSettings() {
+
     $settingsElement.classed(showClass, false);
     $settingsButton.classed(activeClass, false);
   }
 
-
   /**
    * Handles the search input by giving a direct feedback. For this we have to handle every
    * single Element in the UI to visualize the feedback.
-   * @param  {String} searchterm: The string that holds the search term
+   * @param  {String} searchterm The string that holds the search term
    */
   function handleSearchInput(searchterm) {
+
     closeSettings();
     // First we have to filter the node list
     nodelist
       .classed(hideClass, true)
-      .filter(function(d) {
+      .filter(function (d) {
+
         var name = d.name;
+
         return (name.toLowerCase().indexOf(searchterm.toLowerCase()) > -1);
       })
       .classed(hideClass, false);
@@ -647,72 +817,111 @@ function buildMindmap(hash, zoomDuration) {
     // Then we have to filter the nodes itself
     node
       .classed(hideClass, true)
-      .filter(function(d) {
+      .filter(function (d) {
+
         var name = d.name;
+
         return (name.toLowerCase().indexOf(searchterm.toLowerCase()) > -1);
       })
       .classed(hideClass, false);
 
     // Handle the searchterm if it's not empty
-    if (searchterm != "") {
-      $sidebarTreelist.select("svg")
+    if (searchterm !== "") {
+      $sbTreelist.select("svg")
         .style('display','none');
       // attach the searchterm to the searchterm element in the UI
       $searchterm
         .text(searchterm)
         .classed(showClass,true)
-        .on('click', function() {
+        .on('click', function () {
+
           $searchterm.classed(showClass,false);
           document.getElementById("search").value = "";
           nodelist.classed(hideClass, false);
           node.classed(hideClass, false);
-          $sidebarTreelist.select("svg")
+          $sbTreelist.select("svg")
             .style('display',null);
         });
-    }
-    // Else: hide the searchterm element (that enables fast deleting of the searchterm)
-    else {
+    } else { // hide the searchterm element (that enables fast deleting of the searchterm)
       $searchterm
         .classed(showClass,false);
-      $sidebarTreelist.select("svg")
+      $sbTreelist.select("svg")
         .style('display',null);
     }
   }
 
+  /**
+   * Sets the zoom duration
+   * @param  {int} duration The duration
+   */
   function optionSetZoomDuration(duration) {
+
     setGetParameter("zoom",duration);
     zoomDuration = duration;
   }
 
+  /**
+   * Hides or shows the visited nodes
+   * @param  {boolean} hide Boolean that toggles the hiding option
+   */
   function optionHideVisited(hide) {
+
     setGetParameter("visited",(hide ? "y" : ""));
     d3.select('body').classed('hide-visited',hide);
   }
 
+  /**
+   * Hides or shows the node labels
+   * @param  {boolean} hide Boolean to hide or show the labels
+   */
   function optionHideLabels(hide) {
+
     setGetParameter("labels",(hide ? "y" : ""));
     d3.select('body').classed('hide-labels',hide);
   }
 
+  /**
+   * Hides or shows the tooltips on mouseover, shows by default.
+   * @param  {boolean} hide Boolean to hide or show the labels
+   */
   function optionHideTooltips(hide) {
+
     setGetParameter("tooltips",(hide ? "y" : ""));
     d3.select('body').classed('hide-tooltip',hide);
   }
 
+  /**
+   * Action when user clicks on "Download"-button
+   */
   function optionDownload() {
+
     window.location="download.php?hash="+hash;
   }
 
+  /**
+   * Action when user clicks on "New"-Button
+   */
   function optionNew() {
+
     reset();
   }
 
+  /**
+   * Action when user clicks on "Delete"-Button
+   */
   function optionDelete() {
+
     ajax("delete.php?hash="+hash);
     reset();
   }
 
+  /**
+   * Resets the whole UI to the dropzone.
+   * NOTE: This effects also the dropzone UI field
+   */
+  // TODO: Writing an own reset function for the dropzone.
   function reset() {
+
     $dropzone
       .classed('hover', false)
       .classed('error', false)
@@ -720,24 +929,34 @@ function buildMindmap(hash, zoomDuration) {
       .classed('success', false)
       .classed('dz-processing', false)
       .classed('dz-complete', false);
+
     d3.select('body').style('position', 'relative');
     $upload.style('display', 'block');
     $mindmap.style('display', 'none');
     $container.select('svg').remove();
-    $sidebarTreelist.select('ul').remove();
-    $sidebarTreelist.select('svg').remove();
+    $sbTreelist.select('ul').remove();
+    $sbTreelist.select('svg').remove();
+
+    $sbSearchfield.value = "";
+    $searchterm.classed(showClass,false);
+
     closeSidebar();
     closeSettings();
-    $searchterm.classed(showClass,false);
   }
 
+  /**
+   * Registers every interaction by binding them on events.
+   * @param  {Object} root All nodes (namely the root)
+   */
   function registerInteractions(root) {
+
     /**
      * Window Arrangements
      */
 
     // Resizing the window
-    d3.select(window).on('resize', function(){
+    d3.select(window).on('resize', function () {
+
       setSize();
       setSidebarContentHeight();
     });
@@ -751,7 +970,8 @@ function buildMindmap(hash, zoomDuration) {
     // Zoom out when user clicks on container
     d3.select('#'+container)
       // .style("background", color(-1))
-      .on("click", function() {
+      .on("click", function () {
+
         zoom(root);
         closeSidebar();
       });
@@ -759,34 +979,43 @@ function buildMindmap(hash, zoomDuration) {
 
     // Zoom back to the overview
     $overviewButton
-      .on("click", function() {
+      .on("click", function () {
+
         zoom(root);
       });
 
     // Mouse Events on circles
     var tipShow;
+
     circle
-      .on("click", function(d) {
+      .on("click", function (d) {
+
         d3.select(this).classed(visitedClass,true);
         if (focus !== d) {
           closeSidebar();
-          zoom(d), d3.event.stopPropagation();
-        }
-        else if (d.parent != null) {
-          zoom(d.parent), d3.event.stopPropagation();
+          zoom(d);
+          d3.event.stopPropagation();
+        } else if (d.parent != null) {
+          zoom(d.parent);
+          d3.event.stopPropagation();
         }
       })
-      .on('mouseover', function(d) {
+      .on('mouseover', function (d) {
+
         tip.show(d);
-        tipShow = setTimeout(function(d2){
+
+        tipShow = setTimeout(function () {
+
           tip.attr('class','d3-tip show');
         }, 300);
       })
-      .on('mouseout', function(d) {
+      .on('mouseout', function (d) {
+
         clearTimeout(tipShow);
         tip.attr('class','d3-tip');
         tip.hide(d);
       });
+
 
 
     /**
@@ -795,129 +1024,170 @@ function buildMindmap(hash, zoomDuration) {
 
     // Open the sidebar
     $menubutton
-      .on("click", function() {
+      .on("click", function () {
+
         toggleSidebar();
       });
 
     // Mouse events on nodelist elements
     nodelist
-      .on('click', function(d) {
+      .on('click', function (d) {
+
         if (d.children) {
-          if (focus !== d) zoom(d), d3.event.stopPropagation();
-        }
-        else {
-          if (focus !== d.parent) zoom(d.parent), d3.event.stopPropagation();
+          if (focus !== d) {
+            zoom(d);
+            d3.event.stopPropagation();
+          }
+        } else {
+          if (focus !== d.parent) {
+            zoom(d.parent);
+            d3.event.stopPropagation();
+          }
         }
       })
-      .on('mouseover', function(d,i) {
+      .on('mouseover', function (d,i) {
         node
-          .filter(function(d2,i2) {
-            return i == i2;
+          .filter(function (d2,i2) {
+
+            return i === i2;
           })
           .classed(hoverClass, true);
       })
-      .on('mouseout', function(d,i) {
+      .on('mouseout', function (d,i) {
         node
-          .filter(function(d2,i2) {
-            return i == i2;
+          .filter(function (d2,i2) {
+
+            return i === i2;
           })
           .classed(hoverClass, false);
       });
 
     // Open the settings pane
     $settingsButton
-      .on("click", function() {
+      .on("click", function () {
+
         toggleSettings();
       });
 
     // Handle search inputs
-    $sidebarSearchfield
+    $sbSearchfield
       .on("input", function () {
 
         // First zoom out
         zoom(root);
 
         // then: handle the search input and its following actions
-        var searchterm = this.value;
-        handleSearchInput(searchterm);
+        handleSearchInput(this.value);
       });
 
-    // Prevent Zooming to input field
+    // Prevent Zooming to input field (just for mobile devices)
     d3.selectAll('input')
-      .on("focus", function() {
+      .on("focus", function () {
+
         d3.event.preventDefault();
       });
 
+
+
+    /**
+     * Options
+     */
+
     // Option: hide visited nodes
     $hideVisited
-      .on("change", function() {
+      .on("change", function () {
+
         optionHideVisited(this.checked);
       });
 
+    // Option: hide labels
     $hideLabels
-      .on("change", function() {
+      .on("change", function () {
+
         optionHideLabels(this.checked);
       });
+
+    // Option: hide tooltips
     $disableTooltips
       .on("change", function() {
+
         optionHideTooltips(this.checked);
       });
 
+    // Option: set zoom direction
     $zoomDuration
-      .on("mousedown", function() {
+      .on("mousedown", function () {
+
         d3.select('#zoomDurationOutput').classed('active', true);
       })
-      .on("mouseout", function() {
+      .on("mouseout", function () {
+
         d3.select('#zoomDurationOutput').classed('active', false);
       })
-      .on("change", function() {
+      .on("change", function () {
+
         optionSetZoomDuration(this.value);
       });
 
-    $download
-      .on("click", function() {
+    // Handling Download-button clicks
+    $downloadButton
+      .on("click", function () {
+
         optionDownload();
       });
 
-    $new
-      .on("click", function() {
+    // Handling New-button clicks
+    $newButton
+      .on("click", function () {
+
         optionNew();
       });
 
-    $delete
-      .on("click", function() {
+    // Handling delete-button clicks
+    $deleteButton
+      .on("click", function () {
+
         optionDelete();
       });
+
+
 
     /**
      * Keyboard interactions
      */
 
     d3.select("body").on("keydown", function () {
-      // f key opens the sidebar and focuses the search input field
+
       if (!isSidebarOpen && d3.event.keyCode == 70) {
+        // f key opens the sidebar and focuses the search input field
         d3.event.preventDefault();
         toggleSidebar();
-      }
-      // Escape key
-      else if (d3.event.keyCode == 27) {
+      } else if (d3.event.keyCode == 27) {
+        // Escape key
         d3.event.preventDefault();
         toggleSidebar();
       }
     });
   }
 
-  /*=====  End of INTERACTION ACTION FUNCTIONS  ======*/
+  /**
+   * End of INTERACTION ACTION FUNCTIONS
+   */
 
-  /*=============================================
-  =            ARRANGEMENT FUNCTIONS            =
-  =============================================*/
+
+
+
+
+  /**
+   * ARRANGEMENT FUNCTIONS
+   */
 
   /**
    * Sets the size of the visualization and of every single UI element
    */
   function setSize() {
-    // Disable overflow scrolling hack
+
+    // Disable overflow scrolling (hack)
     d3.select('body').style('position', 'relative');
     // update variables
     width  = document.getElementById(container).offsetWidth;
@@ -939,8 +1209,9 @@ function buildMindmap(hash, zoomDuration) {
           .attr('transform', 'translate('+(width/2)+','+((height/2)+(margin/2))+')'); // centering
     // Apply overflow scrolling hack for iOS
     d3.select('body').style('position', 'fixed');
-  }
 
+    setSidebarContentHeight();
+  }
 
   /**
    * Sets recursive the node path by using getParentPath function
@@ -971,37 +1242,43 @@ function buildMindmap(hash, zoomDuration) {
         .attr('class','divider');
 
       var title = ((d.depth + 2) > focus.depth || d.depth < 2) ? d.name : '···';
-      var tipShow;
+
       container.insert('button', ':first-child')
         .text(title)
-        .on('click', function() {
+        .on('click', function () {
+
           closeSidebar();
           zoom(d);
         })
-        .on('mouseover', function() {
-          if (title == '···') {
+        .on('mouseover', function () {
+
+          if (title === '···') {
             d3.select(this).classed('show-tip', true);
           }
           circle
-            .filter(function(d2) {
-              return d == d2;
+            .filter(function (d2) {
+
+              return d === d2;
             })
             .classed(hoverClass, true);
         })
-        .on('mouseout', function() {
-          if (title == '···') {
+        .on('mouseout', function () {
+
+          if (title === '···') {
             d3.select(this).classed('show-tip', false);
           }
           circle
-            .filter(function(d2) {
-              return d == d2;
+            .filter(function (d2) {
+
+              return d === d2;
             })
             .classed(hoverClass, false);
         })
         .append('span')
           .text(d.name)
           .classed('path-tip', true)
-          .attr('style', function() {
+          .attr('style', function () {
+
             return 'margin-left: -' + d3.select(this).node().getBoundingClientRect().width / 2 + 'px';
           })
       ;
@@ -1010,36 +1287,63 @@ function buildMindmap(hash, zoomDuration) {
     }
   }
 
-
   /**
    * Sets the sidebar content height
-   * TODO: could be depreached by a table display style
    */
+  // TODO: could be depreached by a table display style
   function setSidebarContentHeight() {
+
     // Set nodelist height
     var listheight = (
-      height
-      -($sidebar.select('header').node().getBoundingClientRect().height)
-      -($sidebar.select('.searchbar').node().getBoundingClientRect().height)
-      -($sidebar.select('footer').node().getBoundingClientRect().height)
+      height -
+        ($sb.select('header').node().getBoundingClientRect().height) -
+        ($sb.select('.searchbar').node().getBoundingClientRect().height) -
+        ($sb.select('footer').node().getBoundingClientRect().height)
     );
 
-    $sidebar.select('.content').style('height', listheight+'px');
-    $sidebar.select('.scrollmask').style('height', listheight+'px');
+    $sb.select('.content').style('height', listheight+'px');
+    $sb.select('.scrollmask').style('height', listheight+'px');
   }
 
-  /*=====  End of ARRANGEMENT FUNCTIONS  ======*/
+  /**
+   * End of ARRANGEMENT FUNCTIONS
+   */
 
 
-  /*=========================================================
-  =            READ DATA AND BUILD VISUALIZATION            =
-  =========================================================*/
 
-  /*----------  Variables  ----------*/
 
+
+  /**
+   * READ DATA AND BUILD VISUALIZATION
+   */
+
+  /* Variables */
   var focus, nodes, view;
   var circle, text, nodelist, node;
 
+  /**
+   * This is the init function. It brings the whole thing to life by calling every single needed function
+   * in this too long script.
+   *
+   * Here's what it does:
+   * 1) Checking for errors and throwing them.
+   * 2) Arrange the whole UI.
+   *   2.1) Setting the sizes and variables.
+   *   2.2) Setting the path.
+   * 3) Drawing the nodelist before focus will be drawn. This is needed because of the placeholders.
+   * 4) Drawing the whole scene.
+   *   4.1) Adding placeholders.
+   *   4.2) Setting the variable for focus.
+   *   4.3) Setting the data layout by using d3 circle packing layout
+   *   4.4) remove placeholders, centering nodes
+   *   4.5) reposition the whole graph relative to zero
+   *   4.6) draw circles and labels
+   * 5) Register interactions
+   * 6) Zoom to root node
+   * 7) Set option toggles and URL
+   *
+   * @param  {String} fileURL The URL to the JSON-file
+   */
   function init(fileURL) {
     d3.json(fileURL, function(error, root) {
 
@@ -1047,13 +1351,12 @@ function buildMindmap(hash, zoomDuration) {
       if (error) throw error;
 
       // Set sizes of the UI
-      setPath(root);
       setSize();
-      setSidebarContentHeight();
+      setPath(root);
 
       nodelist = drawNodeList(root);
 
-      /*----------  Initialize the data  ----------*/
+      /* Initialize the data */
 
       // Adding placeholders if a node has just one child
       // This extends the radius of the parent node
@@ -1073,36 +1376,37 @@ function buildMindmap(hash, zoomDuration) {
       // Centering the one child nodes
       centerNodes( nodes );
       // Repositioning the nodes
-      makePositionsRelativeToZero( nodes );
+      repositionNodesRelativeToZero( nodes );
 
       // DEV: show the root in the console
       console.log("Structure:");
       console.log(root);
 
 
-      /*----------  Building the visuals  ----------*/
+      /* Building the visuals */
 
       circle = drawCircle(nodes);
 
       text = drawLabels(nodes, root);
 
 
-      /*----------  Initialize Interactions  ----------*/
+      /* Initialize Interactions */
       registerInteractions(root);
 
 
-      /*----------  Arrangement and initialization  ----------*/
+      /* Arrangement and initialization */
 
       // Register the nodes
       node = svg.selectAll("circle,g.label");
+
+
+      // Set initial zoom to root
+      zoomTo([root.x, root.y, root.r * 2 + margin]);
 
       // Set options
       optionHideVisited(d3.select("#hideVisited").node().checked);
       optionHideLabels(d3.select("#hideLabels").node().checked);
       optionHideTooltips(d3.select("#disableTooltip").node().checked);
-
-      // Set initial zoom to root
-      zoomTo([root.x, root.y, root.r * 2 + margin]);
 
       // set the URL to the found hash value
       var url = window.location.href;
@@ -1112,12 +1416,22 @@ function buildMindmap(hash, zoomDuration) {
     });
   }
 
-  /*=====  End of READ DATA AND BUILD VISUALIZATION  ======*/
+  /**
+   * End of READ DATA AND BUILD VISUALIZATION
+   */
 
+
+
+
+
+  // First: Showing mindmap site by hiding upload site
   $upload.style('display', 'none');
   $mindmap.style('display', 'block');
 
+  // Initialize everything
   init(fileURL);
 
-  /*=====  End of document  ======*/
+  /**
+   * End of document
+   */
 }
