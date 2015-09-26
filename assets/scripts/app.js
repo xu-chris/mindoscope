@@ -499,7 +499,7 @@ function buildMindmap(hash, zoomDuration) {
   function drawNodeList(root) {
 
         // Options
-    var indent = 10;
+    var indent = 12;
     var nodeTree = 0;
 
     // Dynamic variables
