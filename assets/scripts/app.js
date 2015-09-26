@@ -499,7 +499,7 @@ function buildMindmap(hash, zoomDuration) {
   function drawNodeList(root) {
 
         // Options
-    var indent = 15;
+    var indent = 10;
     var nodeTree = 0;
 
     // Dynamic variables
@@ -571,7 +571,11 @@ function buildMindmap(hash, zoomDuration) {
     });
 
     listEnter
-      .append("span").attr("class","point")
+      .append("span")
+        .attr("class", function (d) {
+
+          return 'point'+(d.parent ? d.children ? '' : ' '+leafClass : ' '+rootClass);
+        })
         .style("padding-left", function (d) {
 
           return d.depth * indent + "px";
@@ -587,7 +591,7 @@ function buildMindmap(hash, zoomDuration) {
     // tree link nodes
     var width  = $sbTreelist.node().getBoundingClientRect().width;
     var height = $sbTreelist.node().getBoundingClientRect().height;
-    var margin = {top: 17, right: 10, bottom: 10, left: 15};
+    var margin = {top: 16, right: 10, bottom: 10, left: 14};
 
     // Interpolation function
     var diagonal = d3.svg.line()
@@ -599,7 +603,7 @@ function buildMindmap(hash, zoomDuration) {
 
         return d.y;
       })
-      .interpolate("step");
+      .interpolate("step-before");
 
     $sbTreelist
       .append("svg")
@@ -753,12 +757,14 @@ function buildMindmap(hash, zoomDuration) {
     $sb.classed(showClass, !$sb.classed(showClass));
     if (isSidebarOpen === false) {
       setSidebarContentHeight();
+      $menubutton.classed('active', true);
       isSidebarOpen = true;
       setTimeout(function () {
 
         $sbSearchfield.node().focus();
       }, 300);
     } else {
+      $menubutton.classed('active', false);
       isSidebarOpen = false;
       closeSettings();
       $sbSearchfield.node().blur();
@@ -769,7 +775,7 @@ function buildMindmap(hash, zoomDuration) {
    * Closes immediately the sidebar
    */
   function closeSidebar() {
-
+    $menubutton.classed('active', false);
     $sb.classed(showClass, false);
     isSidebarOpen = false;
     $sbSearchfield.node().blur();
@@ -989,7 +995,8 @@ function buildMindmap(hash, zoomDuration) {
 
     circle
       .on("click", function (d) {
-
+        tip.attr('class','d3-tip');
+        tip.hide(d);
         d3.select(this).classed(visitedClass,true);
         if (focus !== d) {
           closeSidebar();

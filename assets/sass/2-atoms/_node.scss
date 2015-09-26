@@ -1,6 +1,6 @@
 .node {
   cursor: pointer;
-  @include transition(opacity 200ms ease-out);
+  @include transition(opacity 50ms ease-out);
   opacity: 1;
 
   /**

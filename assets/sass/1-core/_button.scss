@@ -1,9 +1,9 @@
 input[type=button], input[type=submit], button, .button {
-  border: 1px solid rgba(0,0,0,.1);
+  border: none;
   color: #000;
-  //fpadding: 4px 10px;
-  background: rgba(0, 0, 0, .09);
+  background: rgba(255, 255, 255, .7);
   border-radius: 5px;
+  @include box-shadow(0 1px 4px -2px rgba(0,0,0,.6));
   font-size: $font-size-small;
   white-space: nowrap;
   vertical-align: middle;
@@ -26,7 +26,7 @@ input[type=button], input[type=submit], button, .button {
     @include box-sizing(border-box);
   }
 
-  &:hover:not(:disabled) {
+  &:hover:not(:disabled):not(.active) {
     background: #fff;
   }
 
@@ -37,5 +37,17 @@ input[type=button], input[type=submit], button, .button {
 
   &:focus {
     outline: 0;
+  }
+
+  &.active {
+    background: $green;
+    color: white;
+    @include box-shadow(none);
+    border-color: $green;
+    opacity: .8;
+    &:hover {
+      opacity: 1;
+      background: $green;
+    }
   }
 }

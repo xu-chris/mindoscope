@@ -1,5 +1,5 @@
 #path {
-  background: RGBA(255, 255, 255, .6);
+  background: RGBA(255, 255, 255, .4);
   position: absolute;
   width: 100%;
   top: 0;
@@ -20,14 +20,9 @@
     line-height: 1.5rem;
   }
   button {
-    background: rgba(0, 0, 0, .09);
     border: none;
     position: relative;
     @include border-radius(5px);
-
-    &:hover {
-      background: RGBA(255, 255, 255, .7);
-    }
 
     &:focus {
       outline: 0;
@@ -72,7 +67,7 @@
   .divider {
     padding-right: .45em;
     padding-left: .45em;
-    color: #828f96;
+    color: rgba(0,0,0,0.5);
     @extend .icon-angle-right;
   }
 }
