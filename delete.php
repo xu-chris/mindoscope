@@ -1,8 +1,10 @@
 <?php
-	$uploadPath   = 'upload/';
-	$uploadFile = $uploadPath.$_GET['hash'].'.mm';
-	$cachePath   = 'content/';
-	$cacheFile = $cachePath.$_GET['hash'].'.json';
 
-  unlink($uploadFile);
-  unlink($cacheFile);
+
+$ds         = DIRECTORY_SEPARATOR;
+$path       = 'uploaded';
+$uploadFile = $path.$ds.$_GET['hash'].'.mm';
+$cacheFile  = $path.$ds.$_GET['hash'].'.json';
+
+unlink($uploadFile);
+unlink($cacheFile);

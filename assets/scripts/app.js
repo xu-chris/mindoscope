@@ -54,7 +54,7 @@ function buildMindmap(hash, zoomDuration) {
 
   /* Some other options */
   var title       = "Mind-o-scope";
-  var contentPath = "content/";
+  var contentPath = "uploaded/";
 
 
 

@@ -1,12 +1,11 @@
 <?php
 
-$ds          = DIRECTORY_SEPARATOR;
-
-$storeFolder = 'upload';
+$ds   = DIRECTORY_SEPARATOR;
+$path = 'uploaded';
 
 if (!empty($_FILES)) {
   $tempFile = $_FILES['file']['tmp_name'];
-  $targetPath = dirname( __FILE__ ) . $ds. $storeFolder . $ds;
+  $targetPath = dirname( __FILE__ ) . $ds. $path . $ds;
   $targetFile =  $targetPath. $_FILES['file']['name'];
   $hash = hash_file('md5', $tempFile);
   move_uploaded_file($tempFile,$targetFile);
@@ -16,25 +15,25 @@ if (!empty($_FILES)) {
 /*----------  OPTIONS  ----------*/
 
 $url         = $targetPath.$hash.'.mm';
-$cachePath   = 'content/';
 $enableCache = true;
 
 /*=========================================
 =            JSON file builder            =
 =========================================*/
 
-function getJSONHash($url) {
+function buildJSON($url) {
 
-  global $cachePath;
+  global $path;
   global $enableCache;
   global $hash;
+  global $ds;
 
   // If there's no file: return error
   $fileContents= file_get_contents($url);
   if (!file_exists($url)) return error_log('File not found');
 
   // If file exists already: return content from file
-  $cacheFilename = $cachePath.$hash.'.json';
+  $cacheFilename = $path . $ds. $hash.'.json';
 
   if ($enableCache && file_exists($cacheFilename)) {
     // DEV: echo to console
@@ -46,7 +45,7 @@ function getJSONHash($url) {
   // read the file contents and convert JSON from Freemind XML structure
   $xml = simplexml_load_string($fileContents);
 
-  $array = recursiveXML($xml)[0];
+  $array = XMLtoArray($xml)[0];
     // The calculated array is packed in an array, so we're taking it out of it.
   $json = json_encode($array);
 
@@ -64,7 +63,7 @@ function getJSONHash($url) {
 =            Freemind-XML to readable JSON            =
 =====================================================*/
 
-function recursiveXML($xml)
+function XMLtoArray($xml)
 {
   global $id;
   // Kill the recursive loop if needed variables are null
@@ -89,7 +88,7 @@ function recursiveXML($xml)
     else { // Has children
       $arr[] = array(
         "name" => $name,
-        "children" => recursiveXML($node)
+        "children" => XMLtoArray($node)
       );
     }
   }
@@ -119,8 +118,8 @@ function getXMLDepth($xml) {
 }
 
 /*----------  Returning area  ----------*/
-
-echo getJSONHash($url);
+buildJSON($url);
+echo $hash;
 
 // fclose($url);
 // unlink($url);

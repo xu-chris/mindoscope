@@ -268,14 +268,15 @@
 
     <?php
 
-      $cachePath   = 'content/';
+      $cachePath   = 'uploaded';
+      $ds   = DIRECTORY_SEPARATOR;
       $enableCache = true;
 
       $url = $_SERVER['REQUEST_URI'];
       $urlEnd = end((explode('/', rtrim($url, '/'))));;
       $hash = strtok($urlEnd,'?');
 
-      $fileURL = $cachePath.$hash.'.json';
+      $fileURL = $cachePath.$ds.$hash.'.json';
 
       if ($hash != "" && file_exists($fileURL) && $enableCache) {
         echo '
