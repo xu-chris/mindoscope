@@ -281,7 +281,6 @@
         echo '
           <script type="text/javascript">
               buildMindmap("'.$hash.'", '.$zoom.');
-              startIntro();
           </script>';
       }
 
