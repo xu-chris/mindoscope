@@ -1,5 +1,3 @@
-
-
 # An alternative Mind Map visualization - inspired by Microscopes
 ![The Mind-o-scope User Interface](mind-o-scope.png "The Mind-o-scope User Interface")
 This is a Web-App that converts a Mind Map Freemind-file into a zoomable Venn-diagram visualization with features like search, a better zooming experience, an online share mechanism and much more.
