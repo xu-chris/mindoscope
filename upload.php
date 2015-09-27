@@ -36,10 +36,7 @@ function buildJSON($url) {
   $cacheFilename = $path . $ds. $hash.'.json';
 
   if ($enableCache && file_exists($cacheFilename)) {
-    // DEV: echo to console
-    //echo '<script>console.log("Found cachefile.")</script>';
-    // Return the cache filename
-    return $hash;
+    return;
   }
 
   // read the file contents and convert JSON from Freemind XML structure
@@ -51,12 +48,6 @@ function buildJSON($url) {
 
   // Write result to file
   file_put_contents($cacheFilename, $json);
-
-  // DEV: echo to console
-  //echo '<script>console.log("Built new cachefile.")</script>';
-
-  // Return the cache filename
-  return $hash;
 }
 
 /*=====================================================
