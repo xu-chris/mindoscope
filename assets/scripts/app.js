@@ -20,8 +20,8 @@ function buildMindmap(hash, zoomDuration) {
 
   /* Values and sizes */
   var margin        = 35;
-  var circlePadding = 1;
-  var maxNodeSize   = 1000;
+  var circlePadding = 1.5;
+  var nodePow       = 3;
     // The standard size of a node. Will be used to calc the node size
 
   /* IDs and classes */
@@ -53,7 +53,8 @@ function buildMindmap(hash, zoomDuration) {
   var treelistItemClass = 'item';
 
   /* Some other options */
-  var title       = "Mind-o-scope";
+  var siteTitle   = "Mind-o-scope";
+  var title;
   var contentPath = "uploaded/";
 
 
@@ -162,8 +163,15 @@ function buildMindmap(hash, zoomDuration) {
     .padding(circlePadding) // set the node padding
     .size([diameter - margin, diameter - margin]) // set the visual size
     .value(function(d) {
+
       // Calculating the size of each node, based on its depth.
-      return maxNodeSize * Math.pow(1/d.depth,3);
+      return Math.pow(1/d.depth,nodePow);
+    })
+    .sort(function (a, b) {
+
+      // Changing Sort
+      // Source: http://stackoverflow.com/questions/20736876/controlling-order-of-circles-in-d3-circle-pack-layout-algorithm
+      return -(a.value - b.value);
     });
 
 
@@ -355,7 +363,7 @@ function buildMindmap(hash, zoomDuration) {
       }
     }
 
-    updateURL(url);
+    updateURL(url, title);
   }
 
   /**
@@ -363,7 +371,7 @@ function buildMindmap(hash, zoomDuration) {
    * Additionally: sets the document title to the Mind Map title.
    * @param  {String} url The new URL
    */
-  function updateURL(url) {
+  function updateURL(url,title) {
 
     history.pushState('', title, url);
 
@@ -430,7 +438,7 @@ function buildMindmap(hash, zoomDuration) {
             })
             .attr("r", function (d) {
 
-              return d.r+ 7;
+              return d.r;
             })
             .style("fill", function (d) {
 
@@ -942,9 +950,14 @@ function buildMindmap(hash, zoomDuration) {
     $container.select('svg').remove();
     $sbTreelist.select('ul').remove();
     $sbTreelist.select('svg').remove();
+    d3.select('#path .content').html('');
 
     $sbSearchfield.value = "";
     $searchterm.classed(showClass,false);
+
+    var url = window.location.href;
+    var newURL = url.substring(0,url.lastIndexOf("/"));
+    updateURL(newURL, siteTitle);
 
     closeSidebar();
     closeSettings();
@@ -1205,15 +1218,13 @@ function buildMindmap(hash, zoomDuration) {
     d3.select('#'+container)
       .select('svg')
         .style('width',width+'px')
-        .style('height',height+'px');
+        .style('height',height+'px')
+        .select('g')
+          .attr('transform', 'translate('+(width/2)+','+((height/2)+(margin/2))+')'); // centering
 
     d3.select(self.frameElement)
       .style("height", diameter + "px");
 
-    d3.select('#'+container)
-      .select('svg')
-        .select('g')
-          .attr('transform', 'translate('+(width/2)+','+((height/2)+(margin/2))+')'); // centering
     // Apply overflow scrolling hack for iOS
     d3.select('body').style('position', 'fixed');
 
@@ -1343,8 +1354,7 @@ function buildMindmap(hash, zoomDuration) {
    *   4.2) Setting the variable for focus.
    *   4.3) Setting the data layout by using d3 circle packing layout
    *   4.4) remove placeholders, centering nodes
-   *   4.5) reposition the whole graph relative to zero
-   *   4.6) draw circles and labels
+   *   4.5) draw circles and labels
    * 5) Register interactions
    * 6) Zoom to root node
    * 7) Set option toggles and URL
@@ -1370,8 +1380,8 @@ function buildMindmap(hash, zoomDuration) {
       addPlaceholders(root);
 
       // dynamic variables to calculate the visualization
-      focus   = root; // The middle of everything
-      nodes   = pack.nodes(root); // Packing every node into a circle packing layout
+      focus = root; // Set the focus to the root node
+      nodes = pack.nodes(root); // Packing every node into a circle packing layout
 
       // Set the maximum color domain dimension by recursively calculate it
       // This is needed to set the maximum level of interpolations
@@ -1381,9 +1391,7 @@ function buildMindmap(hash, zoomDuration) {
       // Removing the placeholders
       removePlaceholders(nodes);
       // Centering the one child nodes
-      centerNodes( nodes );
-      // Repositioning the nodes
-      repositionNodesRelativeToZero( nodes );
+      centerNodes(nodes);
 
       // DEV: show the root in the console
       console.log("Structure:");
@@ -1418,8 +1426,8 @@ function buildMindmap(hash, zoomDuration) {
       // set the URL to the found hash value
       var url = window.location.href;
       var newURL = url.substring(0,url.lastIndexOf("/"))+"/"+hash+location.search;
-      title = root.name+' | '+title;
-      updateURL(newURL);
+      title = root.name+' | '+siteTitle;
+      updateURL(newURL, title);
     });
   }
 
