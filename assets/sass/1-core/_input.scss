@@ -3,7 +3,7 @@ input[type=text] {
   width: 100%;
   @include border-radius(20px);
   border: 1px solid #ccc;
-  padding: 2px $padding 2px 30px;
+  padding: 2px $padding 2px 25px;
   box-sizing: border-box;
 
   &:focus {

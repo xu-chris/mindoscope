@@ -16,16 +16,20 @@
   .topUI {
     top: 5px;
     right: $padding;
-    z-index: 9999;
     position: absolute;
-    @include transform(translateZ(0)); // Hack that prevents disappearing browser button
 
     #menubutton {
       text-transform: uppercase;
+      z-index: 9999;
+      @include transform(translateZ(0)); // Hack that prevents disappearing browser button
+      position: relative;
     }
 
     #tourbutton {
       text-transform: uppercase;
+      position: relative;
+      @include transform(translateZ(0)); // Hack that prevents disappearing browser button
+      z-index: 90;
     }
   }
 

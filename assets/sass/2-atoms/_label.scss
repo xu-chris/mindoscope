@@ -21,7 +21,7 @@
       text-align: center;
 
       > span {
-        background: rgba(255,255,255,.6);
+        background: rgba(255,255,255,.7);
         padding: 0 5px;
         @include hyphens(auto);
         hyphenate-limit-chars: auto 5;

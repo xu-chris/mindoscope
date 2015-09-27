@@ -28,8 +28,14 @@ $contrast: 10%;
   height: $thumb-height;
   width: $thumb-width;
   border-radius: $thumb-radius;
-  background: $thumb-color;
+  background: white;
   cursor: pointer;
+  @include transition(background 200ms ease-out);
+  @include box-shadow(0 1px 4px -2px rgba(0,0,0,1));
+
+  &:hover, &.hover, &:focus, &:active {
+    background: $thumb-color;
+  }
 }
 
 input[type=range] {
@@ -101,7 +107,7 @@ output {
   background: darken($grey,10%);
   width: 55px;
   height: 22px;
-  padding-top: 2px;
+  padding-top: 4px;
   position: absolute;
   margin-left: 5px;
   font-size: $font-size-small;
@@ -130,6 +136,6 @@ output {
     border-right: 8px solid darken($grey,10%);
     border-top: 11px solid transparent;
     border-bottom: 11px solid transparent;
-    margin-top: -2px;
+    margin-top: -4px;
   }
 }

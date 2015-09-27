@@ -10,7 +10,7 @@
   width: $width;
   height: 100vh;
   z-index: 99;
-  @include box-shadow($box-shadow 0 $box-shadow $box-shadow rgba(0,0,0,.2));
+  @include box-shadow(0 0 5px rgba(0,0,0,.4));
   @include transform(translateX(+ $width + $box-shadow));
   @include transition(translateX 200ms ease-out);
 
@@ -30,8 +30,9 @@
     .icon-search {
       position: absolute;
       margin-left: $padding;
-      margin-top: 1px;
+      margin-top: 3px;
       color: #ccc;
+      font-size: 12px;
     }
   }
 
@@ -93,7 +94,7 @@
         output {
           right: 0;
           top: 0;
-          margin-top: 0.5px;
+          margin-top: -1.5px;
           @-moz-document url-prefix() { // Firefox hack
             margin-top: -2.5px;
           }
@@ -123,8 +124,9 @@
     .icon-share-alt {
       position: absolute;
       margin-left: $padding;
-      margin-top: 1px;
+      margin-top: 6px;
       color: #ccc;
+      font-size: 12px;
     }
     input {
       width: 245px;
