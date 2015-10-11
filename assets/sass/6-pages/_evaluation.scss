@@ -1,0 +1,102 @@
+#evaluation {
+  .start.button {
+    text-align: center;
+    @include transition(all 200ms ease-out);
+    width: 100%;
+    &:not(.clicked) {
+      &:hover, &.hover {
+        @include transform(scale(1.08));
+        @include box-shadow(0 20px 30px -20px rgba(0,0,0,.5));
+        background: $green;
+        color: white;
+      }
+    }
+  }
+  #upload {
+    display: none;
+  }
+  #quest {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    @include fadeIn();
+    .start.button {
+      @include border-radius(10px);
+      margin: 0 auto;
+      font-size: 200%;
+      height: 70px;
+      padding: 20px 20px 25px 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-weight: 200;
+    }
+    .container {
+      flex-direction: column;
+      justify-content: center;
+      display: flex;
+      height: 100%;
+      width: 100%;
+    }
+    #quest1 {
+      display: block;
+    }
+    #quest2 {
+      display: none;
+    }
+    #quest3 {
+      display: none;
+    }
+
+    #quest4 {
+      display: none;
+      .button {
+        letter-spacing: 0.1em;
+
+        &.clicked {
+          opacity: 0.3;
+          @extend .icon-check;
+          &:before {
+            margin-right: 10px;
+          }
+          &:hover, &.hover {
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+
+    #thankyou {
+      display: none;
+      .icon-heart {
+        font-size: 400%;
+        color: $red;
+        @include pulse(3);
+      }
+    }
+  }
+  .quest {
+    width: 350px;
+    margin: 0 auto;
+    text-align: center;
+    span {
+      display: block;
+      font-size: 130%;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      margin-bottom: 40px;
+    }
+  }
+  #finishedQuest {
+    position: absolute;
+    bottom: 5px;
+    left: $padding;
+    z-index: 2;
+    text-transform: uppercase;
+  }
+}
+
+body:not(#evaluation) {
+  #start {
+    display: none;
+  }
+}

@@ -55,7 +55,10 @@ button.danger, .button.danger {
     background: $red;
     color: #fff;
     border-color: $red;
-    &:hover {
-      background: lighten($red, 5%);
+    &:hover, &.hover {
+      background: lighten($red, 5%) !important;
+    }
+    &:disabled {
+      cursor: not-allowed;
     }
   }

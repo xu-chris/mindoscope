@@ -181,7 +181,7 @@ function buildMindmap(hash, zoomDuration) {
   /**
    * Building the Environment
    */
-
+  cleanup(); // cleaning up the setting before building something new
   var svg = $container.append("svg")
     .append("g");
 
@@ -373,7 +373,7 @@ function buildMindmap(hash, zoomDuration) {
    */
   function updateURL(url,title) {
 
-    history.pushState('', title, url);
+    //history.pushState('', title, url);
 
     document.getElementById("shareURL").value = url.split('?')[0];
     // set the title of the document (for browser history)
@@ -936,6 +936,8 @@ function buildMindmap(hash, zoomDuration) {
   // TODO: Writing an own reset function for the dropzone.
   function reset() {
 
+    cleanup();
+
     $dropzone
       .classed('hover', false)
       .classed('error', false)
@@ -947,6 +949,13 @@ function buildMindmap(hash, zoomDuration) {
     d3.select('body').style('position', 'relative');
     $upload.style('display', 'block');
     $mindmap.style('display', 'none');
+
+    var url = window.location.href;
+    var newURL = url.substring(0,url.lastIndexOf("/"));
+    updateURL(newURL, siteTitle);
+  }
+
+  function cleanup() {
     $container.select('svg').remove();
     $sbTreelist.select('ul').remove();
     $sbTreelist.select('svg').remove();
@@ -954,10 +963,6 @@ function buildMindmap(hash, zoomDuration) {
 
     $sbSearchfield.value = "";
     $searchterm.classed(showClass,false);
-
-    var url = window.location.href;
-    var newURL = url.substring(0,url.lastIndexOf("/"));
-    updateURL(newURL, siteTitle);
 
     closeSidebar();
     closeSettings();
@@ -1167,7 +1172,7 @@ function buildMindmap(hash, zoomDuration) {
     $deleteButton
       .on("click", function () {
 
-        optionDelete();
+        //optionDelete();
       });
 
 

@@ -61,7 +61,73 @@
     <script type="text/javascript" src="assets/scripts/app.js"></script>
 
   </head>
-  <body>
+  <body id="evaluation">
+    <div id="quest">
+      <div class="container">
+        <div class="quest" id="quest1">
+          <span>Tun Sie, was Sie wollen.</span>
+          <a class="start button" onclick="showMindmap(1)">Start</a>
+        </div>
+        <div class="quest" id="quest2">
+          <span>Suchen Sie den Knoten "Gattung Otocolobus".</span>
+          <a class="start button" onclick="showMindmap(2)">Start</a>
+        </div>
+        <div class="quest" id="quest3">
+          <span>Suchen Sie den Knoten "Pupillen".</span>
+          <a class="start button" onclick="showMindmap(3)">Start</a>
+        </div>
+        <div class="quest" id="quest4">
+          <span>Bitte füllen Sie die folgenden Fragebögen aus:</span>
+          <a class="start button" onclick="markClicked(this); donequestionnaire1 = true; showThankYou();" href="http://eval.attrakdiff.de/attrakdiff.php?id=b05076567e204c682dfa54df71613348&step=1&lang=de" target="_blank">Fragebogen 1</a><br /><br />
+          <a class="start button" onclick="markClicked(this); donequestionnaire2 = true; showThankYou();" href="https://de.surveymonkey.com/r/6P5M53S" target="_blank">Fragebogen 2</a>
+        </div>
+        <div class="quest" id="thankyou">
+          <span class="icon-heart"></span>
+          <span>Vielen Dank für die Teilnahme!</span>
+        </div>
+      </div>
+      <script type="text/javascript">
+        var questno = 1;
+        var donequestionnaire1 = false;
+        var donequestionnaire2 = false;
+
+        var timeOut;
+
+        function showQuest (number) {
+          d3.select('#mindmap').style('display', 'none');
+          d3.select('body').style('position', 'relative');
+          d3.select('#quest').style('display', 'block');
+          d3.select('#quest .container').selectAll('div').style('display', 'none');
+          d3.select('#quest'+number).style('display', 'block');
+          clearTimeout(timeOut);
+        }
+
+        function showMindmap (number) {
+          d3.select('#quest').style('display', 'none');
+          buildMindmap("evaluation", 750);
+
+          questno++;
+
+          timeOut = setTimeout(function() {
+            showQuest(questno);
+          }, 0.5 * 60 * 1000);
+        }
+
+        function markClicked (el) {
+          d3.select(el).classed('clicked', true);
+        }
+
+        function showThankYou() {
+          if (donequestionnaire1 && donequestionnaire2) {
+            d3.select('#mindmap').style('display', 'none');
+            d3.select('body').style('position', 'relative');
+            d3.select('#quest').style('display', 'block');
+            d3.select('#quest .container').selectAll('div').style('display', 'none');
+            d3.select('#thankyou').style('display', 'block');
+          }
+        }
+      </script>
+    </div>
     <div id="upload">
       <form action="upload.php" class="dropzone" id="dropzone">
         <div id="dropzone-template">
@@ -135,46 +201,46 @@
     <div id="mindmap">
       <div id="sidebar">
         <header>
-          Content
+          Inhalt
         </header>
         <div class="searchbar">
           <label for="search" class="icon-search"></label>
-          <input type="text" id="search" size="21" maxlength="120" placeholder="Search">
+          <input type="text" id="search" size="21" maxlength="120" placeholder="Suchen">
         </div>
         <div class="content">
           <div id="settings">
-            <div class="heading">General</div>
+            <div class="heading">Allgemein</div>
             <label class="option" type="switch" value="false" for="hideVisited">
               <input class="tgl" id="hideVisited" name="hideVisited" type="checkbox" <?php echo $visitedNodes ?>>
               <label class="tgl-btn" for="hideVisited"></label>
-              Hide visited nodes
+              Besuchte Knoten ausblenden
             </label>
 
             <label class="option" type="switch" value="false" for="hideLabels">
               <input class="tgl" id="hideLabels" name="hideLabels" type="checkbox" <?php echo $labels ?>>
               <label class="tgl-btn" for="hideLabels"></label>
-              Hide Labels
+              Bezeichnungen deaktivieren
             </label>
 
             <label class="option" type="switch" value="false" for="disableTooltip">
               <input class="tgl" id="disableTooltip" name="disableTooltip" type="checkbox" <?php echo $tooltips ?>>
               <label class="tgl-btn" for="disableTooltip"></label>
-              Disable tooltips
+              Tooltips deaktivieren
             </label>
             <div class="heading">Animation</div>
             <form  class="option range" onsubmit="return false" oninput="level.value = zoomDurationLevel.valueAsNumber">
-              <div>Zoom duration time:</div>
+              <div>Zoomgeschwindigkeit:</div>
               <div class="range-field">
                 <input type="range" id="zoomDuration" name="zoomDurationLevel" min="0" max="1500" value="<?php echo $zoom ?>" />
                 <output for="zoomDuration" name="level" id="zoomDurationOutput"><?php echo $zoom ?></output>
               </div>
             </form>
             <div class="optionbottom">
-              <div class="heading">Mind Map</div>
+              <div class="heading">Mindmap</div>
               <div class="option button-group justified" role="group">
                 <a id="download" class="button">Download</a>
-                <a id="new" class="button">New</a>
-                <a id="delete" class="button danger">Delete</a>
+                <a id="new" class="button">Neu</a>
+                <a id="delete" class="button danger" disabled="true">Löschen</a>
               </div>
             </div>
             </div>
@@ -189,15 +255,15 @@
           </footer>
         </div>
         <div class="topUI">
-          <button id="tourbutton" href="javascript:void(0);" onclick="startIntro();" class="button">Start help tour</button>
-          <button id="menubutton" class="button">Menu</button>
+          <button id="tourbutton" href="javascript:void(0);" onclick="startIntro();" class="button">Tour starten</button>
+          <button id="menubutton" class="button">Menü</button>
         </div>
         <button id="searchterm" class="button"></button>
-        <button id="toRoot" class="button" disabled="true">Overview</button>
+        <button id="toRoot" class="button" disabled="true">Übersicht</button>
+        <button id="finishedQuest" class="button" onclick="showQuest(questno)">Fertig</button>
         <div id="path"><div class="content"></div></div>
         <div id="content"></div>
       </div>
-    
     <script type="text/javascript" src="assets/scripts/libs/introjs/intro.js"></script>
     <script type="text/javascript">
       function startIntro(){
@@ -207,7 +273,7 @@
             positionPrecedence: ['left', 'right', 'bottom', 'top'],
             steps: [
               {
-                intro: "Thanks for using Mind-o-scope. Here are a few steps to help you exploring the Mind Map."
+                intro: "Hier sind einige Tipps, um diese Darstellung zu nutzen."
               },
               {
                 element: '#content',
