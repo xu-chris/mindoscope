@@ -1158,14 +1158,14 @@ function buildMindmap(hash, zoomDuration) {
     $downloadButton
       .on("click", function () {
 
-        optionDownload();
+        //optionDownload();
       });
 
     // Handling New-button clicks
     $newButton
       .on("click", function () {
 
-        optionNew();
+        //optionNew();
       });
 
     // Handling delete-button clicks

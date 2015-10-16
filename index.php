@@ -65,25 +65,29 @@
     <div id="quest">
       <div class="container">
         <div class="quest" id="quest1">
+          <span><strong>Aufgabe 1</strong></span>
           <span>Tun Sie, was Sie wollen.</span>
           <a class="start button" onclick="showMindmap(1)">Start</a>
         </div>
         <div class="quest" id="quest2">
+          <span><strong>Aufgabe 2</strong></span>
           <span>Suchen Sie den Knoten "Gattung Otocolobus".</span>
           <a class="start button" onclick="showMindmap(2)">Start</a>
         </div>
         <div class="quest" id="quest3">
-          <span>Suchen Sie den Knoten "Pupillen".</span>
+          <span><strong>Aufgabe 3</strong></span>
+          <span>Suchen Sie den Knoten "Pupillen". Bitte fragen Sie den anwesenden Leiter der Evaluation, wie Sie den Knoten suchen sollen.</span>
           <a class="start button" onclick="showMindmap(3)">Start</a>
         </div>
         <div class="quest" id="quest4">
-          <span>Bitte füllen Sie die folgenden Fragebögen aus:</span>
-          <a class="start button" onclick="markClicked(this); donequestionnaire1 = true; showThankYou();" href="http://eval.attrakdiff.de/attrakdiff.php?id=b05076567e204c682dfa54df71613348&step=1&lang=de" target="_blank">Fragebogen 1</a><br /><br />
+          <span><strong>Aufgabe 4</strong></span>
+          <span>Bitte füllen Sie die folgenden Fragebögen aus. Beginnen Sie mit dem ersten Fragebogen:</span>
+          <a class="start button" onclick="markClicked(this); donequestionnaire1 = true; showThankYou();" href="http://eval.attrakdiff.de/attrakdiff.php?id=b05076567e204c682dfa54df71613348&step=1&lang=de" target="_blank">Fragebogen 1</a>
           <a class="start button" onclick="markClicked(this); donequestionnaire2 = true; showThankYou();" href="https://de.surveymonkey.com/r/6P5M53S" target="_blank">Fragebogen 2</a>
         </div>
         <div class="quest" id="thankyou">
           <span class="icon-heart"></span>
-          <span>Vielen Dank für die Teilnahme!</span>
+          <span>Vielen Dank für Ihre Teilnahme!</span>
         </div>
       </div>
       <script type="text/javascript">
@@ -110,7 +114,7 @@
 
           timeOut = setTimeout(function() {
             showQuest(questno);
-          }, 0.5 * 60 * 1000);
+          }, 5 * 60 * 1000);
         }
 
         function markClicked (el) {
@@ -119,11 +123,13 @@
 
         function showThankYou() {
           if (donequestionnaire1 && donequestionnaire2) {
-            d3.select('#mindmap').style('display', 'none');
-            d3.select('body').style('position', 'relative');
-            d3.select('#quest').style('display', 'block');
-            d3.select('#quest .container').selectAll('div').style('display', 'none');
-            d3.select('#thankyou').style('display', 'block');
+            setTimeout(function() {
+              d3.select('#mindmap').style('display', 'none');
+              d3.select('body').style('position', 'relative');
+              d3.select('#quest').style('display', 'block');
+              d3.select('#quest .container').selectAll('div').style('display', 'none');
+              d3.select('#thankyou').style('display', 'block');
+            },1000)
           }
         }
       </script>
@@ -277,52 +283,52 @@
               },
               {
                 element: '#content',
-                intro: "This is your Mind Map, visualized as a Venn-diagram."
+                intro: "Das ist Ihre Mindmap, visualisiert als Euler-Diagramm."
               },
               {
                 element: '#content',
-                intro: "You can zoom into it by selecting the circle you want to explore."
+                intro: "Sie können in dieser hineinzoomen, indem Sie einen Kreis Ihrer Wahl anklicken."
               },
               {
                 element: '#content',
-                intro: "You can zoom out by selecting the same circle you're exploring or neighbour circles."
+                intro: "Sie können herauszoomen, indem Sie nochmals auf den selben Kreis klicken. Oder indem Sie benachbarte Keise anklicken."
               },
               {
                 element: '#toRoot',
-                intro: "Just click this button to get back to the root node."
+                intro: "Um zur Übersicht zurückzukehren, können Sie einfach auf diesen Button klicken."
               },
               {
                 element: '#path',
-                intro: "This is the current path of your exploration. It goes from the root to the current node you've selected.<br /><br />You're now in the root node, so there's no other node to display here."
+                intro: "Das ist der aktuell-angezeigte Pfad. Dieser geht vom Stammknoten bis zum aktuell selektierten Knoten.<br /><br />Aktuell befinden Sie sich im Stammknoten. Daher wird aktuell kein anderer Knoten dort angezeigt."
               },
               {
                 element: '#sidebar .content',
-                intro: "This is the hiearchical tree view. You can also select the node you want to zoom to."
+                intro: "Das ist die eine hierarchische Listenansicht ihrer Mindmap. Hier können Sie ebenfalls den Knoten auswählen, den Sie sich anschauen möchten."
               },
               {
                 element: '.searchbar',
-                intro: "You can search words or even some chars to find the right node - or find some similarities."
+                intro: "Sie können Wörter oder auch nur einige Buchstabenkombinationen hier eintippen, um Knoten zu finden."
               },
               {
                 element: '#shareURL',
-                intro: "This is the URL to share the Mind Map with others.",
+                intro: "Das ist die Internetadresse, mit der Sie diese Mindmap mit anderen teilen können.",
                 position: 'top'
               },
               {
                 element: '#openSettings',
-                intro: "If you're not happy with the zoom speed or anything else, here's where you can find some options."
+                intro: "Wenn Sie mit der Zoomgeschwindigkeit oder anderen Anzeigeeinstellungen nicht zufrieden sind, können Sie hier die Einstellungen ganz nach Ihren Bedürfnissen anpassen."
               },
               {
                 element: '#openSettings',
-                intro: "You will also find some actions to delete or download your Mind Map or upload a new one."
+                intro: "Hier können Sie ebenfalls Aktionen finden, um die Mindmap herunter zu laden, sie zu löschen oder eine neue Mindmap hochzuladen. <br /><br />Während der Evaluation sind diese Funktionalitäten allerdings eingeschränkt nutzbar."
               },
               {
                 element: '#menubutton',
-                intro: "You can find the sidebar behind this little button."
+                intro: "Hinter diesem Button finden Sie die gesamte Seitenleiste."
               },
               {
                 element: '#tourbutton',
-                intro: "Allright. Have fun. And if you're lost in hyperspace, here's where you can restart the help tour <span class='icon-smile-o'></span>."
+                intro: "Viel Spaß mit der Darstellung. Sollten Sie Hilfe benötigen, können Sie diese Tour wieder mit einen Klick auf diesen Button starten oder den anwesenden Leiter der Evaluation fragen."
               }
             ]
           });
