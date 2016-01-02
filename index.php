@@ -3,17 +3,19 @@
   // error_reporting(E_ALL);
   // ini_set("display_errors", 1);
 
-  $visitedNodes = (isset($_GET["visited"]) && $_GET["visited"] != "" ? "checked" : null );
-  $labels = (isset($_GET["labels"]) && $_GET["labels"] != "" ? "checked" : null );
-  $tooltips = (isset($_GET["tooltips"]) && $_GET["tooltips"] != "" ? "checked" : null );
-  $zoom = (isset($_GET["zoom"]) && $_GET["zoom"] != "" ? $_GET["zoom"] : 750 );
+  $visitedNodes = (isset($_GET['visited']) && $_GET['visited'] != '' ? 'checked' : null);
+  $labels = (isset($_GET['labels']) && $_GET['labels'] != '' ? 'checked' : null);
+  $tooltips = (isset($_GET['tooltips']) && $_GET['tooltips'] != '' ? 'checked' : null);
+  $zoom = (isset($_GET['zoom']) && $_GET['zoom'] != '' ? $_GET['zoom'] : 750);
 
   // Detect mobile devices
   require_once 'vendors/mobile-detect/Mobile_Detect.php';
-  $detect = new Mobile_Detect;
+  $detect = new Mobile_Detect();
 
   // Tooltips doesn't make sense on mobile touch devices.
-  if($detect->isMobile()) $tooltips = "checked";
+  if ($detect->isMobile()) {
+      $tooltips = 'checked';
+  }
 
 ?>
 <!DOCTYPE html>
@@ -268,18 +270,18 @@
 
     <?php
 
-      $cachePath   = 'uploaded';
-      $ds   = DIRECTORY_SEPARATOR;
+      $cachePath = 'uploaded';
+      $ds = DIRECTORY_SEPARATOR;
       $enableCache = true;
 
       $url = $_SERVER['REQUEST_URI'];
-      $urlEnd = end((explode('/', rtrim($url, '/'))));;
-      $hash = strtok($urlEnd,'?');
+      $urlEnd = end((explode('/', rtrim($url, '/'))));
+      $hash = strtok($urlEnd, '?');
 
       $fileURL = $cachePath.$ds.$hash.'.json';
 
-      if ($hash != "" && file_exists($fileURL) && $enableCache) {
-        echo '
+      if ($hash != '' && file_exists($fileURL) && $enableCache) {
+          echo '
           <script type="text/javascript">
               buildMindmap("'.$hash.'", '.$zoom.');
           </script>';
