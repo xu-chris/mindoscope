@@ -16,3 +16,17 @@ This one is based on the [ACM Computing Classification System](https://www.acm.o
 I made and used monster-sized, careful crafted and structured Mind Maps for my Bachelor study and liked the way how it helps me to visually structure everything I know (and I have to know). It helps me a lot to remember very special term by deriving its association to more meta-like topics and terms.
 
 But monster Mind Maps always have one issue: nobody but me wants to read them because they're not good enough to explore them easily. Also it was kind of hard to share the PDF or some kind of Freemind-file. A more scientific reason is that monster-sized Mind Maps are demotivating people to read and explore them. So this is a try to do it a different way.
+
+# License
+
+DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+Version 2, December 2004
+ 
+Copyright (C) 2004 Sam Hocevar
+14 rue de Plaisance, 75014 Paris, France
+Everyone is permitted to copy and distribute verbatim or modified copies of this license document, and changing it is allowed as long as the name is changed.
+ 
+DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+ 
+0. You just DO WHAT THE FUCK YOU WANT TO.
